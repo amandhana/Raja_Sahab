@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.NotificationActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m50">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/m20"
+                    android:layout_height="@dimen/m20"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m20"
+            android:layout_toEndOf="@id/cv_back"
+            android:text="@string/notification"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header_lay" />
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_notification"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/notification_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m80"
+                android:layout_margin="@dimen/m15"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_course_image"
+                        android:layout_width="@dimen/m50"
+                        android:layout_height="@dimen/m50"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/m5"
+                        android:background="@color/placeholder_bg"
+                        android:elevation="@dimen/m10"
+                        app:cardCornerRadius="@dimen/m10" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_course_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_marginStart="@dimen/m20"
+                        android:layout_marginTop="@dimen/m15"
+                        android:layout_marginEnd="@dimen/m50"
+                        android:layout_toEndOf="@+id/cv_course_image"
+                        android:background="@color/placeholder_bg"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m12"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="@dimen/m20"
+                        android:layout_marginBottom="@dimen/m20"
+                        android:layout_toEndOf="@+id/cv_course_image"
+                        android:background="@color/placeholder_bg"
+                        android:ellipsize="end"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_13" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m10"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/m5"
+                        android:background="@color/placeholder_bg" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+</RelativeLayout>

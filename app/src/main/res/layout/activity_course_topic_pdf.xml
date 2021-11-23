@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".activity.CourseTopicPdfActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m50"
+        android:background="@drawable/bg_header">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/m15"
+                    android:layout_height="@dimen/m15"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_pdf_subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/m15"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/course_pdf_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m40"
+                    android:layout_margin="@dimen/m15">
+
+
+                    <View
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/placeholder_bg" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_course_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m15"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@color/placeholder_bg"
+                        android:text="" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_no_course_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Ebook"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_course_pdf_amount_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/m15"
+        android:visibility="gone"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m10"
+            android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m60"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m10"
+                app:cardUseCompatPadding="true">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/rupee_cancel_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/secondary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_pdf_total_amount_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/m10"
+                        android:layout_toEndOf="@+id/rupee_cancel_lay">
+
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/primary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_pdf_amount_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m10"
+            android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m60"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m10"
+                app:cardUseCompatPadding="true">
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:text="@string/buy_now"
+                    android:textColor="@color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

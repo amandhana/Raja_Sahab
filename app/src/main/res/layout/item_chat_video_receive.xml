@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/m15"
+    android:layout_marginTop="@dimen/m15"
+    android:layout_marginEnd="@dimen/m60">
+
+    <RelativeLayout
+        android:id="@+id/receive_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/m5"
+        android:background="@drawable/chat_item_receive"
+        android:paddingStart="@dimen/m20"
+        android:paddingTop="@dimen/m5"
+        android:paddingEnd="@dimen/m20">
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_14" />
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_message"
+            android:layout_marginTop="@dimen/m5"
+            android:paddingBottom="@dimen/m5"
+            android:text=""
+            android:textColor="@color/secondary_text_color"
+            android:textSize="@dimen/text_12" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

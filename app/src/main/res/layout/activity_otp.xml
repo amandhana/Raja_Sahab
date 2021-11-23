@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/otp_bg"
+    tools:context=".activity.OtpActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/m180"
+            android:layout_height="@dimen/m180"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ic_otp_icon"
+            android:contentDescription="@string/app_name" />
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_marginEnd="@dimen/m15"
+            android:text="@string/otp_text"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16" />
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_otp_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_marginTop="@dimen/m5"
+            android:layout_marginEnd="@dimen/m15"
+            android:gravity="center"
+            android:text="@string/otp_phone_no_text"
+            android:textColor="@color/hint_color"
+            android:textSize="@dimen/text_16" />
+
+        <in.aabhasjindal.otptextview.OtpTextView
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_marginTop="@dimen/m30"
+            android:layout_marginEnd="@dimen/m15"
+            android:textColor="@color/primary_text_color"
+            app:bar_height="2dp"
+            app:box_margin_left="@dimen/m10"
+            app:height="@dimen/m40"
+            app:length="6"
+            app:otp_box_background="@drawable/otp_box_bg"
+            app:otp_text_size="@dimen/text_16"
+            app:width="@dimen/m40" />
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45"
+            android:layout_marginStart="@dimen/m20"
+            android:layout_marginTop="@dimen/m30"
+            android:layout_marginEnd="@dimen/m20"
+            android:layout_marginBottom="@dimen/m30"
+            android:background="@drawable/bg_button_10"
+            android:gravity="center"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_dont_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/don_t_receive"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m8"
+            android:layout_marginStart="@dimen/m70"
+            android:layout_marginTop="@dimen/m5"
+            android:layout_marginEnd="@dimen/m70"
+            android:background="@color/colorPrimary" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

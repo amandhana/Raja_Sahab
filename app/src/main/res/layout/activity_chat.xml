@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/banner_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m60"
+        android:background="@drawable/chat_banner"
+        android:backgroundTint="@color/colorPrimary">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/m15"
+                    android:layout_height="@dimen/m15"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_toEndOf="@+id/cv_back"
+            android:text="@string/chat_for_nsupport"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_20" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cv_send_message"
+        android:layout_below="@+id/banner_lay" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_send_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m50"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/m10"
+        android:layout_marginTop="@dimen/m5"
+        android:layout_marginEnd="@dimen/m10"
+        android:layout_marginBottom="@dimen/m5"
+        android:elevation="@dimen/m15"
+        app:cardCornerRadius="@dimen/m25">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.rajasahabacademy.views.RegularEditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/send_lay"
+                android:background="@null"
+                android:hint="@string/type_your_message"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingStart="@dimen/m15"
+                android:paddingEnd="@dimen/m15"
+                android:textColor="@color/primary_text_color"
+                android:textColorHint="@color/secondary_text_color"
+                android:textSize="@dimen/text_16" />
+
+            <RelativeLayout
+                android:id="@+id/send_lay"
+                android:layout_width="@dimen/m40"
+                android:layout_height="@dimen/m40"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m10"
+                android:background="@drawable/circle_white"
+                android:backgroundTint="@color/colorPrimary">
+
+
+                <ImageView
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_chat_receive"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

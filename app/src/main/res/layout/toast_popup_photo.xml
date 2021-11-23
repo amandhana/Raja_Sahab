@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/toast_popup_bg">
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15sp"
+            android:layout_marginBottom="@dimen/m15"
+            android:text="@string/select_one"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_20" />
+
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/m15"
+            android:text="@string/camera"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18" />
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_camera"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/m15"
+            android:text="@string/gallery"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            android:visibility="visible" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m50">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/m20"
+                    android:layout_height="@dimen/m20"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:backgroundTint="@color/primary_text_color"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/m20"
+            android:text="@string/terms_conditions"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_18" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay"
+        android:visibility="gone">
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_terms_condition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m15"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16" />
+
+
+    </ScrollView>
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/about_us_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_lay"
+        android:layout_margin="@dimen/m15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/m15">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m200"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m10"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m15"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</RelativeLayout>

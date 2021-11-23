@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/m10"
+    android:layout_marginTop="@dimen/m10"
+    android:layout_marginEnd="@dimen/m10">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m5"
+        android:elevation="@dimen/m10"
+        app:cardCornerRadius="@dimen/m10"
+        app:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m180">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/dummy_avani"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/iv_play"
+                    android:layout_width="@dimen/m50"
+                    android:layout_height="@dimen/m50"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_play_btn"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+
+            </RelativeLayout>
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_13" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:layout_marginBottom="@dimen/m10">
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/secondary_text_color"
+                    android:textSize="@dimen/text_13" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

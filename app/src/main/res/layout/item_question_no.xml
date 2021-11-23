@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/circle_lay"
+    android:layout_width="@dimen/m35"
+    android:layout_height="@dimen/m35"
+    android:layout_marginStart="@dimen/m5"
+    android:layout_marginTop="@dimen/m5"
+    android:layout_marginEnd="@dimen/m5"
+    android:background="@drawable/circle_border"
+    android:backgroundTint="@color/not_visited">
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_question_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:textColor="@color/not_visited"
+        android:textSize="@dimen/text_14" />
+
+</RelativeLayout>

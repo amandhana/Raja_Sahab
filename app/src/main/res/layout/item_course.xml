@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/m200"
+    android:layout_marginStart="@dimen/m5"
+    android:layout_marginTop="@dimen/m10"
+    android:layout_marginEnd="@dimen/m5">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/m5"
+        android:elevation="@dimen/m10"
+        app:cardCornerRadius="@dimen/m10"
+        app:cardPreventCornerOverlap="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/m10">
+
+            <ImageView
+                android:id="@+id/iv_course_detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m130"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_course_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m5"
+                android:layout_marginEnd="@dimen/m5"
+                android:layout_below="@+id/iv_course_detail_image"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_12" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m5"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="@dimen/m5"
+                android:layout_below="@+id/tv_course_detail_name">
+
+                <RelativeLayout
+                    android:id="@+id/amount_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <LinearLayout
+                        android:id="@+id/rupee_cancel_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/secondary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_course_detail_total_amount_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/text_12" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/m5"
+                        android:layout_toEndOf="@+id/rupee_cancel_lay">
+
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/primary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_course_detail_amount_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_12" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_buy_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m20"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/m5"
+                    android:background="@drawable/bg_button_5"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/m5"
+                    android:paddingEnd="@dimen/m5"
+                    android:text="@string/buy_now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_10" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

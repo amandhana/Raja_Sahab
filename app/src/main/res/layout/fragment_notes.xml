@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_ebook"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/notes_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m80">
+
+
+            <ImageView
+                android:id="@+id/cv_course_image"
+                android:layout_width="@dimen/m25"
+                android:layout_height="@dimen/m25"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m10"
+                android:background="@color/placeholder_bg"
+                android:contentDescription="@string/app_name" />
+
+
+            <View
+                android:id="@+id/tv_course_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m20"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m15"
+                android:layout_toStartOf="@+id/tv_view"
+                android:layout_toEndOf="@+id/cv_course_image"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:id="@+id/tv_view"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m30"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+
+        </RelativeLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</RelativeLayout>

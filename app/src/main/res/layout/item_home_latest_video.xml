@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/m10"
+    android:elevation="@dimen/m10"
+    app:cardCornerRadius="@dimen/m5"
+    app:cardPreventCornerOverlap="false">
+
+    <LinearLayout
+        android:background="@drawable/card_border_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m160">
+
+            <ImageView
+                android:layout_margin="0.3dp"
+                android:id="@+id/iv_video_latest_video_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/iv_play"
+                android:layout_width="@dimen/m30"
+                android:layout_height="@dimen/m30"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_play_btn"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY" />
+
+
+        </RelativeLayout>
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_name_latest_video_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m10"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_14" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m10"
+            android:layout_marginBottom="@dimen/m10">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_video_description_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:maxLines="1"
+                android:text=""
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_14" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

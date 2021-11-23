@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/m60"
+    android:layout_marginEnd="@dimen/m1"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:id="@+id/all_cat_lay"
+        android:layout_width="@dimen/m100"
+        android:layout_height="@dimen/m60"
+        android:background="@color/colorLightGrey"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_all_cat"
+            android:layout_width="@dimen/m18"
+            android:layout_height="@dimen/m18"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/m5"
+            android:background="@drawable/ic_home_all_category"
+            android:contentDescription="@string/app_name" />
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_all_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_all_cat"
+            android:layout_centerHorizontal="true"
+            android:text="@string/all_category"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_12" />
+
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/category_lay"
+        android:layout_width="@dimen/m100"
+        android:layout_height="@dimen/m60"
+        android:background="@color/colorLightGrey"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_category"
+                android:layout_width="@dimen/m20"
+                android:layout_height="@dimen/m20"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ic_home_navy"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_category"
+                android:layout_marginTop="@dimen/m5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/navy"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_12" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_all_cat"
+        android:layout_width="@dimen/m100"
+        android:layout_height="@dimen/m5"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryVariant"
+        android:visibility="gone" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,245 @@
+<resources>
+    <string name="app_name">Raja Sahab Group of Education</string>
+
+    <!--Splash-->
+    <string name="welcome">Welcome,</string>
+    <string name="raja_sahab_defence_academy">RAJA SAHAB DEFENCE ACADEMY</string>
+    <string name="easy_and_quick_learning">Easy And Quick Learning</string>
+    <string name="platform">Platform !</string>
+
+    <!--Validation-->
+    <string name="message_empty_validation">Please enter message</string>
+    <string name="name_empty_validation">Please enter name</string>
+    <string name="email_empty_validation">Please enter email</string>
+    <string name="email_valid_validation">Please enter valid email</string>
+    <string name="phone_empty_validation">Please enter phone number</string>
+    <string name="phone_valid_validation">Please enter valid phone number</string>
+    <string name="address_empty_validation">Please enter address</string>
+    <string name="internet_error">Please check your internet connection and try again.</string>
+    <string name="exit_message">Are you sure you want to exit?</string>
+    <string name="delete_video_message">Are you sure you want to delete this save video?</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="submit_test_message">Are you sure you want to submit this quiz?</string>
+    <string name="video_id_valid">Video id is blank</string>
+    <string name="ebook_path_valid">Ebook path is blank</string>
+    <string name="ebook_path_error">Failed to laod</string>
+    <string name="cancel">Cancel</string>
+    <string name="course_paid_validation">Please buy course first!!</string>
+    <string name="course_id_empty">Course id blank</string>
+    <string name="successfully">Successfully</string>
+
+    <!--Login-->
+    <string name="ok">OK</string>
+    <string name="sign_in_to_continue">Sign in to continue!</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="or_login_with">Or Login With</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="dummy_name">Rk Shyopuria</string>
+    <string name="dummy_phone">+91 9019999999</string>
+    <string name="personal_details_label">Personal Details</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="state">State</string>
+    <string name="education">Education</string>
+    <string name="city">City</string>
+    <string name="update">Update</string>
+    <string name="address">Address</string>
+    <string name="search_course_teacher_and_more">Search by Course Name,Video Name</string>
+    <string name="all_categories">All Categories</string>
+    <string name="user_deactive_message">User deactive !! Please active first</string>
+
+    <!--Otp-->
+    <string name="otp_text">We have send an OTP to your Mobile number</string>
+    <string name="otp_phone_no_text">Please check your mobile number 978*****12 to continue</string>
+    <string name="next">Next</string>
+    <string name="don_t_receive">Don\'t Receive? Resend</string>
+    <string name="verification_id">verification_id</string>
+    <string name="phone_number">phone_number</string>
+    <string name="country_code">country_code</string>
+    <string name="bundle">bundle</string>
+    <string name="otp_phone_text_format">%s%s%s</string>
+
+    <!--Home-->
+    <string name="home">Home</string>
+    <string name="my_save_video">Save Videos</string>
+    <string name="my_save_ebook">Save Ebook</string>
+    <string name="my_profile">My Profile</string>
+    <string name="skip">Skip</string>
+    <string name="my_orders">My Course</string>
+    <string name="save_video">Save Video</string>
+    <string name="save_ebook">Save Ebook</string>
+    <string name="courses">Courses</string>
+    <string name="live_classes">Live Classes</string>
+    <string name="attempted_quiz">Attempted Quiz</string>
+    <string name="test_series">Test Series</string>
+    <string name="notes">Notes</string>
+    <string name="ebooks">Ebooks</string>
+    <string name="about_us">About Us</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="rate_us_on_play_store">Rate us on the Play Store</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="refund_and_cancellation">Refund and Cancellation</string>
+    <string name="logout">Logout</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="navy">NAVY</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="my_courses">My Courses</string>
+    <string name="quiz">Quiz</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="no_banner">No Banner</string>
+    <string name="no_latest_course">No Latest Course</string>
+    <string name="no_latest_video">No Latest Video</string>
+
+    <!--Home-->
+    <string name="all_category">All Category</string>
+    <string name="air_force">Air Force</string>
+    <string name="nda">Nda</string>
+    <string name="latest_courses">Latest Courses</string>
+    <string name="latest_videos">Latest Videos</string>
+    <string name="add">Add</string>
+
+
+    <!--Course Fragment-->
+    <string name="no_course">No Course</string>
+    <string name="all_video_tops">All Video Topic</string>
+    <string name="all_ebook_tops">All Pdf Notes</string>
+    <string name="course_image_transition">Course Image</string>
+    <string name="course_buy_success">Course buy successfully</string>
+    <string name="course_detail_s">Course Detail\'s</string>
+    <string name="no_subject">No Subject</string>
+
+    <!--My Order-->
+    <string name="order_repeat">Order Repeat</string>
+    <string name="view_details">View Details</string>
+
+    <!--Live Quiz List-->
+    <string name="live_quiz_list">Live Quiz List</string>
+    <string name="quiz_question_format">%s %s</string>
+    <string name="quiz_time_format">%s %s</string>
+    <string name="quiz_list_failure">Unable to get quiz list sorry!!</string>
+    <string name="quiz_question_ans_timer_format">%d:%d</string>
+    <string name="rank_format">%s%s</string>
+    <string name="view_solution">View Solution</string>
+    <string name="view_rank">View Rank</string>
+    <string name="reattempt">Re Attempt</string>
+    <string name="quiz_instruction">Quiz Instruction</string>
+    <string name="top_rankers">Top Rankers</string>
+
+
+    <!--Notification-->
+    <string name="notification">Notification</string>
+
+    <!--Contact Us-->
+    <string name="contact_number">Contact Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="message">Message</string>
+    <string name="submit">Submit</string>
+    <string name="previous">Previous</string>
+
+    <!--Chat-->
+    <string name="chat_for_nsupport">Chat For Support !</string>
+    <string name="type_your_message">Type your message</string>
+    <string name="hey_there_whatsp">Hey there whatsp ?</string>
+
+    <!--QuizReadyForTest-->
+    <string name="quiz_ready_timer">%d%s</string>
+
+    <!--QuizQuestionAns-->
+    <string name="exit">Exit</string>
+    <string name="your_rank">Your Rank</string>
+    <string name="exit_quiz">Are you sure you want to exit from quiz?</string>
+    <string name="pause_quiz">Are you sure you want to pause this quiz?</string>
+    <string name="top_rank_text">Congratulations</string>
+    <string name="no_question">No question answer for test !!</string>
+    <string name="no_quiz">No Quiz</string>
+    <string name="question_label">Question :</string>
+    <string name="seprator">/</string>
+    <string name="no_tests">No Tests</string>
+    <string name="no_attempted_quiz">No Attempted Quiz</string>
+    <string name="start_now">Start Now</string>
+
+    <!--Youtube Api Key-->
+    <string name="youtube_api_key">AIzaSyAKfzQwjSkWwriKMIi-PgzVFonPMxvLfx0</string>
+    <string name="youtube_video_format">https://www.youtube.com/watch?v=</string>
+
+    <!--About us-->
+    <string name="dummy_about_us">Raja Shab Defence Academy is the only coaching
+        institute that provides the best study environment and quality training with advance study
+        material and methodologies. We have experienced and dedicated trainers/instructors,
+        who ensure the success of every student in the Defence competitive exams as per his/her
+        abilities. Before joining the Academy we follow a set procedure to identify the eligibility,
+        strengths and weaknesses of a student to suggest him/her to choose for the best career
+        option as per his/her abilities.</string>
+
+    <string name="dummy_terms_condition">A citizen of India A subject of Nepal or Bhutan A Tibetan
+        refugee who moved to India, before January 1, 1962, with the intention of settling here
+        permanently A PIO (Person of Indian origin) is someone who has migrated from the countries
+        specified below, with the intention of permanently settling in India. The nationals from
+        the following countries would fall under this category such as Pakistan, Burma, Sri Lanka,
+        East African Countries of Kenya, Uganda, the United Republic of Tanzania (Formerly Tanganyika
+        and Zanzibar ), Zambia, Malawi, Zaire, Ethiopia, Vietnam. </string>
+
+    <string name="dummy_privacy_policy">This policy applies where we are acting as a data
+        controller with respect to the personal data of our website visitors and service users;
+        in other words, where we determine the purposes and means of the processing of that
+        personal data. By using our website and agreeing to this policy, you consent to our use
+        of cookies in accordance with the terms of this policy. </string>
+
+    <string name="dummy_refund_policy">We understand and value your privacy. As a general rule,
+        this website does not collect Personal Information about you when you visit the site.
+        You can generally visit the site without revealing Personal Information unless you choose
+        to provide such information. </string>
+
+    <!--Contact Us-->
+    <string name="contact_us_phone">Contact : +91–977 230 6666</string>
+    <string name="contact_us_email">Email : info@rajasahab.education</string>
+
+    <!--Cart Screen-->
+    <string name="cart_is_empty">Cart is Empty</string>
+
+    <!--Ebook-->
+    <string name="no_ebook">No Ebook</string>
+    <string name="notes_list">Notes List</string>
+    <string name="view">View</string>
+
+    <!--Video-->
+    <string name="no_video">No Video</string>
+
+    <!--Notification-->
+    <string name="no_notification">No Notification</string>
+
+    <!--Quiz Rank-->
+    <string name="right">Right</string>
+    <string name="wrong">Wrong</string>
+    <string name="no_data">No Data</string>
+
+    <!--Quiz Ready -->
+    <string name="ready_for_quiz">Ready For Quiz</string>
+
+    <!--Video-->
+    <string name="video">Video</string>
+    <string name="video_default_time">00:00:00</string>
+
+    <!--Live class-->
+    <string name="recent_live">Recent live</string>
+
+    <!--Select photo popup-->
+    <string name="select_one">Select One</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+
+    <!--Exo Player-->
+    <string name="track_selection_title">Video Quality</string>
+
+    <!--Quiz Instruction-->
+    <string name="start_test">Start Test</string>
+    <string name="answered">Answered</string>
+    <string name="not_answered">Not Answered</string>
+    <string name="not_visited">Not Visited</string>
+    <string name="share">Share</string>
+
+
+</resources>

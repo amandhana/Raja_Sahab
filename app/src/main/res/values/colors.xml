@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0A2C77</color>
+    <color name="colorPrimaryVariant">#1D5CDF</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorAccent">#BB8A11</color>
+    <color name="colorLightGrey">#E6E6E6</color>
+
+    <color name="primary_text_color">#000000</color>
+    <color name="secondary_text_color">#828282</color>
+    <color name="hint_color">#7a7a7a</color>
+    <color name="grey">#545454</color>
+
+
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#00D600</color>
+    <color name="red">#FD3A39</color>
+    <color name="bg_color">#F2F2F4</color>
+    <color name="yellow">#FE9D00</color>
+    <color name="placeholder_bg">#dddddd</color>
+    <color name="answered">#FE7606</color>
+    <color name="not_answered">#CCCCCC</color>
+    <color name="not_visited">#808080</color>
+
+</resources>

@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.rajasahabacademy"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    /*Initial Library*/
+    implementation 'com.google.code.gson:gson:2.8.6' // gson
+    implementation 'de.hdodenhof:circleimageview:3.1.0'// circle image view
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'// recycler view
+    implementation 'com.github.bumptech.glide:glide:4.12.0'// glide image show
+    implementation 'androidx.cardview:cardview:1.0.0'// flow layout
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0' // image croper
+    implementation 'com.loopj.android:android-async-http:1.4.10' // api
+    /*Initial Library*/
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2' // otp
+    implementation 'me.angeldevil:AutoScrollViewPager:1.0.8'// autoscrollview pager
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3' // page indicator
+
+    /*Firebase*/
+    implementation platform('com.google.firebase:firebase-bom:28.4.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation "com.google.firebase:firebase-messaging"
+    /*Firebase*/
+
+    implementation 'com.nabinbhandari.android:permissions:3.8' // runtime permission.
+    implementation 'com.facebook.shimmer:shimmer:0.5.0' // placeholder progress bar
+    implementation('com.razorpay:checkout:1.6.7') // Razor Payment Gateway
+    implementation files('libs/YouTubeAndroidPlayerApi.jar') // youtube
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.1' //Exo Player
+//    implementation 'com.intuit.sdp:sdp-android:1.0.5' // responsive layout dp
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.23'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
+    // youtube video download
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0' // circle Progress bar
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2' // pdf viewer
+}

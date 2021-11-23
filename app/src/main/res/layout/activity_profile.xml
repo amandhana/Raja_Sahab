@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/top_lay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".activity.ProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_back"
+                android:layout_width="@dimen/m34"
+                android:layout_height="@dimen/m34"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_marginTop="@dimen/m15"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m17">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/m20"
+                        android:layout_height="@dimen/m20"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_arrow_back"
+                        android:contentDescription="@string/app_name" />
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/m15"
+                android:paddingEnd="@dimen/m15"
+                android:text="@string/skip"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m100"
+            android:layout_marginTop="@dimen/m15"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m200"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_profile_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_20" />
+
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_profile_user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_phone"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m200"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/m100"
+                    android:layout_height="@dimen/m100"
+                    android:background="@drawable/circle_white">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_profile_image"
+                        android:layout_width="@dimen/m90"
+                        android:layout_height="@dimen/m90"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_user_placeholder" />
+
+                    <RelativeLayout
+                        android:id="@+id/camera_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="@dimen/m40"
+                        android:background="@drawable/circle_white">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_camera_icon" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m30"
+            android:layout_marginTop="@dimen/m30"
+            android:text="@string/personal_details_label"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+
+        <View
+            android:layout_width="@dimen/m140"
+            android:layout_height="@dimen/m1"
+            android:layout_marginStart="@dimen/m30"
+            android:background="@color/white" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m15"
+            android:layout_marginTop="@dimen/m20"
+            android:layout_marginEnd="@dimen/m15"
+            android:layout_marginBottom="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m8"
+                    android:layout_marginStart="@dimen/m50"
+                    android:layout_marginEnd="@dimen/m50"
+                    android:background="@color/colorPrimary" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/name_edit_lay"
+                        android:background="@null"
+                        android:hint="@string/name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/name_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/email_edit_lay"
+                        android:background="@null"
+                        android:hint="@string/email"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/email_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/city_edit_lay"
+                        android:background="@null"
+                        android:hint="@string/city"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/city_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/state_edit_lay"
+                        android:background="@null"
+                        android:hint="@string/state"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/state_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6"
+                    android:visibility="visible">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/address_edit_lay"
+                        android:background="@null"
+                        android:enabled="true"
+                        android:hint="@string/address"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/address_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6"
+                    android:visibility="visible">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_education"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/education_edit_lay"
+                        android:background="@null"
+                        android:enabled="true"
+                        android:hint="@string/education"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapWords"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/education_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/edit_text_bg"
+                    android:backgroundTint="#D6D6D6">
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_profile_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_toStartOf="@+id/mobile_number_edit_lay"
+                        android:background="@null"
+                        android:enabled="false"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+                    <RelativeLayout
+                        android:id="@+id/mobile_number_edit_lay"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/m8"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="#C2C1C6"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_edit_pencil"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:layout_marginBottom="@dimen/m30"
+                    android:background="@drawable/bg_button_10"
+                    android:gravity="center"
+                    android:text="@string/update"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_15" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

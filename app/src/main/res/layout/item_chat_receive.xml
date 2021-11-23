@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/m15"
+    android:layout_marginTop="@dimen/m15"
+    android:layout_marginEnd="@dimen/m60"
+    android:background="@color/bg_color">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="@dimen/m30"
+            android:layout_height="@dimen/m30"
+            android:layout_alignBottom="@+id/receive_lay"
+            android:background="@drawable/ic_chat_admin"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:id="@+id/receive_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_toEndOf="@+id/iv_image"
+            android:background="@drawable/chat_item_receive"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/m20"
+            android:paddingTop="@dimen/m15"
+            android:paddingEnd="@dimen/m20">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hey_there_whatsp"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_14" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_message"
+                android:layout_marginTop="@dimen/m5"
+                android:paddingBottom="@dimen/m5"
+                android:text=""
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_12" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

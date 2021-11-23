@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_lay"
+        android:orientation="vertical">
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_quiz_name_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/m10"
+            android:text=""
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16" />
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_question_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginEnd="@dimen/m10"
+            android:layout_marginBottom="@dimen/m15"
+            android:text="@string/question_label"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_16" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/primary_text_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/question_no_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_marginTop="@dimen/m5"
+            android:layout_marginEnd="@dimen/m5" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/primary_text_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/m10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/answered">
+
+                        <ImageView
+                            android:layout_width="@dimen/m15"
+                            android:layout_height="@dimen/m15"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_check"
+                            android:backgroundTint="@color/white"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m5"
+                        android:text="@string/answered"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_13" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/not_answered">
+
+                        <ImageView
+                            android:layout_width="@dimen/m15"
+                            android:layout_height="@dimen/m15"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_check"
+                            android:backgroundTint="@color/white"
+                            android:contentDescription="@string/app_name" />
+
+
+                    </RelativeLayout>
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m5"
+                        android:text="@string/not_answered"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_13" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m10">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/m25"
+                    android:layout_height="@dimen/m25"
+                    android:background="@drawable/circle_border"
+                    android:backgroundTint="@color/not_visited">
+
+                    <ImageView
+                        android:layout_width="@dimen/m15"
+                        android:layout_height="@dimen/m15"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_check"
+                        android:backgroundTint="@color/not_visited"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/m5"
+                    android:text="@string/not_visited"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_13" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

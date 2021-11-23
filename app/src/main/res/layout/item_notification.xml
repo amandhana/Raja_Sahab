@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m15"
+        android:elevation="@dimen/m10"
+        app:cardCornerRadius="@dimen/m10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_course_image"
+                android:layout_width="@dimen/m50"
+                android:layout_height="@dimen/m50"
+                android:layout_marginStart="@dimen/m5"
+                android:elevation="@dimen/m10"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/m10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_button_5">
+
+                    <ImageView
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_notification"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_notification_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m5"
+                android:layout_marginEnd="@dimen/m10"
+                android:layout_toStartOf="@+id/time_lay"
+                android:layout_toEndOf="@+id/cv_course_image"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_15" />
+
+            <View
+                android:id="@+id/title_view"
+                android:layout_marginTop="@dimen/m1"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m50"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/tv_notification_title"
+                android:background="@color/secondary_text_color"/>
+
+            <WebView
+                android:id="@+id/web_view_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_view"
+                android:layout_marginBottom="@dimen/m5"
+                tools:ignore="WebViewLayout" />
+
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_notification_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_notification_title"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_toEndOf="@+id/cv_course_image"
+                android:ellipsize="end"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_13"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/time_lay"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/m10"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/m5">
+
+                <ImageView
+                    android:layout_width="@dimen/m8"
+                    android:layout_height="@dimen/m8"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_quiz_publish_time_icon"
+                    android:contentDescription="@string/app_name" />
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_notification_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/m5"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_8" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

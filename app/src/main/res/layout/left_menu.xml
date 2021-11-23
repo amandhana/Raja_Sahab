@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m130"
+            android:background="@color/colorPrimaryVariant"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/user_profile_lay"
+                android:layout_width="@dimen/m90"
+                android:layout_height="@dimen/m90"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m18"
+                android:background="@drawable/circle_border">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_left_menu_image"
+                    android:layout_width="@dimen/m80"
+                    android:layout_height="@dimen/m80"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_user_placeholder"
+                    android:visibility="gone" />
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_first_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text=""
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="32sp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m18"
+                android:layout_toStartOf="@+id/back_lay_left_menu"
+                android:layout_toEndOf="@+id/user_profile_lay">
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_left_menu_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummy_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18" />
+
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_left_menu_phone_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_left_menu_username"
+                    android:maxLength="15"
+                    android:text="@string/dummy_phone"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_14" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/back_lay_left_menu"
+                android:layout_width="@dimen/m30"
+                android:layout_height="@dimen/m30"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/m10"
+                android:background="@drawable/circle_border"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="6dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_arrow_back" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m60"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_weight="1"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m5">
+
+                <LinearLayout
+                    android:id="@+id/left_menu_notes_lay"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryVariant"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@drawable/ic_menu_book" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m15"
+                        android:text="@string/ebooks"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_15" />
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginEnd="@dimen/m15"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_weight="1"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m5">
+
+                <LinearLayout
+                    android:id="@+id/left_menu_share_lay"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryVariant"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@drawable/ic_share" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m15"
+                        android:text="@string/share"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_15" />
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m60"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:layout_weight="1"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m5">
+
+                <LinearLayout
+                    android:id="@+id/left_menu_my_save_video_lay"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryVariant"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@drawable/ic_play" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:text="@string/my_save_video"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_13" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginEnd="@dimen/m15"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/m40"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_weight="1"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m5">
+
+                <LinearLayout
+                    android:id="@+id/left_menu_my_save_ebook_lay"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimaryVariant"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/m25"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@drawable/ic_menu_book" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/m10"
+                        android:text="@string/my_save_ebook"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_13" />
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_home_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_home"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/home"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+
+        <LinearLayout
+            android:id="@+id/left_menu_my_profile_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_my_profile"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/my_profile"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_my_orders_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_my_orders"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/my_orders"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_my_courses_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_courses"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/courses"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_live_classes_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_live_classes"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/live_classes"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_attempted_quiz_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_test_series"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/attempted_quiz"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/left_menu_test_series_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_test_series"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/test_series"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_notification_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_notification"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/notification"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_notes"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/ebooks"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_about_us_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_about_us"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/about_us"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_contact_us_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_contact_us"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/contact_us"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_rate_us_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40">
+
+            <com.rajasahabacademy.views.LightTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/rate_us_on_play_store"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_13" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_terms_conditions_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40">
+
+            <com.rajasahabacademy.views.LightTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/terms_conditions"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_13" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_privacy_policy_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40">
+
+            <com.rajasahabacademy.views.LightTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_13" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/left_refund_cancel_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <com.rajasahabacademy.views.LightTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/refund_and_cancellation"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_13" />
+
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/m18"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m18">
+
+            <LinearLayout
+                android:layout_width="@dimen/m140"
+                android:layout_height="@dimen/m35"
+                android:background="@color/colorPrimaryVariant"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/m18"
+                    android:layout_height="@dimen/m18"
+                    android:background="@drawable/ic_log_out"
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="@string/app_name" />
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/m15"
+                    android:text="@string/logout"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_15" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/m5"
+            android:layout_marginBottom="@dimen/m10"
+            android:text="@string/version_1_0"
+            android:textColor="@color/primary_text_color"
+            android:textSize="@dimen/text_10" />
+
+    </LinearLayout>
+
+
+</ScrollView>
