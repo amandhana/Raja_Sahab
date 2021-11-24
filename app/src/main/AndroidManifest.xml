@@ -22,8 +22,10 @@
         android:roundIcon="@drawable/ic_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
-        <activity android:name=".activity.MySaveEbookActivity"
-            android:exported="true"/>
+        <activity android:name=".activity.BookmarkActivity"></activity>
+        <activity
+            android:name=".activity.MySaveEbookActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.MySavedVideoActivity"
             android:exported="true" />

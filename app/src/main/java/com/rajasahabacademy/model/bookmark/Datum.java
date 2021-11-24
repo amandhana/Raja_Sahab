@@ -1,62 +1,14 @@
 
-package com.rajasahabacademy.model.quiz.question_ans;
+package com.rajasahabacademy.model.bookmark;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Result {
-    int timeTakenInSeconds = 0;
-    boolean isSelectFlag = false;
-    boolean isSkipFlag = false;
-    boolean isVisitedFlag = false;
-    String selectedOption = "";
-
-    public void setTimeTakenInSeconds(int timeTakenInSeconds) {
-        this.timeTakenInSeconds = timeTakenInSeconds;
-    }
-
-    public int getTimeTakenInSeconds() {
-        return timeTakenInSeconds;
-    }
-
-    public boolean getSelectFlag() {
-        return isSelectFlag;
-    }
-
-    public void setSelectFlag(boolean selectFlag) {
-        isSelectFlag = selectFlag;
-    }
-
-    public String getSelectedOption() {
-        return selectedOption;
-    }
-
-    public void setSelectedOption(String selectedOption) {
-        this.selectedOption = selectedOption;
-    }
-
-    public boolean getSkipFlag() {
-        return isSkipFlag;
-    }
-
-    public void setSkipFlag(boolean skipFlag) {
-        isSkipFlag = skipFlag;
-    }
-
-    public boolean getVisitedFlag() {
-        return isVisitedFlag;
-    }
-
-    public void setVisitedFlag(boolean visitedFlag) {
-        isVisitedFlag = visitedFlag;
-    }
+public class Datum {
 
     @SerializedName("id")
     @Expose
     private String id;
-    @SerializedName("bookmark")
-    @Expose
-    private String bookmark;
     @SerializedName("test_id")
     @Expose
     private String testId;
@@ -84,21 +36,15 @@ public class Result {
     @SerializedName("mark")
     @Expose
     private String mark;
+    @SerializedName("skipped")
+    @Expose
+    private String skipped;
     @SerializedName("ans")
     @Expose
     private String ans;
     @SerializedName("summary")
     @Expose
     private String summary;
-    @SerializedName("user_id")
-    @Expose
-    private String userId;
-    @SerializedName("created_at")
-    @Expose
-    private String createdAt;
-    @SerializedName("updated_at")
-    @Expose
-    private String updatedAt;
 
     public String getId() {
         return id;
@@ -118,18 +64,8 @@ public class Result {
 
     public String getQuestion() {
         if (question == null)
-            return "Empty Question";
-        return question;
-    }
-
-    public String getBookmark() {
-        if (bookmark == null)
             return "";
-        return bookmark;
-    }
-
-    public void setBookmark(String bookmark) {
-        this.bookmark = bookmark;
+        return question;
     }
 
     public void setQuestion(String question) {
@@ -177,8 +113,6 @@ public class Result {
     }
 
     public String getTimeLimit() {
-        if (timeLimit == null)
-            return "0";
         return timeLimit;
     }
 
@@ -202,7 +136,17 @@ public class Result {
         this.mark = mark;
     }
 
+    public String getSkipped() {
+        return skipped;
+    }
+
+    public void setSkipped(String skipped) {
+        this.skipped = skipped;
+    }
+
     public String getAns() {
+        if (ans == null)
+            return "";
         return ans;
     }
 
@@ -216,30 +160,6 @@ public class Result {
 
     public void setSummary(String summary) {
         this.summary = summary;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
 }

@@ -82,6 +82,8 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
     QuestionNoAdapter questionNoAdapter;
     RelativeLayout menuLay;
 
+    ImageView ivBookmark;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,6 +149,8 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
         progressBarLay.setOnClickListener(this);
         menuLay = findViewById(R.id.menu_lay);
         menuLay.setOnClickListener(this);
+        ivBookmark = findViewById(R.id.iv_bookmark);
+        ivBookmark.setOnClickListener(this);
     }
 
     private void getBundleData() {
@@ -259,6 +263,11 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
         tvOption2.setBackgroundColor(Color.TRANSPARENT);
         tvOption3.setBackgroundColor(Color.TRANSPARENT);
         tvOption4.setBackgroundColor(Color.TRANSPARENT);
+
+        if (listQuestionAns.get(questionNoIndex).getBookmark().equals("1"))
+            ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+        else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+
         String message = "<font color='white'>" + "<b>" + listQuestionAns.get(questionNoIndex).getQuestion() + "</b>" + "<font color='cyan'>" + "<font size='22'></font>";
         webView.loadData(message, "text/html", "utf8");
 
@@ -526,6 +535,85 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
             drawerLayout.openDrawer(GravityCompat.END);
     }
 
+    private void addBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.QUESTION_ID, listQuestionAns.get(questionNoIndex).getId());
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_BOOKMARK_QUESTION, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                                listQuestionAns.get(questionNoIndex).setBookmark("1");
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void removeBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.QUESTION_ID, listQuestionAns.get(questionNoIndex).getId());
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_BOOKMARK_QUESTION, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+                                listQuestionAns.get(questionNoIndex).setBookmark("0");
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -573,5 +661,10 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
             exitQuizPopup();
         else if (id == R.id.menu_lay)
             performNavMenuAction();
+        else if (id == R.id.iv_bookmark) {
+            if (!listQuestionAns.get(questionNoIndex).getBookmark().equals("1"))
+                addBookmark();
+            else removeBookmark();
+        }
     }
 }

@@ -130,6 +130,9 @@ public class Constants {
         public static final String GET_ATTEMPTED_QUIZ = BASE_URL + "get_attempted_quiz";
         public static final String QUIZ_INSTRUCTION = BASE_URL + "quiz_instruction";
         public static final String CONTACT_US = BASE_URL + "contact_us";
+        public static final String ADD_BOOKMARK_QUESTION = BASE_URL + "add_bookmark_question";
+        public static final String REMOVE_BOOKMARK_QUESTION = BASE_URL + "remove_bookmark_question";
+        public static final String GET_BOOKMARK_QUESTION = BASE_URL + "get_bookmark_question";
     }
 
     public static class AppSaveData {
