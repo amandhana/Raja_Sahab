@@ -39,84 +39,106 @@
 
         </androidx.cardview.widget.CardView>
 
-        <com.rajasahabacademy.views.RegularTextView
-            android:id="@+id/tv_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/m15"
-            android:text="@string/video"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_16" />
-
-        <ImageView
-            android:id="@+id/iv_download"
-            android:layout_width="@dimen/m40"
-            android:layout_height="@dimen/m40"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/m15"
-            android:visibility="gone"
-            android:background="@drawable/ic_download"
-            android:contentDescription="@string/app_name" />
-
         <RelativeLayout
-            android:id="@+id/delete_lay"
-            android:layout_width="@dimen/m35"
-            android:layout_height="@dimen/m35"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/m15"
-            android:visibility="gone"
-            android:background="@drawable/circle_red">
+            android:id="@+id/end_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true">
 
             <ImageView
+                android:id="@+id/iv_bookmark"
                 android:layout_width="@dimen/m30"
                 android:layout_height="@dimen/m30"
-                android:background="@drawable/ic_cross"
-                android:layout_centerInParent="true"
-                android:contentDescription="@string/app_name" />
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m15"
+                android:visibility="gone"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/ic_bookmark_empty"/>
 
 
-        </RelativeLayout>
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="@dimen/m40"
-            android:layout_height="@dimen/m40"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/m15"
-            android:visibility="gone" />
-
-        <RelativeLayout
-            android:id="@+id/circular_progress_lay"
-            android:layout_width="@dimen/m40"
-            android:layout_height="@dimen/m40"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="@dimen/m15"
-            android:visibility="gone">
-
-            <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/progress_circular"
-                android:layout_width="@dimen/m40"
-                android:layout_height="@dimen/m40"
-                app:cpb_background_progressbar_width="1dp"
-                app:cpb_progressbar_color="@color/white"
-                app:cpb_progressbar_width="2dp" />
-
-            <TextView
-                android:id="@+id/tv_percent"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_14" />
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/iv_bookmark">
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:text="@string/video"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16" />
+
+                <ImageView
+                    android:id="@+id/iv_download"
+                    android:layout_width="@dimen/m40"
+                    android:layout_height="@dimen/m40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:visibility="gone"
+                    android:background="@drawable/ic_download"
+                    android:contentDescription="@string/app_name" />
+
+                <RelativeLayout
+                    android:id="@+id/delete_lay"
+                    android:layout_width="@dimen/m35"
+                    android:layout_height="@dimen/m35"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:visibility="gone"
+                    android:background="@drawable/circle_red">
+
+                    <ImageView
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m30"
+                        android:background="@drawable/ic_cross"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="@dimen/m40"
+                    android:layout_height="@dimen/m40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/circular_progress_lay"
+                    android:layout_width="@dimen/m40"
+                    android:layout_height="@dimen/m40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:visibility="gone">
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/progress_circular"
+                        android:layout_width="@dimen/m40"
+                        android:layout_height="@dimen/m40"
+                        app:cpb_background_progressbar_width="1dp"
+                        app:cpb_progressbar_color="@color/white"
+                        app:cpb_progressbar_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/tv_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_14" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
+
 
     </RelativeLayout>
 

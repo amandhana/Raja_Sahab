@@ -103,6 +103,10 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     String fileName;
     TextView tvPercent;
 
+    ImageView ivBookmark;
+    String bookmarkStr = "";
+    String fromWhereStr = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,6 +159,9 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
         RelativeLayout descriptionLay = findViewById(R.id.description_lay);
         descriptionLay.setOnClickListener(this);
 
+        ivBookmark = findViewById(R.id.iv_bookmark);
+        ivBookmark.setOnClickListener(this);
+
         cvBack.setOnClickListener(this);
         play_video.setOnClickListener(this);
         pause_video.setOnClickListener(this);
@@ -171,9 +178,11 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     private void getBundleData() {
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+            fromWhereStr = bundle.getString(Constants.Course.FROM_WHERE);
             videoId = bundle.getString(Constants.Course.VIDEO_ID);
             videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
             videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
+            bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
         }
         if (videoDescription.isEmpty())
             findViewById(R.id.cv_title_description).setVisibility(View.GONE);
@@ -182,7 +191,11 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
             Utils.setHtmlText(videoDescription, tvDescription);
         }
 
-
+        if (!fromWhereStr.equals("Bookmark")) {
+            if (bookmarkStr.equals("1"))
+                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+            else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+        } else findViewById(R.id.end_lay).setVisibility(View.GONE);
     }
 
     private void setUpYoutubePlayerView() {
@@ -191,7 +204,7 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
         mHandler = new Handler(Looper.getMainLooper());
     }
 
-    private void downloadCompleteNotify(){
+    private void downloadCompleteNotify() {
         IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
@@ -205,6 +218,7 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
         };
         registerReceiver(receiver, filter);
     }
+
     private void getFileName() {
         final ProgressDialog progressDialog = new ProgressDialog(mActivity);
         progressDialog.setTitle("Please wait");
@@ -680,6 +694,79 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
         }
     }
 
+    private void addBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_BOOKMARK_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success"))
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void removeBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_BOOKMARK_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success"))
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
 
     @Override
     public void onClick(View view) {
@@ -702,6 +789,10 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
             downloadPermission();
         else if (id == R.id.delete_lay) {
             deletePopup();
+        } else if (id == R.id.iv_bookmark) {
+            if (!bookmarkStr.equals("1"))
+                addBookmark();
+            else removeBookmark();
         }
     }
 }

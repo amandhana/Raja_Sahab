@@ -48,10 +48,15 @@ public class CourseTopicVideoActivity extends AppCompatActivity implements View.
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getCourseVideo();
+    }
+
     private void init() {
         mActivity = this;
         setClickListener();
-        getCourseVideo();
         setUpPrice();
     }
 

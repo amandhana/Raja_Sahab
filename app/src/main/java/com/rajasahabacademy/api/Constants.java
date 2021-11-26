@@ -75,6 +75,7 @@ public class Constants {
         public static final String TIME_TAKEN = "time_taken";
         public static final String VIDEO_ID = "video_id";
         public static final String LAST_ID = "last_id";
+
     }
 
     public static class Course {
@@ -86,6 +87,7 @@ public class Constants {
         public static final String VIDEO_ID = "video_id";
         public static final String VIDEO_PATH = "video_path";
         public static final String VIDEO_DESCRIPTION = "video_description";
+        public static final String VIDEO_BOOKMARK = "video_bookmark";
         public static final String VIDEO_TYPE = "video_type";
         public static final String SUBJECT = "subject";
         public static final String EBOOK_PATH = "ebook_path";
@@ -98,6 +100,9 @@ public class Constants {
         public static final String OFFLINE_FILE = "offline_file";
     }
 
+    public static class Payment{
+        public static final String TOTAL_AMOUNT = "total_amount";
+    }
 
     public static class Apis {
         public static final String LOGIN = BASE_URL + "login";
@@ -133,6 +138,10 @@ public class Constants {
         public static final String ADD_BOOKMARK_QUESTION = BASE_URL + "add_bookmark_question";
         public static final String REMOVE_BOOKMARK_QUESTION = BASE_URL + "remove_bookmark_question";
         public static final String GET_BOOKMARK_QUESTION = BASE_URL + "get_bookmark_question";
+        public static final String ADD_BOOKMARK_VIDEO = BASE_URL + "add_bookmark_video";
+        public static final String REMOVE_BOOKMARK_VIDEO = BASE_URL + "remove_bookmark_video";
+        public static final String GET_BOOKMARK_VIDEO = BASE_URL + "get_bookmark_video";
+        public static final String GET_COUPONS = BASE_URL + "get_coupons";
     }
 
     public static class AppSaveData {

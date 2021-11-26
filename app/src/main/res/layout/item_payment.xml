@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/m5"
+    android:layout_marginStart="@dimen/m5"
+    android:layout_marginEnd="@dimen/m5"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/m5"
+        android:elevation="@dimen/m5"
+        android:layout_margin="@dimen/m10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/m10">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_offer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/payble_price"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_16" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_apply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@string/apply"
+                android:textColor="@color/red"
+                android:textSize="@dimen/text_16" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

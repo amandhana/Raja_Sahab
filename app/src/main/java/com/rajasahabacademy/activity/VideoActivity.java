@@ -100,6 +100,9 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     String fileName;
     TextView tvPercent;
 
+    ImageView ivBookmark;
+    String bookmarkStr = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,18 +126,21 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         clickListener();
         getBundleData();
         setUpExoPlayer();
-        if (!fromWhere.equals("Offline")) {
-            ivDownload.setVisibility(View.GONE);
-            progressBar.setVisibility(View.GONE);
-            deleteLay.setVisibility(View.GONE);
-            tvVideo.setVisibility(View.GONE);
-            getFileName();
-            checkDownloadStatus();
-            setUpList();
-            checkOrientation();
-            getDownloadPercentStatus();
-        }
-        downloadCompleteNotify();
+        if (!fromWhere.equals("Bookmark")) {
+            if (!fromWhere.equals("Offline")) {
+                ivDownload.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
+                deleteLay.setVisibility(View.GONE);
+                tvVideo.setVisibility(View.GONE);
+                ivBookmark.setVisibility(View.VISIBLE);
+                getFileName();
+                checkDownloadStatus();
+                setUpList();
+                checkOrientation();
+                getDownloadPercentStatus();
+            }
+            downloadCompleteNotify();
+        }else findViewById(R.id.end_lay).setVisibility(View.GONE);
     }
 
     private void clickListener() {
@@ -157,6 +163,9 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         RelativeLayout descriptionLay = findViewById(R.id.description_lay);
         descriptionLay.setOnClickListener(this);
 
+        ivBookmark = findViewById(R.id.iv_bookmark);
+        ivBookmark.setOnClickListener(this);
+
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false));
         recyclerView.addOnLayoutChangeListener((view, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
@@ -176,12 +185,16 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
                 videoId = bundle.getString(Constants.Course.VIDEO_ID);
                 videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
                 videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
+                bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
                 if (videoDescription.isEmpty())
                     findViewById(R.id.cv_title_description).setVisibility(View.GONE);
                 else {
                     findViewById(R.id.cv_title_description).setVisibility(View.VISIBLE);
                     Utils.setHtmlText(videoDescription, tvDescription);
                 }
+                if (bookmarkStr.equals("1"))
+                    ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
             }
         }
     }
@@ -596,6 +609,80 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    private void addBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_BOOKMARK_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success"))
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void removeBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_BOOKMARK_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success"))
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
     @Override
     public void onStop() {
         super.onStop();
@@ -617,6 +704,10 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             downloadPermission();
         else if (id == R.id.delete_lay) {
             deletePopup();
+        }else if (id == R.id.iv_bookmark) {
+            if (!bookmarkStr.equals("1"))
+                addBookmark();
+            else removeBookmark();
         }
     }
 }

@@ -69,6 +69,8 @@
     <string name="skip">Skip</string>
     <string name="my_orders">My Course</string>
     <string name="bookmark">Bookmark</string>
+    <string name="bookmark_question">Bookmark Question</string>
+    <string name="bookmark_video">Bookmark Video</string>
     <string name="save_video">Save Video</string>
     <string name="save_ebook">Save Ebook</string>
     <string name="courses">Courses</string>
@@ -87,6 +89,7 @@
     <string name="version_1_0">Version 1.0</string>
     <string name="navy">NAVY</string>
     <string name="buy_now">Buy Now</string>
+    <string name="view_offer">View Offer</string>
     <string name="my_courses">My Courses</string>
     <string name="quiz">Quiz</string>
     <string name="live_chat">Live Chat</string>
@@ -242,5 +245,14 @@
     <string name="not_visited">Not Visited</string>
     <string name="share">Share</string>
 
+    <!--Payment-->
+    <string name="price_details">Price Details</string>
+    <string name="total_price">Total Price :</string>
+    <string name="payble_price">Payble Price :</string>
+    <string name="available_offers">Available Offers</string>
+    <string name="no_offers">No Offers</string>
+    <string name="apply">Apply</string>
+    <string name="applied">Applied</string>
+    <string name="apply_offer_validation">Price is blank</string>
 
 </resources>

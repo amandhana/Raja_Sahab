@@ -1,5 +1,9 @@
 package com.rajasahabacademy.activity;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -8,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +38,7 @@ import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
 
-public class CourseDetailActivity extends AppCompatActivity implements View.OnClickListener, PaymentResultListener {
+public class CourseDetailActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
     ImageView ivImage;
     ShimmerFrameLayout courseDetailVideoShimmer;
@@ -48,7 +53,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     CourseDetailVideoAdapter courseDetailVideoAdapter;
     CourseDetailPdfAdapter courseDetailPdfAdapter;
     String fromWhereStr = "";
-
+    String courseId = "";
+    ActivityResultLauncher<Intent> someActivityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,11 +87,14 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             setUpPrice();
         }
         getCourseSubject();
+        handleOnActivityResult();
     }
 
     private void getIntentData() {
         if (getIntent().getStringExtra(Constants.Course.FROM_WHERE) != null)
             fromWhereStr = getIntent().getStringExtra(Constants.Course.FROM_WHERE);
+        if (getIntent().getStringExtra(Constants.Course.COURSE_ID) != null)
+            courseId = getIntent().getStringExtra(Constants.Course.COURSE_ID);
     }
 
     private void setClickListener() {
@@ -119,7 +128,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
             try {
-                params.put(Constants.Course.COURSE_ID, getIntent().getStringExtra(Constants.Course.COURSE_ID));
+                params.put(Constants.Course.COURSE_ID, courseId);
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
                 Utils.printLog("ProfileDetailParams", params.toString());
@@ -140,7 +149,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewVideo.setVisibility(View.VISIBLE);
                                     findViewById(R.id.tv_no_subject_video).setVisibility(View.GONE);
                                     courseDetailVideoAdapter = new CourseDetailVideoAdapter(mActivity, modelResponse.getVideosCategory(),
-                                            getIntent().getStringExtra(Constants.Course.COURSE_ID),
+                                            courseId,
                                             getIntent().getStringExtra(Constants.Course.TOTAL_AMOUNT),
                                             getIntent().getStringExtra(Constants.Course.EXPIRE_AMOUNT),
                                             getCourseBuyStatus());
@@ -153,7 +162,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewPdf.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.GONE);
                                     courseDetailPdfAdapter = new CourseDetailPdfAdapter(mActivity, modelResponse.getEbookCategory(),
-                                            getIntent().getStringExtra(Constants.Course.COURSE_ID)
+                                            courseId
                                             , getIntent().getStringExtra(Constants.Course.TOTAL_AMOUNT),
                                             getIntent().getStringExtra(Constants.Course.EXPIRE_AMOUNT),
                                             getCourseBuyStatus());
@@ -269,7 +278,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
             try {
-                params.put(Constants.Params.COURSE_ID, getIntent().getStringExtra(Constants.Course.COURSE_ID));
+                params.put(Constants.Params.COURSE_ID, courseId);
                 params.put(Constants.Params.PRICE, tvAmount.getText().toString());
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
@@ -309,6 +318,16 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
+    private void handleOnActivityResult() {
+        someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        buyNowCourse();
+                    }
+                });
+    }
+
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -319,17 +338,9 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         } else if (id == R.id.pdf_lay) {
             showHidePdfSubjectList();
         } else if (id == R.id.buy_now_lay) {
-            Utils.startPayment(mActivity, getPaybleAmount());
+            Intent intent = new Intent(this, PaymentActivity.class);
+            intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+            someActivityResultLauncher.launch(intent);
         }
-    }
-
-    @Override
-    public void onPaymentSuccess(String s) {
-        buyNowCourse();
-    }
-
-    @Override
-    public void onPaymentError(int i, String s) {
-        Toast.makeText(mActivity, s, Toast.LENGTH_SHORT).show();
     }
 }

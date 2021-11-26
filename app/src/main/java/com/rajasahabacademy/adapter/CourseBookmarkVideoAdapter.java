@@ -2,7 +2,6 @@ package com.rajasahabacademy.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,20 +16,18 @@ import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.VideoActivity;
 import com.rajasahabacademy.activity.YoutubeVideoPlayActivity;
 import com.rajasahabacademy.api.Constants;
-import com.rajasahabacademy.model.course.course_video.Datum;
+import com.rajasahabacademy.model.bookmark.video.Datum;
 import com.rajasahabacademy.support.Utils;
 
 import java.util.List;
 
-public class CourseVideoAdapter extends RecyclerView.Adapter<CourseVideoAdapter.ViewHolder> {
+public class CourseBookmarkVideoAdapter extends RecyclerView.Adapter<CourseBookmarkVideoAdapter.ViewHolder> {
     private final Activity context;
     List<Datum> list;
-    String courseByStatus;
 
-    public CourseVideoAdapter(Activity context, List<Datum> list, String courseByStatus) {
+    public CourseBookmarkVideoAdapter(Activity context, List<Datum> list) {
         this.context = context;
         this.list = list;
-        this.courseByStatus = courseByStatus;
     }
 
     @NonNull
@@ -48,22 +45,17 @@ public class CourseVideoAdapter extends RecyclerView.Adapter<CourseVideoAdapter.
         Utils.setHtmlText(list.get(position).getDescription(), viewHolder.tvVideoDescription);
 
         viewHolder.itemView.setOnClickListener(view -> {
-            if (courseByStatus.equalsIgnoreCase("1")
-                    || list.get(position).getDemo().equals("1")) {
-                if (!list.get(position).getPath().equals("")) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(Constants.Course.VIDEO_ID, list.get(position).getId());
-                    bundle.putString(Constants.Course.VIDEO_PATH, list.get(position).getPath());
-                    bundle.putString(Constants.Course.FROM_WHERE, "");
-                    bundle.putString(Constants.Course.VIDEO_DESCRIPTION, list .get(position).getDescription());
-                    bundle.putString(Constants.Course.VIDEO_BOOKMARK, list .get(position).getBookmark());
-                    if (list.get(position).getType().equals(Constants.Course.YOUTUBE_VIDEO_TYPE))
-                        Utils.startActivityBundle(context, YoutubeVideoPlayActivity.class, bundle);
-                    else Utils.startActivityBundle(context, VideoActivity.class, bundle);
-                } else
-                    Utils.showToastPopup(context, context.getResources().getString(R.string.video_id_valid));
+            if (!list.get(position).getPath().equals("")) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.Course.VIDEO_ID, list.get(position).getId());
+                bundle.putString(Constants.Course.VIDEO_PATH, list.get(position).getPath());
+                bundle.putString(Constants.Course.FROM_WHERE, "Bookmark");
+                bundle.putString(Constants.Course.VIDEO_DESCRIPTION, list.get(position).getDescription());
+                if (list.get(position).getType().equals(Constants.Course.YOUTUBE_VIDEO_TYPE))
+                    Utils.startActivityBundle(context, YoutubeVideoPlayActivity.class, bundle);
+                else Utils.startActivityBundle(context, VideoActivity.class, bundle);
             } else
-                Utils.showToastPopup(context, context.getString(R.string.course_paid_validation));
+                Utils.showToastPopup(context, context.getResources().getString(R.string.video_id_valid));
         });
     }
 

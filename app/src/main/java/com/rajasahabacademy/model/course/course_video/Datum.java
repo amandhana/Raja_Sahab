@@ -12,6 +12,9 @@ public class Datum {
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("bookmark")
+    @Expose
+    private String bookmark;
     @SerializedName("slug")
     @Expose
     private String slug;
@@ -29,6 +32,16 @@ public class Datum {
         if (demo == null)
             return "0";
         return demo;
+    }
+
+    public String getBookmark() {
+        if (bookmark == null)
+            return "";
+        return bookmark;
+    }
+
+    public void setBookmark(String bookmark) {
+        this.bookmark = bookmark;
     }
 
     public void setDemo(Object demo) {

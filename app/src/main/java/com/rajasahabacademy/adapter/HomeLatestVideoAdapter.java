@@ -59,6 +59,7 @@ public class HomeLatestVideoAdapter extends RecyclerView.Adapter<HomeLatestVideo
                     bundle.putString(Constants.Course.VIDEO_PATH, list.get(position).getPath());
                     bundle.putString(Constants.Course.FROM_WHERE, "");
                     bundle.putString(Constants.Course.VIDEO_DESCRIPTION, list .get(position).getDescription());
+                    bundle.putString(Constants.Course.VIDEO_BOOKMARK, list .get(position).getBookmark());
                     if (list.get(position).getType().equals(Constants.Course.YOUTUBE_VIDEO_TYPE))
                         Utils.startActivityBundle(context, YoutubeVideoPlayActivity.class, bundle);
                     else Utils.startActivityBundle(context, VideoActivity.class, bundle);

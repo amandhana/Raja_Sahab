@@ -1,10 +1,10 @@
 
-package com.rajasahabacademy.model.home.latest_course;
+package com.rajasahabacademy.model.bookmark.video;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Video {
+public class Datum {
 
     @SerializedName("id")
     @Expose
@@ -12,9 +12,6 @@ public class Video {
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("bookmark")
-    @Expose
-    private String bookmark;
     @SerializedName("slug")
     @Expose
     private String slug;
@@ -27,30 +24,6 @@ public class Video {
     @SerializedName("path")
     @Expose
     private String path;
-    @SerializedName("demo")
-    @Expose
-    private String demo;
-
-    public String getDemo() {
-        if (demo == null)
-            return "0";
-        return demo;
-    }
-
-    public String getBookmark() {
-        if (bookmark == null)
-            return "";
-        return bookmark;
-    }
-
-    public void setBookmark(String bookmark) {
-        this.bookmark = bookmark;
-    }
-
-    public void setDemo(String demo) {
-        this.demo = demo;
-    }
-
     @SerializedName("thumbnail")
     @Expose
     private String thumbnail;
@@ -81,12 +54,15 @@ public class Video {
     @SerializedName("category_id")
     @Expose
     private String categoryId;
-    @SerializedName("vendor_name")
+    @SerializedName("rating")
     @Expose
-    private String vendorName;
-    @SerializedName("course_buy_status")
+    private String rating;
+    @SerializedName("demo")
     @Expose
-    private String courseBuyStatus;
+    private String demo;
+    @SerializedName("dashboard")
+    @Expose
+    private String dashboard;
 
     public String getId() {
         return id;
@@ -201,8 +177,6 @@ public class Video {
     }
 
     public String getType() {
-        if (type == null)
-            return "";
         return type;
     }
 
@@ -226,20 +200,28 @@ public class Video {
         this.categoryId = categoryId;
     }
 
-    public String getVendorName() {
-        return vendorName;
+    public String getRating() {
+        return rating;
     }
 
-    public void setVendorName(String vendorName) {
-        this.vendorName = vendorName;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
-    public String getCourseBuyStatus() {
-        return courseBuyStatus;
+    public String getDemo() {
+        return demo;
     }
 
-    public void setCourseBuyStatus(String courseBuyStatus) {
-        this.courseBuyStatus = courseBuyStatus;
+    public void setDemo(String demo) {
+        this.demo = demo;
+    }
+
+    public String getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(String dashboard) {
+        this.dashboard = dashboard;
     }
 
 }
