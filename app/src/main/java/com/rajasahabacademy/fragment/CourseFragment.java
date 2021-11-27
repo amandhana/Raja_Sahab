@@ -66,6 +66,7 @@ public class CourseFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(false);
+        ((HomeActivity) mActivity).showHideCart(false);
     }
 
     private void init() {

@@ -46,6 +46,7 @@ public class LiveQuizSubjectFragment extends Fragment implements View.OnClickLis
     public void onResume() {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(true);
+        ((HomeActivity) mActivity).showHideCart(false);
         ((HomeActivity) mActivity).resetAllBottom("Live Quiz");
     }
 

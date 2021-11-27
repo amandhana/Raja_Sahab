@@ -70,6 +70,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(false);
+        ((HomeActivity) mActivity).showHideCart(true);
     }
 
     private void init() {

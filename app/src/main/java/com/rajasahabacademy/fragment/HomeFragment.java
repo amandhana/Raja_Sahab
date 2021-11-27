@@ -75,6 +75,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(true);
+        ((HomeActivity) mActivity).showHideCart(false);
         ((HomeActivity) mActivity).resetAllBottom("Home");
         setUpLatestCourse();
     }

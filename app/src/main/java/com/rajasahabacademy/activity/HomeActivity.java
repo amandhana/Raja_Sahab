@@ -445,6 +445,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             bottomNavigationLay.setVisibility(View.GONE);
     }
 
+    public void showHideCart(boolean flag){
+        RelativeLayout cartLay = findViewById(R.id.cart_lay);
+        if (flag)
+            cartLay.setVisibility(View.VISIBLE);
+        else cartLay.setVisibility(View.GONE);
+    }
+
     public void exitAppPopup() {
         try {
             final Dialog dialog = new Dialog(mActivity);

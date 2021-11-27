@@ -35,26 +35,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/m10"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/tv_view"
+                android:layout_toStartOf="@+id/end_lay"
                 android:layout_toEndOf="@+id/cv_course_image"
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_14" />
 
-            <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_view"
+            <RelativeLayout
+                android:id="@+id/end_lay"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/m30"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/m5"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:paddingStart="@dimen/m20"
-                android:paddingEnd="@dimen/m20"
-                android:text="@string/view"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_16" />
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+
+
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m5"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/m20"
+                    android:paddingEnd="@dimen/m20"
+                    android:text="@string/view"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16" />
+
+
+            </RelativeLayout>
 
 
         </RelativeLayout>
