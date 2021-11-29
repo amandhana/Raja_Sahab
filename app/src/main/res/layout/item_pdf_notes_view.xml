@@ -16,7 +16,6 @@
             android:layout_height="match_parent"
             android:padding="@dimen/m10">
 
-
             <ImageView
                 android:id="@+id/cv_course_image"
                 android:layout_width="@dimen/m25"
@@ -25,7 +24,6 @@
                 android:layout_marginStart="@dimen/m10"
                 android:background="@drawable/ic_pdf"
                 android:contentDescription="@string/app_name" />
-
 
             <com.rajasahabacademy.views.BoldTextView
                 android:maxLines="1"
@@ -48,8 +46,7 @@
                 android:layout_alignParentEnd="true">
 
 
-
-                <com.rajasahabacademy.views.BoldTextView
+                <com.rajasahabacademy.views.RegularTextView
                     android:id="@+id/tv_view"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/m30"
@@ -59,16 +56,31 @@
                     android:gravity="center"
                     android:paddingStart="@dimen/m20"
                     android:paddingEnd="@dimen/m20"
+                    android:visibility="gone"
                     android:text="@string/view"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_16" />
+                    android:textSize="@dimen/text_13" />
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m5"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/m20"
+                    android:paddingEnd="@dimen/m20"
+                    android:text="@string/add_cart"
+                    android:textColor="@color/white"
+                    android:visibility="visible"
+                    android:textSize="@dimen/text_13" />
+
 
 
             </RelativeLayout>
 
-
         </RelativeLayout>
-
 
     </androidx.cardview.widget.CardView>
 

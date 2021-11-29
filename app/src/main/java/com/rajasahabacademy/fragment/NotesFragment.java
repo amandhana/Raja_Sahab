@@ -32,6 +32,8 @@ import com.rajasahabacademy.model.notification.NotificationResponse;
 import com.rajasahabacademy.model.quiz.ResultLiveQuiz;
 import com.rajasahabacademy.support.Utils;
 
+import org.json.JSONObject;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -71,13 +73,13 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(false);
         ((HomeActivity) mActivity).showHideCart(true);
+        setUpNotesList();
     }
 
     private void init() {
         mActivity = getActivity();
         clickListener();
         getBundleData();
-        setUpNotesList();
     }
 
     private void clickListener() {
@@ -117,7 +119,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
                                     recyclerView.setVisibility(View.VISIBLE);
                                     rootView.findViewById(R.id.tv_no_data).setVisibility(View.GONE);
                                     list = modelResponse.getResults();
-                                    notesViewAdapter = new NotesViewAdapter(mActivity, list);
+                                    notesViewAdapter = new NotesViewAdapter(mActivity, list, NotesFragment.this);
                                     recyclerView.setAdapter(notesViewAdapter);
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
@@ -165,6 +167,102 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    public void addToCart(String noteId, int position) {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.NOTE_ID, noteId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_NOTE_CART, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optString("notification").equalsIgnoreCase("Success")) {
+                                list.get(position).setCartAddFlag(true);
+                                if (notesViewAdapter != null)
+                                    notesViewAdapter.notifyDataSetChanged();
+                                setCartCount();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    public void removeCart(String noteId, int position) {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.NOTE_ID, noteId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_NOTE_CART, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                list.get(position).setCartAddFlag(false);
+                                if (notesViewAdapter != null)
+                                    notesViewAdapter.notifyDataSetChanged();
+                                setCartCount();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void setCartCount() {
+        if (list != null) {
+            if (list.size() > 0) {
+                int count = 0;
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getCartAddFlag())
+                        count = count + 1;
+                }
+                ((HomeActivity) getActivity()).showCartCount(String.valueOf(count));
+            }
+        }
+    }
 
     @Override
     public void onClick(View view) {

@@ -133,9 +133,10 @@
                             android:background="@drawable/circle_white">
 
                             <com.rajasahabacademy.views.RegularTextView
+                                android:id="@+id/tv_cart_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="10"
+                                android:text=""
                                 android:layout_centerInParent="true"
                                 android:textColor="@color/primary_text_color"
                                 android:textSize="@dimen/text_8"/>

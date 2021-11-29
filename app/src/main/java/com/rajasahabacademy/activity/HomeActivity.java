@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     ShimmerFrameLayout homeCategoryShimmer;
     private Timer timer;
     EditText etSearch;
+    RelativeLayout cartLay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,6 +199,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         refundCancellationLay.setOnClickListener(this);
         LinearLayout notesLay = findViewById(R.id.left_menu_notes_lay);
         notesLay.setOnClickListener(this);
+
+        cartLay = findViewById(R.id.cart_lay);
+        cartLay.setOnClickListener(this);
 
         homeCategoryShimmer = findViewById(R.id.home_category_shimmer);
     }
@@ -445,11 +449,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             bottomNavigationLay.setVisibility(View.GONE);
     }
 
-    public void showHideCart(boolean flag){
-        RelativeLayout cartLay = findViewById(R.id.cart_lay);
+    public void showHideCart(boolean flag) {
         if (flag)
             cartLay.setVisibility(View.VISIBLE);
         else cartLay.setVisibility(View.GONE);
+    }
+
+    public void showCartCount(String count) {
+        RelativeLayout cartCountLay = findViewById(R.id.cart_count_lay);
+        TextView tvCartCount = findViewById(R.id.tv_cart_count);
+        tvCartCount.setText(count);
+        if (count.equalsIgnoreCase("0"))
+            cartCountLay.setVisibility(View.GONE);
+        else cartCountLay.setVisibility(View.VISIBLE);
     }
 
     public void exitAppPopup() {
@@ -724,18 +736,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.notification_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, NotificationActivity.class);
-        }else if (id == R.id.left_menu_my_save_video_lay) {
+        } else if (id == R.id.left_menu_my_save_video_lay) {
             performMenuActionDelay();
-            Utils.startActivity(mActivity,MySavedVideoActivity.class);
-        }else if (id == R.id.left_menu_my_save_ebook_lay) {
+            Utils.startActivity(mActivity, MySavedVideoActivity.class);
+        } else if (id == R.id.left_menu_my_save_ebook_lay) {
             performMenuActionDelay();
-            Utils.startActivity(mActivity,MySaveEbookActivity.class);
-        }else if (id == R.id.left_menu_bookmark_lay){
+            Utils.startActivity(mActivity, MySaveEbookActivity.class);
+        } else if (id == R.id.left_menu_bookmark_lay) {
             performMenuActionDelay();
-            Utils.startActivity(mActivity,BookmarkActivity.class);
-        }else if (id == R.id.left_menu_bookmark_video_lay){
+            Utils.startActivity(mActivity, BookmarkActivity.class);
+        } else if (id == R.id.left_menu_bookmark_video_lay) {
             performMenuActionDelay();
-            Utils.startActivity(mActivity,BookmarkVideoActivity.class);
+            Utils.startActivity(mActivity, BookmarkVideoActivity.class);
+        }else if (id == R.id.cart_lay){
+            Utils.startActivity(mActivity, CartActivity.class);
         }
     }
 }

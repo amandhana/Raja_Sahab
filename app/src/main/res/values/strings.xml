@@ -24,6 +24,7 @@
     <string name="ebook_path_valid">Ebook path is blank</string>
     <string name="ebook_path_error">Failed to laod</string>
     <string name="cancel">Cancel</string>
+    <string name="buy_all">Buy All</string>
     <string name="course_paid_validation">Please buy course first!!</string>
     <string name="course_id_empty">Course id blank</string>
     <string name="successfully">Successfully</string>
@@ -208,6 +209,8 @@
     <string name="no_ebook">No Ebook</string>
     <string name="notes_list">Notes List</string>
     <string name="view">View</string>
+    <string name="add_cart">Add Cart</string>
+    <string name="remove_cart">Remove Cart</string>
 
     <!--Video-->
     <string name="no_video">No Video</string>

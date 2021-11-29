@@ -75,6 +75,8 @@ public class Constants {
         public static final String TIME_TAKEN = "time_taken";
         public static final String VIDEO_ID = "video_id";
         public static final String LAST_ID = "last_id";
+        public static final String NOTE_ID = "note_id";
+        public static final String NOTES = "notes";
 
     }
 
@@ -142,6 +144,10 @@ public class Constants {
         public static final String REMOVE_BOOKMARK_VIDEO = BASE_URL + "remove_bookmark_video";
         public static final String GET_BOOKMARK_VIDEO = BASE_URL + "get_bookmark_video";
         public static final String GET_COUPONS = BASE_URL + "get_coupons";
+        public static final String ADD_NOTE_CART = BASE_URL + "add_note_carts";
+        public static final String REMOVE_NOTE_CART = BASE_URL + "remove_note_cart";
+        public static final String GET_NOTE_CART = BASE_URL + "note_carts";
+        public static final String ADD_NOTE_ORDER = BASE_URL + "add_note_order";
     }
 
     public static class AppSaveData {

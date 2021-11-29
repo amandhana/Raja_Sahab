@@ -1,20 +1,10 @@
 
-package com.rajasahabacademy.model.notes;
+package com.rajasahabacademy.model.cart;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResultNotes {
-
-    boolean cartAddFlag = false;
-
-    public boolean getCartAddFlag() {
-        return cartAddFlag;
-    }
-
-    public void setCartAddFlag(boolean cartAddFlag) {
-        this.cartAddFlag = cartAddFlag;
-    }
+public class Result {
 
     @SerializedName("id")
     @Expose
@@ -22,9 +12,6 @@ public class ResultNotes {
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("paid")
-    @Expose
-    private String paid;
     @SerializedName("description")
     @Expose
     private Object description;
@@ -46,6 +33,9 @@ public class ResultNotes {
     @SerializedName("category_id")
     @Expose
     private String categoryId;
+    @SerializedName("price")
+    @Expose
+    private String price;
 
     public String getId() {
         return id;
@@ -57,18 +47,8 @@ public class ResultNotes {
 
     public String getTitle() {
         if (title == null)
-            return "Empty name";
-        return title;
-    }
-
-    public String getPaid() {
-        if (paid == null)
             return "";
-        return paid;
-    }
-
-    public void setPaid(String paid) {
-        this.paid = paid;
+        return title;
     }
 
     public void setTitle(String title) {
@@ -84,8 +64,6 @@ public class ResultNotes {
     }
 
     public String getPath() {
-        if (path == null)
-            return "";
         return path;
     }
 
@@ -94,6 +72,8 @@ public class ResultNotes {
     }
 
     public String getThumbnail() {
+        if (thumbnail == null)
+            return "";
         return thumbnail;
     }
 
@@ -131,6 +111,20 @@ public class ResultNotes {
 
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public String getPrice() {
+        if (price == null)
+            return "0";
+        else if (price.equals("0.00") || price.equals("0.0")) {
+            int priceD = (int) Double.parseDouble(price);
+            return String.valueOf(priceD);
+        }
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }
