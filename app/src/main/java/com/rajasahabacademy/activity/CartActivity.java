@@ -95,11 +95,13 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                                     tvBuyAll.setVisibility(View.VISIBLE);
                                     findViewById(R.id.tv_no_data).setVisibility(View.GONE);
                                     list = modelResponse.getResults();
+                                    Constants.AppSaveData.homeCartCount = String.valueOf(list.size());
                                     recyclerView.setAdapter(new CartAdapter(mActivity, list));
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
                                     tvBuyAll.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                                    Constants.AppSaveData.homeCartCount = "0";
                                 }
                             } else {
                                 recyclerView.setVisibility(View.GONE);

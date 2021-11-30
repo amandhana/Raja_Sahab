@@ -6,22 +6,26 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResultNotes {
 
-    boolean cartAddFlag = false;
-
-    public boolean getCartAddFlag() {
-        return cartAddFlag;
-    }
-
-    public void setCartAddFlag(boolean cartAddFlag) {
-        this.cartAddFlag = cartAddFlag;
-    }
-
     @SerializedName("id")
     @Expose
     private String id;
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("is_cart")
+    @Expose
+    private String isCart;
+
+    public String getIsCart() {
+        if (isCart == null)
+            return "";
+        return isCart;
+    }
+
+    public void setIsCart(String isCart) {
+        this.isCart = isCart;
+    }
+
     @SerializedName("paid")
     @Expose
     private String paid;

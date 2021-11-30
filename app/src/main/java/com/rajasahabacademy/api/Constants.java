@@ -154,6 +154,7 @@ public class Constants {
         public static PhoneAuthProvider.ForceResendingToken token = null;
         public static ContentResponse contentResponse = null;
         public static List<Question> viewSolutionList = null;
+        public static String homeCartCount = "0";
     }
 
 }

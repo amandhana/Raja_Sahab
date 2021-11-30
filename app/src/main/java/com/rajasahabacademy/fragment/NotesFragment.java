@@ -95,6 +95,8 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
 
     private void setUpNotesList() {
         if (Utils.isNetworkAvailable(mActivity)) {
+            notesShimmer.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
             notesShimmer.startShimmer();
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
@@ -111,6 +113,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
                 @Override
                 public void onResponse(int requestCode, String response) {
                     notesShimmer.setVisibility(View.GONE);
+                    ((HomeActivity) getActivity()).showCartCount();
                     try {
                         if (response != null && !response.equals("")) {
                             NotesResponse modelResponse = (NotesResponse) Utils.getObject(response, NotesResponse.class);
@@ -121,6 +124,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
                                     list = modelResponse.getResults();
                                     notesViewAdapter = new NotesViewAdapter(mActivity, list, NotesFragment.this);
                                     recyclerView.setAdapter(notesViewAdapter);
+                                    setCartCount();
                                 } else {
                                     recyclerView.setVisibility(View.GONE);
                                     rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
@@ -189,7 +193,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
                         if (response != null && !response.equals("")) {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.optString("notification").equalsIgnoreCase("Success")) {
-                                list.get(position).setCartAddFlag(true);
+                                list.get(position).setIsCart("1");
                                 if (notesViewAdapter != null)
                                     notesViewAdapter.notifyDataSetChanged();
                                 setCartCount();
@@ -231,7 +235,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
                         if (response != null && !response.equals("")) {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.optBoolean("success")) {
-                                list.get(position).setCartAddFlag(false);
+                                list.get(position).setIsCart("0");
                                 if (notesViewAdapter != null)
                                     notesViewAdapter.notifyDataSetChanged();
                                 setCartCount();
@@ -256,10 +260,11 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
             if (list.size() > 0) {
                 int count = 0;
                 for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).getCartAddFlag())
+                    if (list.get(i).getIsCart().equalsIgnoreCase("1"))
                         count = count + 1;
                 }
-                ((HomeActivity) getActivity()).showCartCount(String.valueOf(count));
+                Constants.AppSaveData.homeCartCount = String.valueOf(count);
+                ((HomeActivity) getActivity()).showCartCount();
             }
         }
     }

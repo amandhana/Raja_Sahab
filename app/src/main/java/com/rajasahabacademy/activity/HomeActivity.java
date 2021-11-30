@@ -455,11 +455,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         else cartLay.setVisibility(View.GONE);
     }
 
-    public void showCartCount(String count) {
+    public void showCartCount() {
         RelativeLayout cartCountLay = findViewById(R.id.cart_count_lay);
         TextView tvCartCount = findViewById(R.id.tv_cart_count);
-        tvCartCount.setText(count);
-        if (count.equalsIgnoreCase("0"))
+        tvCartCount.setText(Constants.AppSaveData.homeCartCount);
+        if (Constants.AppSaveData.homeCartCount.equalsIgnoreCase("0"))
             cartCountLay.setVisibility(View.GONE);
         else cartCountLay.setVisibility(View.VISIBLE);
     }

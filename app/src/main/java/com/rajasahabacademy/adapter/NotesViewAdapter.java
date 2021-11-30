@@ -55,7 +55,7 @@ public class NotesViewAdapter extends RecyclerView.Adapter<NotesViewAdapter.View
             viewHolder.tvView.setVisibility(View.VISIBLE);
             viewHolder.tvAddCart.setVisibility(View.GONE);
         }
-        if (list.get(position).getCartAddFlag())
+        if (list.get(position).getIsCart().equalsIgnoreCase("1"))
             viewHolder.tvAddCart.setText(context.getString(R.string.remove_cart));
         else viewHolder.tvAddCart.setText(context.getString(R.string.add_cart));
 
