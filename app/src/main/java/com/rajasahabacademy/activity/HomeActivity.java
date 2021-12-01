@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         startTimer();
         applyFilter();
         setHomePress();
+        setWalletAmount();
     }
 
     @Override
@@ -224,6 +225,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
         tvUserName.setText(upperString);
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
+    }
+
+    public void setWalletAmount(){
+        TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);
+        tvWalletAmount.setText(getString(R.string.rank_format,"Wallet Amount : ",Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
     }
 
     private String getFirstCharOfName() {

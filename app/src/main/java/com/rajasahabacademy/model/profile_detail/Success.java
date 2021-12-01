@@ -57,6 +57,9 @@ public class Success {
     @SerializedName("education")
     @Expose
     private String education;
+    @SerializedName("wallet")
+    @Expose
+    private String wallet;
 
     public String getState() {
         if (state == null)
@@ -290,4 +293,13 @@ public class Success {
         this.ip = ip;
     }
 
+    public String getWallet() {
+        if (wallet == null)
+            return "0.0";
+        return wallet;
+    }
+
+    public void setWallet(String wallet) {
+        this.wallet = wallet;
+    }
 }

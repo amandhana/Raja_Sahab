@@ -27,6 +27,8 @@ import com.rajasahabacademy.model.home.HomeSliderResponse;
 import com.rajasahabacademy.model.home.latest_course.Course;
 import com.rajasahabacademy.model.home.latest_course.HomeLatestCourseResponse;
 import com.rajasahabacademy.model.home.latest_course.Video;
+import com.rajasahabacademy.model.login.LoginResponse;
+import com.rajasahabacademy.model.profile_detail.ProfileDetailResponse;
 import com.rajasahabacademy.support.Utils;
 import com.rd.PageIndicatorView;
 
@@ -78,6 +80,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         ((HomeActivity) mActivity).showHideCart(false);
         ((HomeActivity) mActivity).resetAllBottom("Home");
         setUpLatestCourse();
+        getWalletAmount();
     }
 
     private void init() {
@@ -225,6 +228,48 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
+
+    private void getWalletAmount() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.PROFILE_DETAIL, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            ProfileDetailResponse modelResponse = (ProfileDetailResponse) Utils.getObject(response, ProfileDetailResponse.class);
+                            if (modelResponse != null && modelResponse.getSuccess() != null) {
+                                LoginResponse loginResponse = Utils.getSaveLoginUser(mActivity);
+                                loginResponse.getResults().setWallet(modelResponse.getSuccess().getWallet());
+                                Utils.saveLoginUser(mActivity,loginResponse);
+                                ((HomeActivity)mActivity).setWalletAmount();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, error.getLocalizedMessage());
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
 
     public List<Course> getHomeLatestCourseList() {
         return listCourses;

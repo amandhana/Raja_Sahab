@@ -100,6 +100,7 @@ public class Constants {
         public static final String FROM_WHERE_VALUE = "notification";
         public static final String FROM_WHERE_VALUE_SLIDER = "slider";
         public static final String OFFLINE_FILE = "offline_file";
+        public static final String WALLET_AMOUNT = "wallet_amount";
     }
 
     public static class Payment{

@@ -29,6 +29,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     Activity mActivity;
     TextView tvTotalAmount;
     TextView tvPaybleAmount;
+    String walletAmount = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     private void getIntentData() {
         String totalAmountStr = getIntent().getStringExtra(Constants.Course.TOTAL_AMOUNT);
+        if (getIntent().getStringExtra(Constants.Course.WALLET_AMOUNT) != null)
+            walletAmount = getIntent().getStringExtra(Constants.Course.WALLET_AMOUNT);
         tvTotalAmount.setText(totalAmountStr);
         tvPaybleAmount.setText(totalAmountStr);
     }
@@ -150,7 +153,9 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onPaymentSuccess(String s) {
         Intent intent = new Intent();
-        setResult(RESULT_OK,intent);
+        intent.putExtra(Constants.Course.WALLET_AMOUNT,walletAmount);
+        intent.putExtra(Constants.Course.TOTAL_AMOUNT,tvTotalAmount.getText().toString());
+        setResult(RESULT_OK, intent);
         onBackPressed();
     }
 

@@ -44,7 +44,6 @@
 
             </RelativeLayout>
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +73,22 @@
 
             </RelativeLayout>
 
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_wallet_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Wallet Amount : 100"
+                android:paddingStart="@dimen/m10"
+                android:paddingEnd="@dimen/m10"
+                android:paddingTop="@dimen/m5"
+                android:paddingBottom="@dimen/m5"
+                android:layout_marginEnd="@dimen/m10"
+                android:layout_marginBottom="@dimen/m5"
+                android:textSize="@dimen/text_13"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"/>
+
             <RelativeLayout
                 android:id="@+id/back_lay_left_menu"
                 android:layout_width="@dimen/m30"
@@ -90,6 +105,7 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_arrow_back" />
             </RelativeLayout>
+
         </RelativeLayout>
 
         <View
@@ -418,6 +434,38 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
                 android:text="@string/bookmark_video"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+
+        <LinearLayout
+            android:id="@+id/left_menu_research_lay_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_courses"
+                android:backgroundTint="@color/colorPrimaryVariant"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/research_paper"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_15" />
 

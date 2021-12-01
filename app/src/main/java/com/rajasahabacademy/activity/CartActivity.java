@@ -1,5 +1,7 @@
 package com.rajasahabacademy.activity;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +16,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +40,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     Activity mActivity;
     TextView tvBuyAll;
     List<Result> list;
+    ActivityResultLauncher<Intent> someActivityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         mActivity = this;
         clickListener();
         setUpCartList();
+        handleOnActivityResult();
     }
 
     private void clickListener() {
@@ -65,6 +70,19 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         cvBack.setOnClickListener(this);
         tvBuyAll = findViewById(R.id.tv_buy_all);
         tvBuyAll.setOnClickListener(this);
+    }
+
+    private void handleOnActivityResult() {
+        someActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        String paybleAmount = data.getStringExtra(Constants.Course.TOTAL_AMOUNT);
+                        String remainWalletAmount = data.getStringExtra(Constants.Course.WALLET_AMOUNT);
+                        buyAllApi(Integer.parseInt(paybleAmount),Integer.parseInt(remainWalletAmount),"upi");
+                    }
+                });
     }
 
     private void setUpCartList() {
@@ -194,7 +212,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
-    private void buyAllApi() {
+    private void buyAllApi(int paybleAmount,int walletAmount,String paymentType) {
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
@@ -235,9 +253,58 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
+    private void startPayment() {
+        try {
+            final Dialog dialog = new Dialog(mActivity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.toast_popup_wallet);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            dialog.setCanceledOnTouchOutside(false);
+
+            RelativeLayout walletLay = dialog.findViewById(R.id.wallet_lay);
+            TextView tvUpi = dialog.findViewById(R.id.tv_upi);
+            TextView tvWallet = dialog.findViewById(R.id.tv_wallet);
+            tvWallet.setText(Utils.getSaveLoginUser(mActivity).getResults().getWallet());
+
+            int walletAmount = (int) Double.parseDouble(tvWallet.getText().toString());
+
+
+            walletLay.setOnClickListener(v -> {
+                dialog.dismiss();
+                if (walletAmount == 0 || walletAmount < 0)
+                    Toast.makeText(mActivity, "Wallet amount is 0", Toast.LENGTH_SHORT).show();
+                else if (walletAmount < getPaybleAmount())
+                    Toast.makeText(mActivity, "Wallet amount is less than payble amount", Toast.LENGTH_SHORT).show();
+                else if (walletAmount == getPaybleAmount()) {
+                    int remainWalletAmount = walletAmount - getPaybleAmount();
+                    buyAllApi(getPaybleAmount(),remainWalletAmount,"wallet");
+                }
+                else{
+                    int remainWalletAmount = walletAmount - getPaybleAmount();
+                    buyAllApi(getPaybleAmount(),remainWalletAmount,"wallet");
+                }
+            });
+
+            tvUpi.setOnClickListener(v -> {
+                dialog.dismiss();
+                Intent intent = new Intent(this, PaymentActivity.class);
+                intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+                intent.putExtra(Constants.Course.WALLET_AMOUNT, String.valueOf(walletAmount));
+                someActivityResultLauncher.launch(intent);
+            });
+
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     @Override
     public void onPaymentSuccess(String s) {
-        buyAllApi();
+
     }
 
     @Override
@@ -250,6 +317,6 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.cv_back) {
             onBackPressed();
         } else if (view.getId() == R.id.tv_buy_all)
-            Utils.startPayment(mActivity, getPaybleAmount());
+            startPayment();
     }
 }

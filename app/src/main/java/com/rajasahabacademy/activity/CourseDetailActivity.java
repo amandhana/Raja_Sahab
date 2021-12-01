@@ -12,10 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -34,6 +38,7 @@ import com.rajasahabacademy.model.course.course_subject.CourseSubjectResponse;
 import com.rajasahabacademy.model.home.latest_course.Course;
 import com.rajasahabacademy.support.Utils;
 import com.rajasahabacademy.support.ViewUtils;
+import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
@@ -272,7 +277,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         return (int) amountD;
     }
 
-    private void buyNowCourse() {
+    private void buyNowCourse(int paybleAmount,int remainWalletAmount,String paymentType) {
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
@@ -323,9 +328,60 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        buyNowCourse();
+                        Intent data = result.getData();
+                        String paybleAmount = data.getStringExtra(Constants.Course.TOTAL_AMOUNT);
+                        String remainWalletAmount = data.getStringExtra(Constants.Course.WALLET_AMOUNT);
+                        buyNowCourse(Integer.parseInt(paybleAmount),Integer.parseInt(remainWalletAmount),"upi");
                     }
                 });
+    }
+
+    private void startPayment() {
+        try {
+            final Dialog dialog = new Dialog(mActivity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.toast_popup_wallet);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            dialog.setCanceledOnTouchOutside(false);
+
+            RelativeLayout walletLay = dialog.findViewById(R.id.wallet_lay);
+            TextView tvUpi = dialog.findViewById(R.id.tv_upi);
+            TextView tvWallet = dialog.findViewById(R.id.tv_wallet);
+            tvWallet.setText(Utils.getSaveLoginUser(mActivity).getResults().getWallet());
+
+            int walletAmount = (int) Double.parseDouble(tvWallet.getText().toString());
+
+
+            walletLay.setOnClickListener(v -> {
+                dialog.dismiss();
+                if (walletAmount == 0 || walletAmount < 0)
+                    Toast.makeText(mActivity, "Wallet amount is 0", Toast.LENGTH_SHORT).show();
+                else if (walletAmount < getPaybleAmount())
+                    Toast.makeText(mActivity, "Wallet amount is less than payble amount", Toast.LENGTH_SHORT).show();
+                else if (walletAmount == getPaybleAmount()) {
+                    int remainWalletAmount = walletAmount - getPaybleAmount();
+                    buyNowCourse(getPaybleAmount(),remainWalletAmount,"wallet");
+                }
+                else{
+                    int remainWalletAmount = walletAmount - getPaybleAmount();
+                    buyNowCourse(getPaybleAmount(),remainWalletAmount,"wallet");
+                }
+            });
+
+            tvUpi.setOnClickListener(v -> {
+                dialog.dismiss();
+                Intent intent = new Intent(this, PaymentActivity.class);
+                intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+                intent.putExtra(Constants.Course.WALLET_AMOUNT, String.valueOf(walletAmount));
+                someActivityResultLauncher.launch(intent);
+            });
+
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -337,10 +393,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             showHideVideoSubjectList();
         } else if (id == R.id.pdf_lay) {
             showHidePdfSubjectList();
-        } else if (id == R.id.buy_now_lay) {
-            Intent intent = new Intent(this, PaymentActivity.class);
-            intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
-            someActivityResultLauncher.launch(intent);
-        }
+        } else if (id == R.id.buy_now_lay)
+            startPayment();
     }
 }
