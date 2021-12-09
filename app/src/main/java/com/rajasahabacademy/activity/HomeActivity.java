@@ -172,6 +172,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftMenuSavedEbooklay.setOnClickListener(this);
         LinearLayout leftmenuprofilelay = findViewById(R.id.left_menu_my_profile_lay);
         leftmenuprofilelay.setOnClickListener(this);
+        LinearLayout leftmenuResearchPaperlay = findViewById(R.id.left_menu_research_lay_lay);
+        leftmenuResearchPaperlay.setOnClickListener(this);
         RelativeLayout leftmenubacklay = findViewById(R.id.back_lay_left_menu);
         leftmenubacklay.setOnClickListener(this);
         LinearLayout leftliveclasslay = findViewById(R.id.left_menu_live_classes_lay);
@@ -222,8 +224,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             tvFirstName.setText(getFirstCharOfName());
         }
         String userNameStr = Utils.getSaveLoginUser(mActivity).getResults().getName();
-        String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
-        tvUserName.setText(upperString);
+      //  String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
+       // tvUserName.setText(upperString);
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
 
@@ -727,6 +729,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.left_about_us_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, AboutUsActivity.class);
+            performMenuActionDelay();
+        }else if (id == R.id.left_menu_research_lay_lay) {
+            setBlankSearch();
+            Utils.startActivity(mActivity, ResearchPaperActivity.class);
             performMenuActionDelay();
         } else if (id == R.id.left_terms_conditions_lay) {
             setBlankSearch();

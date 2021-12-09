@@ -22,8 +22,15 @@
         android:roundIcon="@drawable/ic_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
-        <activity android:name=".activity.PaymentActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".activity.ResearchPaperDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ResearchPaperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.BookmarkVideoActivity"
             android:exported="true" />
