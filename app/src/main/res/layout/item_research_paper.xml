@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m80"
+        android:layout_margin="@dimen/m15"
+        android:elevation="@dimen/m10"
+        app:cardCornerRadius="@dimen/m10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_research_paper_image"
+                android:layout_width="@dimen/m110"
+                android:layout_height="match_parent"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_research_paper_thumbnail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/dummy_avani"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_research_paper_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_toEndOf="@+id/cv_research_paper_image"
+                android:maxLines="2"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_14" />
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_buy_now_home"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/tv_research_paper_title"
+                android:layout_height="@dimen/m30"
+                android:layout_toStartOf="@+id/tv_research_paper_title"
+                android:layout_marginStart="@dimen/m5"
+                android:background="@drawable/bg_button_5"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/m5"
+                android:layout_marginEnd="@dimen/m10"
+                android:layout_alignParentEnd="true"
+                android:paddingStart="@dimen/m20"
+                android:paddingEnd="@dimen/m20"
+                android:text="@string/view"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_12" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
