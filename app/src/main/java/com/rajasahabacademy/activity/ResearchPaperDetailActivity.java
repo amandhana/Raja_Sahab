@@ -1,6 +1,7 @@
 package com.rajasahabacademy.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -23,9 +24,16 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
         init();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Utils.hideKeyboard(mActivity);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
     private void init() {
         mActivity = this;
-        ImageView ivPdfLock = findViewById(R.id.iv_pdf_lock);
+        setClickListener();
         ImageView ivImage = findViewById(R.id.iv_image);
         Utils.setImageUsingGlide(mActivity, getIntent().getStringExtra(Constants.ResearchPaper.THUMBNAIL), ivImage);
         tvBuyNow = findViewById(R.id.tv_buy_now);
@@ -33,13 +41,18 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
         Utils.setHtmlText(getIntent().getStringExtra(Constants.ResearchPaper.DESCRIPTION), tvDescription);
 
         if (getIntent().getStringExtra(Constants.ResearchPaper.STATUS).equals("0")) {
-            ivPdfLock.setVisibility(View.VISIBLE);
             tvBuyNow.setText("Buy Now");
         } else {
-            ivPdfLock.setVisibility(View.GONE);
             tvBuyNow.setText("View");
         }
         tvBuyNow.setOnClickListener(this);
+    }
+
+    private void setClickListener() {
+        CardView cvBack = findViewById(R.id.cv_back);
+        cvBack.setOnClickListener(this);
+        ImageView ivCart = findViewById(R.id.iv_research_cart);
+        ivCart.setOnClickListener(this);
     }
 
     private void buyNow() {
@@ -58,7 +71,12 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.tv_buy_now)
+        if (id == R.id.tv_buy_now) {
             buyNow();
+        } else if (id == R.id.cv_back) {
+            onBackPressed();
+        }else if (id == R.id.iv_research_cart) {
+            Utils.startActivity(mActivity, ResearchCartActivity.class);
+        }
     }
 }

@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
         <activity
+            android:name=".activity.ResearchCartActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ResearchPaperDetailActivity"
             android:exported="false" />
         <activity

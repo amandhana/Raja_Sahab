@@ -55,9 +55,10 @@ public class MySaveEbookActivity extends AppCompatActivity implements View.OnCli
         try {
             String path = Environment.getExternalStorageDirectory() + "/Ebook";
             File directory = new File(path);
-            File[] files = directory.listFiles();
-            assert files != null;
-            return new ArrayList<>(Arrays.asList(files).subList(0, Objects.requireNonNull(files).length));
+            if (directory.exists()) {
+                File[] files = directory.listFiles();
+                return new ArrayList<>(Arrays.asList(files).subList(0, Objects.requireNonNull(files).length));
+            }else return new ArrayList<>();
         }catch (Exception e){
             e.printStackTrace();
             return new ArrayList<>();

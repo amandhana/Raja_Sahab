@@ -9,8 +9,9 @@
 
     <LinearLayout
         android:id="@+id/header_lay"
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m50">
+        android:layout_height="@dimen/m60">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_back"
@@ -44,7 +45,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/m20"
             android:text="@string/research_paper"
-            android:textColor="@color/primary_text_color"
+            android:textColor="@color/white"
             android:textSize="@dimen/text_18" />
 
 
