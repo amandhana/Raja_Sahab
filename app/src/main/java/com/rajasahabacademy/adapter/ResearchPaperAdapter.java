@@ -53,6 +53,7 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
             intent.putExtra(Constants.ResearchPaper.STATUS, list.get(position).getStatus());
             intent.putExtra(Constants.ResearchPaper.TITLE, list.get(position).getTitle());
             intent.putExtra(Constants.ResearchPaper.PATH, list.get(position).getPath());
+            intent.putExtra(Constants.ResearchPaper.THUMBNAIL, list.get(position).getThumbnail());
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation(context, viewHolder.ivImage, context.getResources().getString(R.string.course_image_transition));
             context.startActivity(intent, options.toBundle());

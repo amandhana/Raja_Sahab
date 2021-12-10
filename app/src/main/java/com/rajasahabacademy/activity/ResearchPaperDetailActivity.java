@@ -26,15 +26,17 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
     private void init() {
         mActivity = this;
         ImageView ivPdfLock = findViewById(R.id.iv_pdf_lock);
+        ImageView ivImage = findViewById(R.id.iv_image);
+        Utils.setImageUsingGlide(mActivity, getIntent().getStringExtra(Constants.ResearchPaper.THUMBNAIL), ivImage);
         tvBuyNow = findViewById(R.id.tv_buy_now);
         TextView tvDescription = findViewById(R.id.tv_research_paper_description);
         Utils.setHtmlText(getIntent().getStringExtra(Constants.ResearchPaper.DESCRIPTION), tvDescription);
 
         if (getIntent().getStringExtra(Constants.ResearchPaper.STATUS).equals("0")) {
-            ivPdfLock.setVisibility(View.GONE);
+            ivPdfLock.setVisibility(View.VISIBLE);
             tvBuyNow.setText("Buy Now");
         } else {
-            ivPdfLock.setVisibility(View.VISIBLE);
+            ivPdfLock.setVisibility(View.GONE);
             tvBuyNow.setText("View");
         }
         tvBuyNow.setOnClickListener(this);

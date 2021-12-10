@@ -57,11 +57,11 @@
                 android:id="@+id/tv_add_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/m20"
-                android:text="Add Cart"
-                android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/m15"
+                android:text="Add Cart"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_18" />
 

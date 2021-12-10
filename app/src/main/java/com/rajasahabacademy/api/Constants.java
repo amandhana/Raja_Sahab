@@ -46,6 +46,7 @@ public class Constants {
         public static final String DESCRIPTION = "description";
         public static final String STATUS = "status";
         public static final String PATH = "path";
+        public static final String THUMBNAIL = "thumbnail";
         public static final String TITLE = "title";
         public static final String IS_CART = "is_cart";
     }
