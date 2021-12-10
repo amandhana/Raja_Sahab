@@ -47,12 +47,23 @@
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text_18" />
 
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_research_paper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_data"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone" />
 
 
 </LinearLayout>

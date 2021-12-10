@@ -42,6 +42,13 @@ public class Constants {
         public static final String FROM_WHERE = "from_where";
         public static final String FROM_WHERE_VALUE = "notification";
     }
+    public static class ResearchPaper {
+        public static final String DESCRIPTION = "description";
+        public static final String STATUS = "status";
+        public static final String PATH = "path";
+        public static final String TITLE = "title";
+        public static final String IS_CART = "is_cart";
+    }
 
     public static class ViewSolution {
         public static final String LIST = "attempted_list";
@@ -149,6 +156,7 @@ public class Constants {
         public static final String REMOVE_NOTE_CART = BASE_URL + "remove_note_cart";
         public static final String GET_NOTE_CART = BASE_URL + "note_carts";
         public static final String ADD_NOTE_ORDER = BASE_URL + "add_note_order";
+        public static final String RESEARCH_PAPER_LIST = BASE_URL + "researches";
     }
 
     public static class AppSaveData {

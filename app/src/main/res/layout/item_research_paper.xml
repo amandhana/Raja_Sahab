@@ -30,9 +30,7 @@
                         android:id="@+id/iv_research_paper_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/dummy_avani"
                         android:contentDescription="@string/app_name" />
-
 
                 </RelativeLayout>
 
@@ -47,12 +45,12 @@
                 android:layout_marginTop="@dimen/m10"
                 android:layout_toEndOf="@+id/cv_research_paper_image"
                 android:maxLines="2"
-                android:text="@string/app_name"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_14" />
 
             <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_buy_now_home"
+                android:id="@+id/tv_view"
                 android:layout_width="wrap_content"
                 android:layout_below="@+id/tv_research_paper_title"
                 android:layout_height="@dimen/m30"

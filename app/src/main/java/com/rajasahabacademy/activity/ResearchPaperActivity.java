@@ -9,8 +9,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.adapter.CourseDetailPdfAdapter;
+import com.rajasahabacademy.adapter.CourseDetailVideoAdapter;
 import com.rajasahabacademy.adapter.ResearchPaperAdapter;
+import com.rajasahabacademy.api.Communicator;
+import com.rajasahabacademy.api.Constants;
+import com.rajasahabacademy.api.CustomResponseListener;
+import com.rajasahabacademy.model.course.course_subject.CourseSubjectResponse;
+import com.rajasahabacademy.model.research_paper.ResearchPaperResponse;
 import com.rajasahabacademy.support.Utils;
 
 public class ResearchPaperActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,7 +53,49 @@ public class ResearchPaperActivity extends AppCompatActivity implements View.OnC
     private void setResearchPaperView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_research_paper);
         recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(new ResearchPaperAdapter(mActivity));
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.RESEARCH_PAPER_LIST, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            ResearchPaperResponse modelResponse = (ResearchPaperResponse) Utils.getObject(response, ResearchPaperResponse.class);
+                            if (modelResponse != null && modelResponse.getResults().size() > 0){
+                                recyclerView.setVisibility(View.VISIBLE);
+                                findViewById(R.id.tv_no_data).setVisibility(View.GONE);
+                                recyclerView.setAdapter(new ResearchPaperAdapter(mActivity,modelResponse.getResults()));
+                            }else{
+                                recyclerView.setVisibility(View.GONE);
+                                findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        recyclerView.setVisibility(View.GONE);
+                        findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    recyclerView.setVisibility(View.GONE);
+                    findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+
     }
 
     @Override
