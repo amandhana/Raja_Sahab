@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
@@ -47,6 +48,8 @@ public class ResearchPaperActivity extends AppCompatActivity implements View.OnC
     private void setClickListener() {
         CardView cvBack = findViewById(R.id.cv_back);
         cvBack.setOnClickListener(this);
+        ImageView ivCart = findViewById(R.id.iv_research_cart);
+        ivCart.setOnClickListener(this);
     }
 
 
@@ -102,5 +105,8 @@ public class ResearchPaperActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view.getId() == R.id.cv_back)
             onBackPressed();
+        else if (view.getId() == R.id.iv_research_cart) {
+            Utils.startActivity(mActivity, ResearchCartActivity.class);
+        }
     }
 }

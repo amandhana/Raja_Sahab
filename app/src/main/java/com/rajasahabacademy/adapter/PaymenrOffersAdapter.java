@@ -42,23 +42,37 @@ public class PaymenrOffersAdapter extends RecyclerView.Adapter<PaymenrOffersAdap
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         viewHolder.tvOffer.setText(list.get(position).getName());
         if (list.get(position).isApply())
-            viewHolder.tvApply.setText(context.getString(R.string.applied));
+            viewHolder.tvApply.setText(context.getString(R.string.remove));
         else viewHolder.tvApply.setText(context.getString(R.string.apply));
 
-        viewHolder.itemView.setOnClickListener(view -> {
+        viewHolder.tvApply.setOnClickListener(view -> {
             if (!list.get(position).getAmount().equals("")) {
-                ((PaymentActivity) context).applyOffer(list.get(position).getAmount());
-                resetAll(position);
+                if (viewHolder.tvApply.getText().toString().equals(context.getString(R.string.remove))) {
+                    ((PaymentActivity) context).removeOffer();
+                    resetAllOffer();
+                } else {
+                    ((PaymentActivity) context).applyOffer(list.get(position).getAmount());
+                    resetAll(position);
+                }
             } else
                 Utils.showToastPopup(context, context.getString(R.string.apply_offer_validation));
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void resetAll(int position) {
         for (Datum model : list) {
             model.setApply(false);
         }
         list.get(position).setApply(true);
+        notifyDataSetChanged();
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void resetAllOffer() {
+        for (Datum model : list) {
+            model.setApply(false);
+        }
         notifyDataSetChanged();
     }
 

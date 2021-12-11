@@ -259,6 +259,7 @@
     <string name="no_offers">No Offers</string>
     <string name="apply">Apply</string>
     <string name="applied">Applied</string>
+    <string name="remove">Remove</string>
     <string name="apply_offer_validation">Price is blank</string>
     <string name="research_paper_description">Research Paper Description</string>
     <string name="cart">Cart</string>

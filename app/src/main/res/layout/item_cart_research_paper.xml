@@ -22,9 +22,6 @@
             app:cardPreventCornerOverlap="false">
 
 
-
-
-
             <ImageView
                 android:id="@+id/iv_cart_image_research_paper"
                 android:layout_width="match_parent"

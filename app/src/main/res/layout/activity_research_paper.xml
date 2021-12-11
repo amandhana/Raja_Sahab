@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.ResearchPaperActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/header_lay"
         android:background="@color/colorPrimary"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:id="@+id/cv_back"
             android:layout_width="@dimen/m34"
             android:layout_height="@dimen/m34"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/m15"
             android:elevation="@dimen/m10"
             app:cardCornerRadius="@dimen/m17">
@@ -42,14 +42,26 @@
         <com.rajasahabacademy.views.BoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/m20"
             android:text="@string/research_paper"
+            android:layout_toEndOf="@+id/cv_back"
             android:textColor="@color/white"
             android:textSize="@dimen/text_18" />
 
+        <ImageView
+            android:id="@+id/iv_research_cart"
+            android:layout_width="@dimen/m30"
+            android:layout_height="@dimen/m30"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/m15"
+            android:background="@drawable/ic_cart"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/app_name" />
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_research_paper"

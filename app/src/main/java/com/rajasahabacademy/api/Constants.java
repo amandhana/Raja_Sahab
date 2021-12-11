@@ -49,6 +49,7 @@ public class Constants {
         public static final String THUMBNAIL = "thumbnail";
         public static final String TITLE = "title";
         public static final String IS_CART = "is_cart";
+        public static final String RESEARCH_ID = "research_id";
     }
 
     public static class ViewSolution {
@@ -85,6 +86,8 @@ public class Constants {
         public static final String LAST_ID = "last_id";
         public static final String NOTE_ID = "note_id";
         public static final String NOTES = "notes";
+        public static final String RESEARCH_ID = "research_id";
+        public static final String RESEARCHS = "researches";
 
     }
 
@@ -158,6 +161,10 @@ public class Constants {
         public static final String GET_NOTE_CART = BASE_URL + "note_carts";
         public static final String ADD_NOTE_ORDER = BASE_URL + "add_note_order";
         public static final String RESEARCH_PAPER_LIST = BASE_URL + "researches";
+        public static final String ADD_RESEARCH_CART = BASE_URL + "add_research_carts";
+        public static final String REMOVE_RESEARCH_CART = BASE_URL + "remove_research_cart";
+        public static final String RESEARCH_CART_LIST = BASE_URL + "researches_carts";
+        public static final String ADD_RESEARCH_ORDER = BASE_URL + "add_research_order";
     }
 
     public static class AppSaveData {

@@ -1,5 +1,5 @@
 
-package com.rajasahabacademy.model.research_paper;
+package com.rajasahabacademy.model.research_paper.cart;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -33,12 +33,6 @@ public class Result {
     @SerializedName("price")
     @Expose
     private String price;
-    @SerializedName("is_cart")
-    @Expose
-    private String isCart;
-    @SerializedName("paid")
-    @Expose
-    private Integer paid;
 
     public String getId() {
         return id;
@@ -59,8 +53,6 @@ public class Result {
     }
 
     public String getDescription() {
-        if (description == null)
-            return "";
         return description;
     }
 
@@ -69,8 +61,6 @@ public class Result {
     }
 
     public String getPath() {
-        if (path == null)
-            return "";
         return path;
     }
 
@@ -89,8 +79,6 @@ public class Result {
     }
 
     public String getStatus() {
-        if (status == null)
-            return "";
         return status;
     }
 
@@ -115,29 +103,17 @@ public class Result {
     }
 
     public String getPrice() {
+        if (price == null)
+            return "0";
+        else if (price.equals("0.00") || price.equals("0.0")) {
+            int priceD = (int) Double.parseDouble(price);
+            return String.valueOf(priceD);
+        }
         return price;
     }
 
     public void setPrice(String price) {
         this.price = price;
-    }
-
-    public String getIsCart() {
-        if (isCart == null)
-            return "0";
-        return isCart;
-    }
-
-    public void setIsCart(String isCart) {
-        this.isCart = isCart;
-    }
-
-    public Integer getPaid() {
-        return paid;
-    }
-
-    public void setPaid(Integer paid) {
-        this.paid = paid;
     }
 
 }

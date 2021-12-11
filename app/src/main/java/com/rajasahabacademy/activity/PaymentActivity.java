@@ -135,6 +135,10 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         tvPaybleAmount.setText(String.valueOf(paybleAmount));
     }
 
+    public void removeOffer(){
+        tvPaybleAmount.setText(tvTotalAmount.getText().toString());
+    }
+
     private int getPaybleAmount() {
         String amount = tvPaybleAmount.getText().toString();
         double amountD = Double.parseDouble(amount);

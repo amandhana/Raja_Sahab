@@ -7,39 +7,106 @@
     android:orientation="vertical"
     tools:context=".activity.ResearchPaperDetailActivity">
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/header_lay"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/m60"
-            android:background="@color/colorPrimary">
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tv_buy_now"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/header_lay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m60"
+                android:background="@color/colorPrimary">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_back"
+                    android:layout_width="@dimen/m34"
+                    android:layout_height="@dimen/m34"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m15"
+                    android:elevation="@dimen/m10"
+                    app:cardCornerRadius="@dimen/m17">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/m20"
+                            android:layout_height="@dimen/m20"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_arrow_back"
+                            android:backgroundTint="@color/primary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m20"
+                    android:layout_toEndOf="@+id/cv_back"
+                    android:text="@string/research_paper"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18" />
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:layout_marginStart="@dimen/m20"
+                    android:text="Add Cart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_15" />
+
+
+
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_back"
-                android:layout_width="@dimen/m34"
-                android:layout_height="@dimen/m34"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/m15"
+                android:id="@+id/iv_research_paper_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/m5"
+                android:layout_marginBottom="-10dp"
                 android:elevation="@dimen/m10"
-                app:cardCornerRadius="@dimen/m17">
+                app:cardCornerRadius="@dimen/m10"
+                app:cardPreventCornerOverlap="false">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/m20"
-                        android:layout_height="@dimen/m20"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/ic_arrow_back"
-                        android:backgroundTint="@color/primary_text_color"
-                        android:contentDescription="@string/app_name" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m250">
 
-                </RelativeLayout>
+                        <ImageView
+                            android:id="@+id/iv_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="fitXY"
+                            android:transitionName="@string/course_image_transition" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
 
 
             </androidx.cardview.widget.CardView>
@@ -47,80 +114,16 @@
             <com.rajasahabacademy.views.BoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/m20"
-                android:layout_toEndOf="@+id/cv_back"
-                android:text="@string/research_paper"
-                android:textColor="@color/white"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:text="@string/research_paper_description"
+                android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_18" />
 
-            <ImageView
-                android:id="@+id/iv_research_cart"
-                android:layout_width="@dimen/m30"
-                android:layout_height="@dimen/m30"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/m20"
-                android:background="@drawable/ic_cart"
-                android:backgroundTint="@color/white"
-                android:contentDescription="@string/app_name" />
-
-
-        </RelativeLayout>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/iv_research_paper_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/m5"
-            android:layout_marginBottom="-10dp"
-            android:elevation="@dimen/m10"
-            app:cardCornerRadius="@dimen/m10"
-            app:cardPreventCornerOverlap="false">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/m250">
-
-                    <ImageView
-                        android:id="@+id/iv_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/app_name"
-                        android:scaleType="fitXY"
-                        android:transitionName="@string/course_image_transition" />
-
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <com.rajasahabacademy.views.BoldTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/m10"
-            android:textColor="@color/primary_text_color"
-            android:layout_marginStart="@dimen/m10"
-            android:textSize="@dimen/text_18"
-            android:text="@string/research_paper_description"/>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/m10">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:elevation="@dimen/m10">
 
                 <com.rajasahabacademy.views.BoldTextView
                     android:id="@+id/tv_research_paper_description"
@@ -135,12 +138,11 @@
                     android:textSize="@dimen/text_14" />
 
 
-            </ScrollView>
+            </androidx.cardview.widget.CardView>
 
+        </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 
     <com.rajasahabacademy.views.BoldTextView
@@ -148,7 +150,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/m50"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/m50"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="@string/buy_now"
