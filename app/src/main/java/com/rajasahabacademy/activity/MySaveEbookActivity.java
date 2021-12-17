@@ -57,7 +57,7 @@ public class MySaveEbookActivity extends AppCompatActivity implements View.OnCli
             File directory = new File(path);
             if (directory.exists()) {
                 File[] files = directory.listFiles();
-                return new ArrayList<>(Arrays.asList(files).subList(0, Objects.requireNonNull(files).length));
+                return new ArrayList<>(Arrays.asList(Objects.requireNonNull(files)).subList(0, Objects.requireNonNull(files).length));
             }else return new ArrayList<>();
         }catch (Exception e){
             e.printStackTrace();

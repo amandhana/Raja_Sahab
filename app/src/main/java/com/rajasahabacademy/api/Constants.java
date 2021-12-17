@@ -165,6 +165,7 @@ public class Constants {
         public static final String REMOVE_RESEARCH_CART = BASE_URL + "remove_research_cart";
         public static final String RESEARCH_CART_LIST = BASE_URL + "researches_carts";
         public static final String ADD_RESEARCH_ORDER = BASE_URL + "add_research_order";
+        public static final String SHORT_VIDEOS = BASE_URL + "short_videos";
     }
 
     public static class AppSaveData {

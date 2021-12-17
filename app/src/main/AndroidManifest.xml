@@ -23,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
         <activity
+            android:name=".activity.ShortVideoActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.ResearchCartActivity"
             android:exported="false" />
         <activity
@@ -153,7 +156,9 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".support.SmsReceiver">
+        <receiver android:name=".support.SmsReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

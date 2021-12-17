@@ -172,6 +172,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftMenuSavedEbooklay.setOnClickListener(this);
         LinearLayout leftmenuprofilelay = findViewById(R.id.left_menu_my_profile_lay);
         leftmenuprofilelay.setOnClickListener(this);
+        LinearLayout leftmenuShortVideolay = findViewById(R.id.left_menu_short_video_lay);
+        leftmenuShortVideolay.setOnClickListener(this);
         LinearLayout leftmenuResearchPaperlay = findViewById(R.id.left_menu_research_lay_lay);
         leftmenuResearchPaperlay.setOnClickListener(this);
         RelativeLayout leftmenubacklay = findViewById(R.id.back_lay_left_menu);
@@ -706,6 +708,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             performMenuActionDelay();
             Utils.startActivity(mActivity, ProfileActivity.class);
+        }else if (id == R.id.left_menu_short_video_lay) {
+            setBlankSearch();
+            performMenuActionDelay();
+            Utils.startActivity(mActivity, ShortVideoActivity.class);
         } else if (id == R.id.left_menu_my_orders_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, MyOrdersActivity.class);
