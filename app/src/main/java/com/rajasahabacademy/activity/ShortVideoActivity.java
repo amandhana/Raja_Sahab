@@ -3,28 +3,23 @@ package com.rajasahabacademy.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
-import com.rajasahabacademy.adapter.EbookOfflineAdapter;
-import com.rajasahabacademy.adapter.QuizRankAdapter;
 import com.rajasahabacademy.adapter.ShortVideoViewPagerAdapter;
 import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
-import com.rajasahabacademy.model.rank.RankResponse;
 import com.rajasahabacademy.model.short_video.ShortVideosResponse;
 import com.rajasahabacademy.support.Utils;
 
 public class ShortVideoActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
+    ViewPager2 viewPagerShortVideo;
+    ShortVideoViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +32,8 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
     public void onBackPressed() {
         super.onBackPressed();
         Utils.hideKeyboard(mActivity);
+        if (viewPagerAdapter != null)
+            viewPagerAdapter.releasePlayer();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
@@ -44,6 +41,24 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
         mActivity = this;
         setClickListener();
         setUpShortVideo();
+        viewPagerShortVideo = findViewById(R.id.view_pager_2_short_video);
+        viewPagerShortVideo.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+                if (viewPagerAdapter != null)
+                    viewPagerAdapter.releasePlayer();
+            }
+        });
     }
     private void setClickListener(){
         CardView cvmenu = findViewById(R.id.cv_back);
@@ -51,7 +66,6 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void setUpShortVideo() {
-        ViewPager2 viewPagerShortVideo = findViewById(R.id.view_pager_2_short_video);
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
@@ -74,7 +88,7 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
                                 if (modelResponse.getMessage().equalsIgnoreCase("ok")) {
                                     if (modelResponse.getResults() != null) {
                                         if (modelResponse.getResults().getData().size() > 0) {
-                                            ShortVideoViewPagerAdapter viewPagerAdapter = new ShortVideoViewPagerAdapter(mActivity, modelResponse.getResults().getData());
+                                            viewPagerAdapter = new ShortVideoViewPagerAdapter(mActivity, modelResponse.getResults().getData());
                                             viewPagerShortVideo.setAdapter(viewPagerAdapter);
                                         }
                                     }
@@ -99,27 +113,6 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         if (view.getId() == R.id.cv_back) {
             onBackPressed();
-        }
-    }
-
-    public static class DepthTransformation implements ViewPager2.PageTransformer {
-        @Override
-        public void transformPage(@NonNull View page, float position) {
-            if (position < -1) {
-                page.setAlpha(0);
-            } else if (position <= 0) {
-                page.setAlpha(1);
-                page.setTranslationY(0);
-                page.setScaleX(1);
-                page.setScaleY(1);
-            } else if (position <= 1) {
-                page.setTranslationY(-position * page.getWidth());
-                page.setAlpha(1 - Math.abs(position));
-                page.setScaleX(1 - Math.abs(position));
-                page.setScaleY(1 - Math.abs(position));
-            } else {
-                page.setAlpha(0);
-            }
         }
     }
 }

@@ -70,7 +70,6 @@ dependencies {
 
     /*viewPager 2*/
     implementation 'androidx.viewpager2:viewpager2:1.1.0-beta01'
-    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
     /*viewPager 2*/
     implementation 'com.klinkerapps:simple_videoview:1.2.4'
     implementation 'com.danikula:videocache:2.7.0'
