@@ -16,10 +16,14 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 ;import com.rajasahabacademy.R;
+import com.rajasahabacademy.activity.JobDetailActivity;
+import com.rajasahabacademy.activity.MyOrdersActivity;
+import com.rajasahabacademy.support.Utils;
 
 
 public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHolder> {
     private Activity context;
+    Activity mActivity;
 
 
     public JobAlertAdapter(Activity context) {
@@ -67,7 +71,10 @@ public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHo
         viewHolder.tvView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                int id = view.getId();
+                if (id == R.id.tv_view) {
+                    Utils.startActivity(mActivity, JobDetailActivity.class);
+                }
             }
         });
 

@@ -508,6 +508,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void logoutPopup() {
         try {
             final Dialog dialog = new Dialog(mActivity);
+
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.toast_popup_exit);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

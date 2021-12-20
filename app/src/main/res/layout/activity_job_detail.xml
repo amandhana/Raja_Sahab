@@ -86,8 +86,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/dummy_avani"
                             android:contentDescription="@string/app_name"
-                            android:scaleType="fitXY"
-                            android:transitionName="@string/job_image_transition" />
+                            android:scaleType="fitXY" />
 
 
                     </RelativeLayout>
