@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ResearchPaperActivity">
+
+    <RelativeLayout
+        android:id="@+id/header_lay"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m60">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/m20"
+                    android:layout_height="@dimen/m20"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:backgroundTint="@color/primary_text_color"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m20"
+            android:layout_toEndOf="@+id/cv_back"
+            android:text="@string/job_alert"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18" />
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_job_alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_data"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone" />
+
+
+</LinearLayout>
