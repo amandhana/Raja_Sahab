@@ -30,7 +30,6 @@ public class ShortVideoViewPagerAdapter extends RecyclerView.Adapter<ShortVideoV
     private final List<Datum> list;
     SimpleExoPlayer simpleExoPlayer;
     DefaultTrackSelector trackSelector;
-    int count = 0;
 
     public ShortVideoViewPagerAdapter(Activity context, List<Datum> list) {
         this.context = context;
@@ -47,24 +46,26 @@ public class ShortVideoViewPagerAdapter extends RecyclerView.Adapter<ShortVideoV
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        simpleExoPlayer = new SimpleExoPlayer.Builder(context).setTrackSelector(trackSelector).build();
-        holder.playerView.setPlayer(simpleExoPlayer);
-        MediaItem mediaItem = MediaItem.fromUri("https://rs.webseochicago.com/uploads/path/1.mp4");
-        simpleExoPlayer.addMediaItem(mediaItem);
-        simpleExoPlayer.prepare();
-        simpleExoPlayer.play();
-        count = count + 1;
+        if (list.get(position).isFlag()) {
+            simpleExoPlayer = new SimpleExoPlayer.Builder(context).setTrackSelector(trackSelector).build();
+            holder.playerView.setPlayer(simpleExoPlayer);
+            MediaItem mediaItem = MediaItem.fromUri("https://rs.webseochicago.com/uploads/path/1.mp4");
+            simpleExoPlayer.addMediaItem(mediaItem);
+            simpleExoPlayer.prepare();
+            simpleExoPlayer.play();
+        } else {
+            if (simpleExoPlayer != null)
+                simpleExoPlayer.release(); 
+        }
     }
 
     public void releasePlayer() {
-        if (count == 1)
-            simpleExoPlayer.release();
-        new Handler(Looper.getMainLooper()).postDelayed(() -> count = 0,1000);
+        simpleExoPlayer.release();
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return list.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

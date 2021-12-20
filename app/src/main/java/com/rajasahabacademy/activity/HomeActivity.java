@@ -204,6 +204,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         refundCancellationLay.setOnClickListener(this);
         LinearLayout notesLay = findViewById(R.id.left_menu_notes_lay);
         notesLay.setOnClickListener(this);
+        LinearLayout jobAlertLay = findViewById(R.id.left_menu_job_alert_lay);
+        jobAlertLay.setOnClickListener(this);
 
         cartLay = findViewById(R.id.cart_lay);
         cartLay.setOnClickListener(this);
@@ -739,6 +741,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }else if (id == R.id.left_menu_research_lay_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, ResearchPaperActivity.class);
+            performMenuActionDelay();
+        }else if (id == R.id.left_menu_job_alert_lay) {
+            setBlankSearch();
+            Utils.startActivity(mActivity, JobAlertActivity.class);
             performMenuActionDelay();
         } else if (id == R.id.left_terms_conditions_lay) {
             setBlankSearch();

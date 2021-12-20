@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".activity.JobDetailActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:paddingBottom="@dimen/m100">
+
+            <RelativeLayout
+                android:id="@+id/header_lay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m50"
+                android:background="@drawable/bg_header">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_back"
+                    android:layout_width="@dimen/m34"
+                    android:layout_height="@dimen/m34"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/m15"
+                    android:elevation="@dimen/m10"
+                    app:cardCornerRadius="@dimen/m17">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/m15"
+                            android:layout_height="@dimen/m15"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/ic_arrow_back"
+                            android:contentDescription="@string/app_name" />
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:text="Job Detail's"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16" />
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/iv_job_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/header_lay"
+                android:layout_margin="@dimen/m5"
+                android:layout_marginBottom="-10dp"
+                android:elevation="@dimen/m10"
+                app:cardCornerRadius="@dimen/m10"
+                app:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m250">
+
+                        <ImageView
+                            android:id="@+id/iv_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/dummy_avani"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="fitXY"
+                            android:transitionName="@string/job_image_transition" />
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_job_detail"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:maxLines="2"
+                android:text="Indian Army TGC - Apply Online for 40 Vacancy"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_20" />
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_job_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_job_title"
+                android:layout_marginStart="@dimen/m10"
+                android:layout_marginTop="@dimen/m10"
+                android:layout_marginEnd="@dimen/m10"
+                android:maxLines="2"
+                android:text="Indian Army TGC - Apply Online for 40 Vacancy"
+                android:textColor="@color/secondary_text_color"
+                android:textSize="@dimen/text_16" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

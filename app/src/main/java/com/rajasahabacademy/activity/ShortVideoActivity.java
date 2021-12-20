@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import androidx.viewpager2.widget.ViewPager2;
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
@@ -13,13 +15,17 @@ import com.rajasahabacademy.adapter.ShortVideoViewPagerAdapter;
 import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
+import com.rajasahabacademy.model.short_video.Datum;
 import com.rajasahabacademy.model.short_video.ShortVideosResponse;
 import com.rajasahabacademy.support.Utils;
+
+import java.util.List;
 
 public class ShortVideoActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
     ViewPager2 viewPagerShortVideo;
     ShortVideoViewPagerAdapter viewPagerAdapter;
+    List<Datum> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +57,15 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
+                int currentPosition = viewPagerShortVideo.getCurrentItem();
+                list.get(currentPosition).setFlag(false);
+                list.get(position).setFlag(true);
+                new Handler(Looper.getMainLooper()).postDelayed(() -> viewPagerAdapter.notifyItemChanged(position),800);
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
                 super.onPageScrollStateChanged(state);
-                if (viewPagerAdapter != null)
-                    viewPagerAdapter.releasePlayer();
             }
         });
     }
@@ -88,7 +97,8 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
                                 if (modelResponse.getMessage().equalsIgnoreCase("ok")) {
                                     if (modelResponse.getResults() != null) {
                                         if (modelResponse.getResults().getData().size() > 0) {
-                                            viewPagerAdapter = new ShortVideoViewPagerAdapter(mActivity, modelResponse.getResults().getData());
+                                            list = modelResponse.getResults().getData();
+                                            viewPagerAdapter = new ShortVideoViewPagerAdapter(mActivity, list);
                                             viewPagerShortVideo.setAdapter(viewPagerAdapter);
                                         }
                                     }

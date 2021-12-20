@@ -23,6 +23,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
         <activity
+            android:name=".activity.CurrentAffairActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.JobDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.JobAlertActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ShortVideoActivity"
             android:exported="true" />
         <activity
@@ -156,7 +165,8 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".support.SmsReceiver"
+        <receiver
+            android:name=".support.SmsReceiver"
             android:exported="true"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>

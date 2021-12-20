@@ -264,5 +264,6 @@
     <string name="apply_offer_validation">Price is blank</string>
     <string name="research_paper_description">Research Paper Description</string>
     <string name="cart">Cart</string>
+    <string name="job_alert">Job Alert</string>
 
 </resources>
