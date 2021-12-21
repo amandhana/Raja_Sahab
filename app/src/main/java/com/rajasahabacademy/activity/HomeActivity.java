@@ -233,6 +233,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
 
+
     public void setWalletAmount(){
         TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);
         tvWalletAmount.setText(getString(R.string.rank_format,"Wallet Amount : ",Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
@@ -361,7 +362,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                                 }
                                 courseFragment.setCourseFilterList(courseFilterList);
                             }
-                            break;
+                            break;  // postman
                         case "com.rajasahabacademy.fragment.LiveQuizFragment":
                             List<ResultLiveQuiz> liveQuizFilterList = new ArrayList<>();
                             if (liveQuizFragment.getLiveQuizList() != null && liveQuizFragment.getLiveQuizList().size() > 0) {
