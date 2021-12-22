@@ -1,7 +1,5 @@
 package com.rajasahabacademy.adapter;
 
-import static android.app.ActivityOptions.makeSceneTransitionAnimation;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -15,23 +13,24 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-;import com.rajasahabacademy.R;
+import com.rajasahabacademy.R;
+import com.rajasahabacademy.activity.CurrentAffairDetailActivity;
 import com.rajasahabacademy.activity.JobDetailActivity;
-import com.rajasahabacademy.activity.MyOrdersActivity;
-import com.rajasahabacademy.activity.ResearchPaperDetailActivity;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.model.job_alert.Result;
 import com.rajasahabacademy.support.Utils;
 
 import java.util.List;
 
+;
 
-public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHolder> {
+
+public class CurrentAffairAdapter extends RecyclerView.Adapter<CurrentAffairAdapter.ViewHolder> {
     private Activity context;
     List<Result> list;
 
 
-    public JobAlertAdapter(Activity context,List<Result> list) {
+    public CurrentAffairAdapter(Activity context, List<Result> list) {
         this.context = context;
         this.list = list;
     }
@@ -39,7 +38,7 @@ public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_job_alert, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_current_affair, parent, false);
         return new ViewHolder(view);
     }
 
@@ -49,10 +48,10 @@ public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHo
         viewHolder.tvTextview.setText(list.get(position).getTitle());
         Utils.setImageUsingGlide(context,list.get(position).getThumbnail(),viewHolder.ivImage);
         viewHolder.tvView.setOnClickListener(view -> {
-            Intent intent = new Intent(context, JobDetailActivity.class);
-            intent.putExtra(Constants.JobAlert.DESCRIPTION, list.get(position).getDescription());
-            intent.putExtra(Constants.JobAlert.TITLE, list.get(position).getTitle());
-            intent.putExtra(Constants.JobAlert.THUMBNAIL, list.get(position).getThumbnail());
+            Intent intent = new Intent(context, CurrentAffairDetailActivity.class);
+            intent.putExtra(Constants.CurrentAffair.DESCRIPTION, list.get(position).getDescription());
+            intent.putExtra(Constants.CurrentAffair.TITLE, list.get(position).getTitle());
+            intent.putExtra(Constants.CurrentAffair.THUMBNAIL, list.get(position).getThumbnail());
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation(context, viewHolder.ivImage, context.getResources().getString(R.string.course_image_transition));
             context.startActivity(intent, options.toBundle());
@@ -73,8 +72,8 @@ public class JobAlertAdapter extends RecyclerView.Adapter<JobAlertAdapter.ViewHo
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivImage = itemView.findViewById(R.id.iv_job_alert_thumbnail);
-            tvTextview = itemView.findViewById(R.id.tv_job_alert_title);
+            ivImage = itemView.findViewById(R.id.iv_current_affair_thumbnail);
+            tvTextview = itemView.findViewById(R.id.tv_current_affair_title);
             tvView = itemView.findViewById(R.id.tv_view);
         }
     }

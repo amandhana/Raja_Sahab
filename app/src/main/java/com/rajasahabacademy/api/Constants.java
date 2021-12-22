@@ -51,6 +51,17 @@ public class Constants {
         public static final String IS_CART = "is_cart";
         public static final String RESEARCH_ID = "research_id";
     }
+    public static class JobAlert {
+        public static final String DESCRIPTION = "description";
+        public static final String THUMBNAIL = "thumbnail";
+        public static final String TITLE = "title";
+    }
+
+    public static class CurrentAffair {
+        public static final String DESCRIPTION = "description";
+        public static final String THUMBNAIL = "thumbnail";
+        public static final String TITLE = "title";
+    }
 
     public static class ViewSolution {
         public static final String LIST = "attempted_list";
@@ -166,6 +177,8 @@ public class Constants {
         public static final String RESEARCH_CART_LIST = BASE_URL + "researches_carts";
         public static final String ADD_RESEARCH_ORDER = BASE_URL + "add_research_order";
         public static final String SHORT_VIDEOS = BASE_URL + "short_videos";
+        public static final String JOB_ALERTS = BASE_URL + "job_alerts";
+        public static final String CURRENT_AFFAIR = BASE_URL + "current_affairs";
     }
 
     public static class AppSaveData {

@@ -180,6 +180,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftmenubacklay.setOnClickListener(this);
         LinearLayout leftliveclasslay = findViewById(R.id.left_menu_live_classes_lay);
         leftliveclasslay.setOnClickListener(this);
+        LinearLayout leftCurrentAffairlay = findViewById(R.id.left_menu_current_affair_lay);
+        leftCurrentAffairlay.setOnClickListener(this);
         LinearLayout leftMenuCourseLay = findViewById(R.id.left_menu_my_courses_lay);
         leftMenuCourseLay.setOnClickListener(this);
         LinearLayout leftMenuBookmarkLay = findViewById(R.id.left_menu_bookmark_lay);
@@ -723,6 +725,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.left_menu_attempted_quiz_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, QuizAttemptedActivity.class);
+            performMenuActionDelay();
+        }else if (id == R.id.left_menu_current_affair_lay) {
+            setBlankSearch();
+            Utils.startActivity(mActivity, CurrentAffairActivity.class);
             performMenuActionDelay();
         } else if (id == R.id.left_privacy_policy_lay) {
             setBlankSearch();

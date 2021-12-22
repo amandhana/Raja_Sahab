@@ -13,13 +13,12 @@ import com.rajasahabacademy.R;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.support.Utils;
 
-public class JobDetailActivity extends AppCompatActivity implements View.OnClickListener {
+public class CurrentAffairDetailActivity extends AppCompatActivity implements View.OnClickListener{
     Activity mActivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_job_detail);
+        setContentView(R.layout.activity_current_affair_detail);
         init();
     }
 
@@ -44,12 +43,12 @@ public class JobDetailActivity extends AppCompatActivity implements View.OnClick
 
 
     private void setUpData(){
-        ImageView ivJobDetail = findViewById(R.id.iv_job_detail_image);
-        TextView tvJobTitle = findViewById(R.id.tv_job_title);
-        TextView tvJobDescription = findViewById(R.id.tv_job_description);
-        Utils.setImageUsingGlide(mActivity, getIntent().getStringExtra(Constants.JobAlert.THUMBNAIL), ivJobDetail);
-        tvJobTitle.setText(getIntent().getStringExtra(Constants.JobAlert.TITLE));
-        Utils.setHtmlText(getIntent().getStringExtra(Constants.ResearchPaper.DESCRIPTION), tvJobDescription);
+        ImageView ivJobDetail = findViewById(R.id.iv_current_affair_detail_image);
+        TextView tvJobTitle = findViewById(R.id.tv_current_affair_title);
+        TextView tvJobDescription = findViewById(R.id.tv_current_affair_description);
+        Utils.setImageUsingGlide(mActivity, getIntent().getStringExtra(Constants.CurrentAffair.THUMBNAIL), ivJobDetail);
+        tvJobTitle.setText(getIntent().getStringExtra(Constants.CurrentAffair.TITLE));
+        Utils.setHtmlText(getIntent().getStringExtra(Constants.CurrentAffair.DESCRIPTION), tvJobDescription);
     }
     @Override
     public void onClick(View view) {
