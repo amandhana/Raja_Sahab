@@ -42,6 +42,8 @@ public class Datum {
     private Integer like;
 
     public String getId() {
+        if (id == null)
+            return "";
         return id;
     }
 
@@ -50,6 +52,8 @@ public class Datum {
     }
 
     public String getTitle() {
+        if (title == null)
+            return "";
         return title;
     }
 
@@ -100,6 +104,8 @@ public class Datum {
     }
 
     public Integer getLike() {
+        if (like == null)
+            return 0;
         return like;
     }
 

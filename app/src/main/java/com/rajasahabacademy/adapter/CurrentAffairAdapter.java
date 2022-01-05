@@ -42,6 +42,9 @@ public class CurrentAffairAdapter extends RecyclerView.Adapter<CurrentAffairAdap
         return new ViewHolder(view);
     }
 
+
+
+
     @SuppressLint({"SetTextI18n", "UseCompatLoadingForColorStateLists"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {

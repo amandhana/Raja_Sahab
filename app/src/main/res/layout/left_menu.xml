@@ -52,6 +52,7 @@
                 android:layout_toStartOf="@+id/back_lay_left_menu"
                 android:layout_toEndOf="@+id/user_profile_lay">
 
+
                 <com.rajasahabacademy.views.BoldTextView
                     android:id="@+id/tv_left_menu_username"
                     android:layout_width="wrap_content"
@@ -59,7 +60,6 @@
                     android:text="@string/dummy_name"
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_18" />
-
 
                 <com.rajasahabacademy.views.RegularTextView
                     android:id="@+id/tv_left_menu_phone_number"
@@ -106,7 +106,7 @@
                     android:src="@drawable/ic_arrow_back" />
             </RelativeLayout>
 
-        </RelativeLayout>
+     1   </RelativeLayout>
 
         <View
             android:layout_width="match_parent"

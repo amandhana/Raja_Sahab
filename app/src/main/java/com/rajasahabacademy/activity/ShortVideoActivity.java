@@ -1,6 +1,5 @@
 package com.rajasahabacademy.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -19,11 +18,14 @@ import com.rajasahabacademy.model.short_video.Datum;
 import com.rajasahabacademy.model.short_video.ShortVideosResponse;
 import com.rajasahabacademy.support.Utils;
 
+import org.json.JSONObject;
+
 import java.util.List;
 
 public class ShortVideoActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
     ViewPager2 viewPagerShortVideo;
+
     ShortVideoViewPagerAdapter viewPagerAdapter;
     List<Datum> list;
 
@@ -43,6 +45,14 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Utils.hideKeyboard(mActivity);
+        if (viewPagerAdapter != null)
+            viewPagerAdapter.releasePlayer();
+    }
+
     private void init() {
         mActivity = this;
         setClickListener();
@@ -58,9 +68,8 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
                 int currentPosition = viewPagerShortVideo.getCurrentItem();
-                list.get(currentPosition).setFlag(false);
-                list.get(position).setFlag(true);
-                new Handler(Looper.getMainLooper()).postDelayed(() -> viewPagerAdapter.notifyItemChanged(position),800);
+                list.get(currentPosition).setFlag(true);
+                new Handler(Looper.getMainLooper()).postDelayed(() -> viewPagerAdapter.notifyItemChanged(position), 800);
             }
 
             @Override
@@ -69,7 +78,12 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
             }
         });
     }
-    private void setClickListener(){
+
+    public void loadNextPage(int position){
+        viewPagerShortVideo.setCurrentItem(position);
+    }
+
+    private void setClickListener() {
         CardView cvmenu = findViewById(R.id.cv_back);
         cvmenu.setOnClickListener(this);
     }
@@ -118,6 +132,63 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
+
+    public void likeVideo(int position,String videoId) {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_LIKE_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    list.get(position).setLike(1);
+                    viewPagerAdapter.setLikeDislikeImage(position);
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    public void unlikeVideo(int position,String videoId) {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.VIDEO_ID, videoId);
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_LIKE_VIDEO, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    list.get(position).setLike(0);
+                    viewPagerAdapter.setLikeDislikeImage(position);
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
 
     @Override
     public void onClick(View view) {

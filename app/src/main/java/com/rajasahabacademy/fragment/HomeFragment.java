@@ -231,7 +231,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private void getWalletAmount() {
         if (Utils.isNetworkAvailable(mActivity)) {
-            Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
             try {
