@@ -9,7 +9,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splash"/>
+        android:background="@drawable/giffy_splash"/>
 
     <ImageView
         android:id="@+id/iv_splash_logo"
