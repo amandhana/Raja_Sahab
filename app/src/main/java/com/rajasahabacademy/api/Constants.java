@@ -99,6 +99,8 @@ public class Constants {
         public static final String NOTES = "notes";
         public static final String RESEARCH_ID = "research_id";
         public static final String RESEARCHS = "researches";
+        public static final String TYPE = "type";
+        public static final String WALLET_AMOUNT = "wallet_amount";
 
     }
 
@@ -123,6 +125,7 @@ public class Constants {
         public static final String FROM_WHERE_VALUE_SLIDER = "slider";
         public static final String OFFLINE_FILE = "offline_file";
         public static final String WALLET_AMOUNT = "wallet_amount";
+
     }
 
     public static class Payment{

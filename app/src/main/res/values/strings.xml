@@ -266,5 +266,6 @@
     <string name="cart">Cart</string>
     <string name="job_alert">Job Alert</string>
     <string name="current_affairs">Current Affairs</string>
+    <string name="checkout">Checkout</string>
 
 </resources>

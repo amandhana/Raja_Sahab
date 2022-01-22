@@ -71,6 +71,53 @@
                 android:padding="@dimen/m10">
 
                 <RelativeLayout
+                    android:id="@+id/wallet_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m50"
+                    android:layout_marginEnd="@dimen/m15">
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_wallet_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Wallet Balance"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_16" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/m15"
+                        android:layout_toEndOf="@+id/tv_wallet_label"
+                        android:text="0"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_18" />
+
+
+                </RelativeLayout>
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_upi"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m40"
+                    android:layout_below="@+id/wallet_lay"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/m15"
+                    android:layout_marginBottom="@dimen/m15"
+                    android:background="@drawable/bg_button_10"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/m30"
+                    android:paddingEnd="@dimen/m30"
+                    android:text="Select an option to pay"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_16" />
+
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -166,7 +213,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
-                android:text="@string/buy_now"
+                android:text="@string/checkout"
                 android:textColor="@color/white" />
 
         </androidx.cardview.widget.CardView>

@@ -96,6 +96,18 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if (getIntent().getStringExtra(Constants.Preference.FROM_WHERE) != null) {
             cvBack.setVisibility(View.GONE);
             tvSkip.setVisibility(View.VISIBLE);
+            RelativeLayout cameraLay = findViewById(R.id.camera_lay);
+            cameraLay.setVisibility(View.GONE);
+            RelativeLayout nameEditLay = findViewById(R.id.name_edit_lay);
+            nameEditLay.setVisibility(View.GONE);
+            RelativeLayout emailEditLay = findViewById(R.id.email_edit_lay);
+            emailEditLay.setVisibility(View.GONE);
+            RelativeLayout phoneEditLay = findViewById(R.id.mobile_number_edit_lay);
+            phoneEditLay.setVisibility(View.GONE);
+            RelativeLayout addressEditLay = findViewById(R.id.address_edit_lay);
+            addressEditLay.setVisibility(View.GONE);
+            RelativeLayout educationEditLay = findViewById(R.id.education_edit_lay);
+            educationEditLay.setVisibility(View.GONE);
             fromWhere = "guest";
         } else {
             cvBack.setVisibility(View.VISIBLE);

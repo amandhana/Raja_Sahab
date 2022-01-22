@@ -88,7 +88,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setBlankSearch();
     }
 
-
     private void init() {
         mActivity = this;
         preference = Preference.getInstance(mActivity);
@@ -96,7 +95,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setHomeCourseAdapter();
         startTimer();
         applyFilter();
-        setHomePress();
+//        setHomePress();
         setWalletAmount();
     }
 
@@ -234,7 +233,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
        // tvUserName.setText(upperString);
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
-
 
     public void setWalletAmount(){
         TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);

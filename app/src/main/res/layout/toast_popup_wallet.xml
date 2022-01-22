@@ -61,13 +61,13 @@
             android:layout_below="@+id/wallet_lay"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/m15"
+            android:layout_marginBottom="@dimen/m15"
             android:background="@drawable/bg_button_10"
             android:backgroundTint="@color/colorPrimary"
             android:gravity="center"
             android:paddingStart="@dimen/m30"
             android:paddingEnd="@dimen/m30"
             android:text="Select an option to pay"
-            android:layout_marginBottom="@dimen/m15"
             android:textColor="@color/white"
             android:textSize="@dimen/text_16" />
 

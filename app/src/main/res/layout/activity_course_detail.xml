@@ -508,7 +508,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
-                    android:text="@string/view_offer"
+                    android:text="@string/buy_now"
                     android:textColor="@color/white" />
 
             </androidx.cardview.widget.CardView>

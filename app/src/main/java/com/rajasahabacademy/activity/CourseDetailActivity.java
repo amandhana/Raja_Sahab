@@ -328,16 +328,24 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        String paybleAmount = data.getStringExtra(Constants.Course.TOTAL_AMOUNT);
-                        String remainWalletAmount = data.getStringExtra(Constants.Course.WALLET_AMOUNT);
-                        buyNowCourse(Integer.parseInt(paybleAmount),Integer.parseInt(remainWalletAmount),"upi");
+                        courseStatus = "free";
+                        if (courseDetailVideoAdapter != null)
+                            courseDetailVideoAdapter.updateStatus(getCourseBuyStatus());
+                        if (courseDetailPdfAdapter != null)
+                            courseDetailPdfAdapter.updateStatus(getCourseBuyStatus());
+                        bottomAmountLay.setVisibility(View.GONE);
                     }
                 });
     }
 
     private void startPayment() {
-        try {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+        intent.putExtra(Constants.Course.COURSE_ID, courseId);
+        intent.putExtra("from_where", "course_detail");
+        someActivityResultLauncher.launch(intent);
+
+        /*try {
             final Dialog dialog = new Dialog(mActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.toast_popup_wallet);
@@ -374,15 +382,16 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                 Intent intent = new Intent(this, PaymentActivity.class);
                 intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
                 intent.putExtra(Constants.Course.WALLET_AMOUNT, String.valueOf(walletAmount));
+                intent.putExtra(Constants.Course.COURSE_ID, courseId);
                 someActivityResultLauncher.launch(intent);
             });
 
             dialog.show();
         } catch (Exception e) {
             e.printStackTrace();
-        }
-
+        }*/
     }
+
 
     @Override
     public void onClick(View view) {

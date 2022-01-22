@@ -34,6 +34,7 @@ import com.razorpay.PaymentResultListener;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CartActivity extends AppCompatActivity implements View.OnClickListener, PaymentResultListener {
 
@@ -78,9 +79,10 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        String paybleAmount = data.getStringExtra(Constants.Course.TOTAL_AMOUNT);
-                        String remainWalletAmount = data.getStringExtra(Constants.Course.WALLET_AMOUNT);
-                        buyAllApi(Integer.parseInt(paybleAmount),Integer.parseInt(remainWalletAmount),"upi");
+                        String remainWallet = Objects.requireNonNull(data).getStringExtra("remain_wallet");
+                        String paybleAmount = data.getStringExtra("payble_amount");
+                        String type = data.getStringExtra("type");
+                        buyAllApi(Integer.parseInt(paybleAmount),Integer.parseInt(remainWallet),type);
                     }
                 });
     }
@@ -221,7 +223,9 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                 params.put(Constants.Params.NOTES, getOrderIds());
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
-                params.put(Constants.Params.PRICE, getPaybleAmount());
+                params.put(Constants.Params.PRICE, paybleAmount);
+                params.put(Constants.Params.TYPE, paymentType);
+                params.put(Constants.Params.WALLET_AMOUNT, walletAmount);
                 Utils.printLog("ProfileDetailParams", params.toString());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -236,6 +240,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject.optString("notification").equalsIgnoreCase("Success")) {
                                 Toast.makeText(mActivity, "Successfully buy all notes", Toast.LENGTH_SHORT).show();
+                                Utils.getSaveLoginUser(mActivity).getResults().setWallet(String.valueOf(walletAmount));
                                 setUpCartList();
                             }
                         }
@@ -254,7 +259,12 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void startPayment() {
-        try {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+        intent.putExtra("from_where", "cart");
+        intent.putExtra(Constants.Course.COURSE_ID, "");
+        someActivityResultLauncher.launch(intent);
+        /*try {
             final Dialog dialog = new Dialog(mActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.toast_popup_wallet);
@@ -297,7 +307,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
             dialog.show();
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 

@@ -34,6 +34,7 @@ import com.rajasahabacademy.support.Utils;
 import org.json.JSONObject;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ResearchCartActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
@@ -68,9 +69,10 @@ public class ResearchCartActivity extends AppCompatActivity implements View.OnCl
                 result -> {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         Intent data = result.getData();
-                        String paybleAmount = data.getStringExtra(Constants.Course.TOTAL_AMOUNT);
-                        String remainWalletAmount = data.getStringExtra(Constants.Course.WALLET_AMOUNT);
-                        buyAllApi(Integer.parseInt(paybleAmount), Integer.parseInt(remainWalletAmount), "upi");
+                        String remainWallet = Objects.requireNonNull(data).getStringExtra("remain_wallet");
+                        String paybleAmount = data.getStringExtra("payble_amount");
+                        String type = data.getStringExtra("type");
+                        buyAllApi(Integer.parseInt(paybleAmount), Integer.parseInt(remainWallet), type);
                     }
                 });
     }
@@ -176,6 +178,7 @@ public class ResearchCartActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void startPayment() {
+/*
         try {
             final Dialog dialog = new Dialog(mActivity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -219,6 +222,7 @@ public class ResearchCartActivity extends AppCompatActivity implements View.OnCl
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
 
     }
 
@@ -243,7 +247,9 @@ public class ResearchCartActivity extends AppCompatActivity implements View.OnCl
                 params.put(Constants.Params.RESEARCHS, getOrderIds());
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
-                params.put(Constants.Params.PRICE, getPaybleAmount());
+                params.put(Constants.Params.PRICE, paybleAmount);
+                params.put(Constants.Params.TYPE, paymentType);
+                params.put(Constants.Params.WALLET_AMOUNT, walletAmount);
                 Utils.printLog("ProfileDetailParams", params.toString());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -295,7 +301,12 @@ public class ResearchCartActivity extends AppCompatActivity implements View.OnCl
         int id = view.getId();
         if (id == R.id.cv_back)
             onBackPressed();
-        else if (view.getId() == R.id.tv_buy_all)
-            startPayment();
+        else if (view.getId() == R.id.tv_buy_all) {
+            Intent intent = new Intent(this, PaymentActivity.class);
+            intent.putExtra(Constants.Course.TOTAL_AMOUNT, String.valueOf(getPaybleAmount()));
+            intent.putExtra(Constants.Course.COURSE_ID, "");
+            intent.putExtra("from_where", "research_cart");
+            someActivityResultLauncher.launch(intent);
+        }
     }
 }

@@ -73,7 +73,6 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
     private Activity mActivity;
     private String videoId = "";
     private String videoPath = "";
-    private String videoDescription = "";
     FrameLayout frameLayout;
     private boolean isShowingTrackSelectionDialog;
     private DefaultTrackSelector trackSelector;
@@ -184,7 +183,7 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
             else {
                 videoId = bundle.getString(Constants.Course.VIDEO_ID);
                 videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
-                videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
+                String videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
                 bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
                 if (videoDescription.isEmpty())
                     findViewById(R.id.cv_title_description).setVisibility(View.GONE);

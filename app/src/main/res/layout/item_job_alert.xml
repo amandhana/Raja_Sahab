@@ -6,7 +6,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m80"
+        android:layout_height="@dimen/m90"
         android:layout_margin="@dimen/m15"
         android:elevation="@dimen/m10"
         app:cardCornerRadius="@dimen/m10">
@@ -30,7 +30,8 @@
                         android:id="@+id/iv_job_alert_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="@string/app_name" />
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitXY" />
 
                 </RelativeLayout>
 
@@ -53,10 +54,9 @@
                 android:id="@+id/tv_view"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/m30"
-                android:layout_below="@+id/tv_job_alert_title"
+                android:layout_marginBottom="@dimen/m10"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="@dimen/m5"
-                android:layout_marginTop="@dimen/m10"
                 android:layout_marginEnd="@dimen/m10"
                 android:background="@drawable/bg_button_5"
                 android:gravity="center"

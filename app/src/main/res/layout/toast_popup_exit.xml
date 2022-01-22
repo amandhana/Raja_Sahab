@@ -53,6 +53,7 @@
                 android:layout_marginStart="@dimen/m30"
                 android:layout_marginEnd="@dimen/m30"
                 android:gravity="center"
+                android:textColor="@color/primary_text_color"
                 android:text="@string/exit_message"
                 android:textSize="@dimen/text_16" />
 
@@ -82,6 +83,7 @@
                         android:layout_height="match_parent"
                         android:background="@color/bg_color"
                         android:gravity="center"
+                        android:textColor="@color/primary_text_color"
                         android:text="@string/cancel" />
 
                 </androidx.cardview.widget.CardView>
