@@ -101,6 +101,7 @@ public class Constants {
         public static final String RESEARCHS = "researches";
         public static final String TYPE = "type";
         public static final String WALLET_AMOUNT = "wallet_amount";
+        public static final String STATE_ID = "state_id";
 
     }
 
@@ -184,6 +185,8 @@ public class Constants {
         public static final String CURRENT_AFFAIR = BASE_URL + "current_affairs";
         public static final String ADD_LIKE_VIDEO = BASE_URL + "add_like_video";
         public static final String REMOVE_LIKE_VIDEO = BASE_URL + "remove_like_video";
+        public static final String STATES = BASE_URL + "states";
+        public static final String CITY = BASE_URL + "city";
     }
 
     public static class AppSaveData {

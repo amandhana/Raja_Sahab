@@ -21,9 +21,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,9 +33,15 @@ import com.loopj.android.http.RequestParams;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.adapter.CityAdapter;
+import com.rajasahabacademy.adapter.StateAdapter;
 import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
+import com.rajasahabacademy.model.CityResponse.CityResponse;
+import com.rajasahabacademy.model.CityResponse.ResultCity;
+import com.rajasahabacademy.model.StateResponse.Result;
+import com.rajasahabacademy.model.StateResponse.StateResponse;
 import com.rajasahabacademy.model.login.LoginResponse;
 import com.rajasahabacademy.model.profile_detail.ProfileDetailResponse;
 import com.rajasahabacademy.model.profile_detail.Success;
@@ -44,6 +52,7 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -61,6 +70,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ActivityResultLauncher<Intent> galleryActivityResultLauncher;
     File imageFile = null;
     String fromWhere = "";
+
+    Spinner stateSpinn;
+    Spinner citySpinn;
+    List<Result> stateList = new ArrayList<>();
+    List<ResultCity> cityList = new ArrayList<>();
+    StateAdapter stateAdapter;
+    CityAdapter cityAdapter;
+    String stateId = "";
+    String cityId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +102,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         onActivityCamera();
         onActivityGallery();
         getProfileDetail();
+        getStateList();
     }
 
     private void clickListener() {
@@ -108,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             addressEditLay.setVisibility(View.GONE);
             RelativeLayout educationEditLay = findViewById(R.id.education_edit_lay);
             educationEditLay.setVisibility(View.GONE);
+
             fromWhere = "guest";
         } else {
             cvBack.setVisibility(View.VISIBLE);
@@ -135,6 +155,45 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         addressEditLay.setOnClickListener(this);
         cameraLay.setOnClickListener(this);
         tvUpdate.setOnClickListener(this);
+
+        stateSpinn = findViewById(R.id.state_spinn);
+        citySpinn = findViewById(R.id.city_spinn);
+
+        stateSpinn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (stateList.get(position).getId() != null) {
+                    stateId = stateList.get(position).getId();
+                    getCity();
+                } else {
+                    stateId = "";
+                    cityList.clear();
+                    if (cityAdapter != null)
+                        cityAdapter.notifyDataSetChanged();
+                    cityId = "";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        citySpinn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (cityList.get(position).getId() != null) {
+                    cityId = cityList.get(position).getId();
+                } else cityId = "";
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
     }
 
     private void getProfileDetail() {
@@ -275,7 +334,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 });
     }
 
-
     private void onActivityGallery() {
         galleryActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -358,6 +416,91 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 });
             } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
         }
+    }
+
+    private void getStateList() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.STATES, new RequestParams(), new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            StateResponse modelResponse = (StateResponse) Utils.getObject(response, StateResponse.class);
+                            if (modelResponse != null) {
+                                if (modelResponse.getNotification().equalsIgnoreCase("success")){
+                                    if (modelResponse.getResults().size() > 0) {
+                                        Result result = new Result();
+                                        result.setName("Select state");
+                                        stateList = modelResponse.getResults();
+                                        stateList.add(0, result);
+                                        stateAdapter = new StateAdapter(mActivity, stateList);
+                                        stateSpinn.setAdapter(stateAdapter);
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, error.getLocalizedMessage());
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void getCity() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.STATE_ID, stateId);
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.CITY, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            CityResponse modelResponse = (CityResponse) Utils.getObject(response, CityResponse.class);
+                            if (modelResponse != null) {
+                                if (modelResponse.getNotification().equalsIgnoreCase("success")){
+                                    if (modelResponse.getResults().size() > 0) {
+                                        ResultCity result = new ResultCity();
+                                        result.setName("Select city");
+                                        cityList = modelResponse.getResults();
+                                        cityList.add(0, result);
+                                        cityAdapter = new CityAdapter(mActivity, cityList);
+                                        citySpinn.setAdapter(cityAdapter);
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, error.getLocalizedMessage());
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
 

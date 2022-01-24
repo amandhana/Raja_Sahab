@@ -33,6 +33,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     Activity mActivity;
     TextView tvTotalAmount;
     TextView tvPaybleAmount;
+    TextView tvOfferAmount;
+    RelativeLayout couponAmountLay;
     TextView tvWallet;
     String courseId = "";
     String fromWhere = "";
@@ -44,6 +46,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_payment);
         init();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -62,6 +65,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     private void clickListener() {
         tvTotalAmount = findViewById(R.id.tv_total_amount);
         tvPaybleAmount = findViewById(R.id.tv_payble_amount);
+        tvOfferAmount = findViewById(R.id.tv_coupon_amount);
+        couponAmountLay = findViewById(R.id.coupon_amount_lay);
         tvWallet = findViewById(R.id.tv_wallet);
         CardView cvBack = findViewById(R.id.cv_back);
         cvBack.setOnClickListener(this);
@@ -134,30 +139,34 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
-    private void setUpData(){
+    private void setUpData() {
         tvWallet.setText(Utils.getSaveLoginUser(mActivity).getResults().getWallet());
     }
 
     public void applyOffer(String amount) {
+        couponAmountLay.setVisibility(View.VISIBLE);
         double amountD = Double.parseDouble(amount);
         int offerAmount = (int) amountD;
         double totalAmountD = Double.parseDouble(tvTotalAmount.getText().toString());
         int totalAmount = (int) totalAmountD;
         int paybleAmount = totalAmount - offerAmount;
+        tvOfferAmount.setText(String.valueOf(offerAmount));
         tvPaybleAmount.setText(String.valueOf(paybleAmount));
     }
 
-    public void removeOffer(){
+    public void removeOffer() {
         tvPaybleAmount.setText(tvTotalAmount.getText().toString());
+        couponAmountLay.setVisibility(View.GONE);
     }
 
     private int getPaybleAmount() {
         String amount = tvPaybleAmount.getText().toString();
         double amountD = Double.parseDouble(amount);
+
         return (int) amountD;
     }
 
-    private void buyNowCourse(int paybleAmount,int remainWallet,String paymentType) {
+    private void buyNowCourse(int paybleAmount, int remainWallet, String paymentType) {
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
@@ -185,8 +194,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                                 Utils.getSaveLoginUser(mActivity).getResults().setWallet(String.valueOf(remainWallet));
                                 Utils.showToastPopup(mActivity, getString(R.string.course_buy_success));
                                 Intent intent = new Intent();
-                                intent.putExtra(Constants.Course.WALLET_AMOUNT,tvWallet.getText().toString());
-                                intent.putExtra(Constants.Course.TOTAL_AMOUNT,tvTotalAmount.getText().toString());
+                                intent.putExtra(Constants.Course.WALLET_AMOUNT, tvWallet.getText().toString());
+                                intent.putExtra(Constants.Course.TOTAL_AMOUNT, tvTotalAmount.getText().toString());
                                 setResult(RESULT_OK, intent);
                                 onBackPressed();
                             }
@@ -210,62 +219,59 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         int id = view.getId();
         if (id == R.id.cv_back)
             onBackPressed();
-        else if (id == R.id.buy_now_lay){
+        else if (id == R.id.buy_now_lay) {
             int walletAmount = (int) Double.parseDouble(tvWallet.getText().toString());
             if (walletAmount == 0 || walletAmount < 0) {
-                paybleAmount=getPaybleAmount();
+                paybleAmount = getPaybleAmount();
                 Utils.startPayment(mActivity, paybleAmount);
-            }
-            else if (walletAmount < getPaybleAmount()) {
-                paybleAmount=getPaybleAmount()-walletAmount;
+            } else if (walletAmount < getPaybleAmount()) {
+                paybleAmount = getPaybleAmount() - walletAmount;
                 Utils.startPayment(mActivity, paybleAmount);
-            }
-            else if (walletAmount == getPaybleAmount()) {
+            } else if (walletAmount == getPaybleAmount()) {
                 int remainWalletAmount = walletAmount - getPaybleAmount();
-                switch (fromWhere){
+                switch (fromWhere) {
                     case "course_detail":
-                        buyNowCourse(getPaybleAmount(),remainWalletAmount,"wallet");
+                        buyNowCourse(getPaybleAmount(), remainWalletAmount, "wallet");
                         break;
                     case "cart":
                         Intent intent = new Intent();
-                        intent.putExtra("remain_wallet",String.valueOf(remainWalletAmount));
-                        intent.putExtra("payble_amount",String.valueOf(paybleAmount));
-                        intent.putExtra("type","wallet");
-                        intent.putExtra("wallet_amount",String.valueOf(remainWalletAmount));
+                        intent.putExtra("remain_wallet", String.valueOf(remainWalletAmount));
+                        intent.putExtra("payble_amount", String.valueOf(paybleAmount));
+                        intent.putExtra("type", "wallet");
+                        intent.putExtra("wallet_amount", String.valueOf(remainWalletAmount));
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                         break;
                     case "research_cart":
                         intent = new Intent();
-                        intent.putExtra("remain_wallet",String.valueOf(remainWalletAmount));
-                        intent.putExtra("payble_amount",String.valueOf(paybleAmount));
-                        intent.putExtra("type","wallet");
-                        intent.putExtra("wallet_amount",String.valueOf(remainWalletAmount));
+                        intent.putExtra("remain_wallet", String.valueOf(remainWalletAmount));
+                        intent.putExtra("payble_amount", String.valueOf(paybleAmount));
+                        intent.putExtra("type", "wallet");
+                        intent.putExtra("wallet_amount", String.valueOf(remainWalletAmount));
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                         break;
                 }
 
-            }
-            else{
+            } else {
                 int remainWalletAmount = walletAmount - getPaybleAmount();
-                switch (fromWhere){
+                switch (fromWhere) {
                     case "course_detail":
-                        buyNowCourse(getPaybleAmount(),remainWalletAmount,"wallet");
+                        buyNowCourse(getPaybleAmount(), remainWalletAmount, "wallet");
                         break;
                     case "cart":
                         Intent intent = new Intent();
-                        intent.putExtra("remain_wallet",String.valueOf(remainWalletAmount));
-                        intent.putExtra("payble_amount",String.valueOf(getPaybleAmount()));
-                        intent.putExtra("type","wallet");
+                        intent.putExtra("remain_wallet", String.valueOf(remainWalletAmount));
+                        intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
+                        intent.putExtra("type", "wallet");
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                         break;
                     case "research_cart":
                         intent = new Intent();
-                        intent.putExtra("remain_wallet",String.valueOf(remainWalletAmount));
-                        intent.putExtra("payble_amount",String.valueOf(getPaybleAmount()));
-                        intent.putExtra("type","wallet");
+                        intent.putExtra("remain_wallet", String.valueOf(remainWalletAmount));
+                        intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
+                        intent.putExtra("type", "wallet");
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                         break;
@@ -277,23 +283,23 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onPaymentSuccess(String s) {
-        switch (fromWhere){
+        switch (fromWhere) {
             case "course_detail":
-                buyNowCourse(getPaybleAmount(),0,"upi");
+                buyNowCourse(getPaybleAmount(), 0, "upi");
                 break;
             case "cart":
                 Intent intent = new Intent();
-                intent.putExtra("remain_wallet","0");
-                intent.putExtra("payble_amount",String.valueOf(getPaybleAmount()));
-                intent.putExtra("type","upi");
+                intent.putExtra("remain_wallet", "0");
+                intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
+                intent.putExtra("type", "upi");
                 setResult(RESULT_OK, intent);
                 onBackPressed();
                 break;
             case "research_cart":
                 intent = new Intent();
-                intent.putExtra("remain_wallet","0");
-                intent.putExtra("payble_amount",String.valueOf(getPaybleAmount()));
-                intent.putExtra("type","upi");
+                intent.putExtra("remain_wallet", "0");
+                intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
+                intent.putExtra("type", "upi");
                 setResult(RESULT_OK, intent);
                 onBackPressed();
                 break;

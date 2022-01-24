@@ -269,6 +269,8 @@
 
                 </RelativeLayout>
 
+
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/m45"
@@ -276,15 +278,16 @@
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
                     android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6">
+                    android:backgroundTint="#D6D6D6"
+                    android:visibility="gone">
 
                     <com.rajasahabacademy.views.RegularEditText
-                        android:id="@+id/et_profile_city"
+                        android:id="@+id/et_profile_state"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/m45"
-                        android:layout_toStartOf="@+id/city_edit_lay"
+                        android:layout_toStartOf="@+id/state_edit_lay"
                         android:background="@null"
-                        android:hint="@string/city"
+                        android:hint="@string/state"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:paddingStart="@dimen/m10"
@@ -294,7 +297,7 @@
                         android:textSize="@dimen/text_14" />
 
                     <RelativeLayout
-                        android:id="@+id/city_edit_lay"
+                        android:id="@+id/state_edit_lay"
                         android:layout_width="@dimen/m30"
                         android:layout_height="@dimen/m30"
                         android:layout_alignParentEnd="true"
@@ -321,16 +324,67 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                        android:id="@+id/state_spinn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/ic_drop_down"
+                        android:contentDescription="@string/app_name" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
+                    android:background="@drawable/spinner_bg">
+
+                    <Spinner
+                        android:id="@+id/city_spinn"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/ic_drop_down"
+                        android:contentDescription="@string/app_name" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/m45"
+                    android:layout_marginStart="@dimen/m15"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginEnd="@dimen/m15"
                     android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6">
+                    android:backgroundTint="#D6D6D6"
+                    android:visibility="gone">
 
                     <com.rajasahabacademy.views.RegularEditText
-                        android:id="@+id/et_profile_state"
+                        android:id="@+id/et_profile_city"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/m45"
-                        android:layout_toStartOf="@+id/state_edit_lay"
+                        android:layout_toStartOf="@+id/city_edit_lay"
                         android:background="@null"
-                        android:hint="@string/state"
+                        android:hint="@string/city"
                         android:imeOptions="actionNext"
                         android:inputType="textEmailAddress"
                         android:paddingStart="@dimen/m10"
@@ -340,7 +394,7 @@
                         android:textSize="@dimen/text_14" />
 
                     <RelativeLayout
-                        android:id="@+id/state_edit_lay"
+                        android:id="@+id/city_edit_lay"
                         android:layout_width="@dimen/m30"
                         android:layout_height="@dimen/m30"
                         android:layout_alignParentEnd="true"

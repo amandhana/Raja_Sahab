@@ -25,8 +25,11 @@
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/layout/ustom_controls.xml" value="0.1641337386018237" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/bg_edit_text_5.xml" value="0.15648148148148147" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/bg_round_60_border_2px.xml" value="0.15648148148148147" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/edit_text_bg.xml" value="0.20092592592592592" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/ic_drop_down.xml" value="0.20092592592592592" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/ic_like_empty.xml" value="0.1953125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/ic_like_fill.xml" value="0.1953125" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/drawable/spinner_bg.xml" value="0.20092592592592592" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_cart.xml" value="0.1" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_contact_us.xml" value="0.14855072463768115" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_course_detail.xml" value="0.17" />
@@ -38,9 +41,9 @@
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_login.xml" value="0.1480978260869565" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_my_orders.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_notification.xml" value="0.1408514492753623" />
-        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_payment.xml" value="0.1" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_payment.xml" value="0.22" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_pdf_view.xml" value="0.14855072463768115" />
-        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_cart.xml" value="0.22" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_paper.xml" value="0.1" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_paper_detail.xml" value="0.1" />
@@ -54,6 +57,7 @@
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/item_pdf_notes.xml" value="0.13541666666666666" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/item_research_paper.xml" value="0.1" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/item_short_video.xml" value="0.14356884057971014" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/item_state_city.xml" value="0.12907608695652173" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/left_menu.xml" value="0.1408514492753623" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/toast_popup_exit.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/toast_popup_photo.xml" value="0.125" />

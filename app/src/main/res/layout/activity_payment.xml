@@ -70,34 +70,52 @@
                 android:orientation="vertical"
                 android:padding="@dimen/m10">
 
-                <RelativeLayout
-                    android:id="@+id/wallet_lay"
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/m50"
-                    android:layout_marginEnd="@dimen/m15">
+                    android:layout_margin="@dimen/m5"
+                    android:elevation="@dimen/m10"
+                    android:layout_height="wrap_content">
 
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_wallet_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="Wallet Balance"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content">
 
-                    <com.rajasahabacademy.views.BoldTextView
-                        android:id="@+id/tv_wallet"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/m15"
-                        android:layout_toEndOf="@+id/tv_wallet_label"
-                        android:text="0"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_18" />
+                        <RelativeLayout
+                            android:id="@+id/wallet_lay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/m50"
+                            android:layout_marginEnd="@dimen/m15"
+                            android:layout_marginStart="@dimen/m15">
+
+                            <com.rajasahabacademy.views.RegularTextView
+                                android:id="@+id/tv_wallet_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="Total Wallet Balance"
+                                android:textColor="@color/primary_text_color"
+                                android:textSize="@dimen/text_16" />
+
+                            <com.rajasahabacademy.views.BoldTextView
+                                android:id="@+id/tv_wallet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/m15"
+                                android:layout_toEndOf="@+id/tv_wallet_label"
+                                android:text="0"
+                                android:textColor="@color/primary_text_color"
+                                android:textSize="@dimen/text_18" />
 
 
-                </RelativeLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
 
                 <com.rajasahabacademy.views.RegularTextView
                     android:id="@+id/tv_upi"
@@ -118,6 +136,7 @@
                     android:textSize="@dimen/text_16" />
 
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/m5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -130,6 +149,54 @@
 
                     <com.rajasahabacademy.views.RegularTextView
                         android:id="@+id/tv_total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text=""
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_16" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m10">
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wallet :"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_16" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_wallet_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text=""
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_16" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/coupon_amount_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/m10">
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Coupon Amount:"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_16" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_coupon_amount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
