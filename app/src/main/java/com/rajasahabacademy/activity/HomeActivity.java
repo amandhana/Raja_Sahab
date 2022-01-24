@@ -47,6 +47,8 @@ import com.rajasahabacademy.model.home.category.HomeCategoryResponse;
 import com.rajasahabacademy.model.home.latest_course.Course;
 import com.rajasahabacademy.model.home.latest_course.Video;
 import com.rajasahabacademy.model.notes.ResultNotes;
+import com.rajasahabacademy.model.profile_detail.ProfileDetailResponse;
+import com.rajasahabacademy.model.profile_detail.Success;
 import com.rajasahabacademy.model.quiz.ResultLiveQuiz;
 import com.rajasahabacademy.support.HomeWatcher;
 import com.rajasahabacademy.support.Preference;
@@ -97,6 +99,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         applyFilter();
 //        setHomePress();
         setWalletAmount();
+        setRefCode();
     }
 
     @Override
@@ -238,6 +241,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);
         tvWalletAmount.setText(getString(R.string.rank_format,"Wallet Amount : ",Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
     }
+
+
+    public void setRefCode(){
+        TextView tvRefCode = findViewById(R.id.tv_left_menu_ref_code);
+        /*tvRefCode.setText(getString(n));*/
+    }
+
 
     private String getFirstCharOfName() {
         if (Utils.getSaveLoginUser(mActivity).getResults().getName().equals(""))

@@ -89,8 +89,17 @@
                     android:id="@+id/tv_profile_user_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dummy_phone"
+                    android:text=""
                     android:textColor="@color/white" />
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:layout_marginTop="@dimen/m10"
+                    android:id="@+id/tv_refferal_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_14" />
 
             </LinearLayout>
 

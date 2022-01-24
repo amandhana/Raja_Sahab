@@ -57,6 +57,9 @@ public class Success {
     @SerializedName("education")
     @Expose
     private String education;
+    @SerializedName("ref_code")
+    @Expose
+    private String refCode;
     @SerializedName("wallet")
     @Expose
     private String wallet;
@@ -275,6 +278,16 @@ public class Success {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getRefCode() {
+        if (refCode == null)
+            return "null";
+        return refCode;
+    }
+
+    public void setRefCode(String refCode) {
+        this.refCode = refCode;
     }
 
     public Object getcPassword() {

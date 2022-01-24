@@ -105,6 +105,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         getStateList();
     }
 
+
     private void clickListener() {
         CardView cvBack = findViewById(R.id.cv_back);
         cvBack.setOnClickListener(this);
@@ -127,7 +128,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             addressEditLay.setVisibility(View.GONE);
             RelativeLayout educationEditLay = findViewById(R.id.education_edit_lay);
             educationEditLay.setVisibility(View.GONE);
-
             fromWhere = "guest";
         } else {
             cvBack.setVisibility(View.VISIBLE);
@@ -176,6 +176,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
 
             }
         });
@@ -262,8 +263,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             TextView tvUserName = findViewById(R.id.tv_profile_username);
             TextView tvUserPhone = findViewById(R.id.tv_profile_user_phone);
+            TextView tvRefferalCode = findViewById(R.id.tv_refferal_code);
             tvUserName.setText(model.getName());
             tvUserPhone.setText(model.getPhone());
+            tvRefferalCode.setText("Refferal Code : " + model.getRefCode());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -363,6 +366,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         if (nameStr.isEmpty())
             Utils.showToastPopup(mActivity, getString(R.string.name_empty_validation));
+        else if (!Utils.isValidEmail(emailStr))
+            Utils.showToastPopup(mActivity, getString(R.string.email_valid_validation));
         else {
             if (Utils.isNetworkAvailable(mActivity)) {
                 Utils.showProgressBar(mActivity);

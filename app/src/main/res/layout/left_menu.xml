@@ -67,9 +67,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_left_menu_username"
                     android:maxLength="15"
-                    android:text="@string/dummy_phone"
+                    android:text=""
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_14" />
+
 
             </RelativeLayout>
 
@@ -81,13 +82,24 @@
                 android:text="Wallet Amount : 100"
                 android:paddingStart="@dimen/m10"
                 android:paddingEnd="@dimen/m10"
+                android:layout_alignParentBottom="true"
                 android:paddingTop="@dimen/m5"
                 android:paddingBottom="@dimen/m5"
                 android:layout_marginEnd="@dimen/m10"
                 android:layout_marginBottom="@dimen/m5"
                 android:textSize="@dimen/text_13"
+                android:textColor="@color/white"/>
+
+            <com.rajasahabacademy.views.BoldTextView
+                android:id="@+id/tv_left_menu_ref_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/m5"
+                android:layout_marginTop="@dimen/m5"
+                android:text=""
+                android:layout_alignParentEnd="true"
                 android:textColor="@color/white"
-                android:layout_alignParentBottom="true"/>
+                android:textSize="@dimen/text_14" />
 
             <RelativeLayout
                 android:id="@+id/back_lay_left_menu"
