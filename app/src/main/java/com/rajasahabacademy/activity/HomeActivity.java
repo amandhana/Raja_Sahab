@@ -99,7 +99,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         applyFilter();
 //        setHomePress();
         setWalletAmount();
-        setRefCode();
     }
 
     @Override
@@ -232,20 +231,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             tvFirstName.setText(getFirstCharOfName());
         }
         String userNameStr = Utils.getSaveLoginUser(mActivity).getResults().getName();
-      //  String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
-       // tvUserName.setText(upperString);
+        String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
+        tvUserName.setText(upperString);
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
 
-    public void setWalletAmount(){
+    public void setWalletAmount() {
         TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);
-        tvWalletAmount.setText(getString(R.string.rank_format,"Wallet Amount : ",Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
-    }
-
-
-    public void setRefCode(){
-        TextView tvRefCode = findViewById(R.id.tv_left_menu_ref_code);
-        /*tvRefCode.setText(getString(n));*/
+        tvWalletAmount.setText(getString(R.string.rank_format, "Wallet Amount : ", Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
     }
 
 
@@ -722,7 +715,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             performMenuActionDelay();
             Utils.startActivity(mActivity, ProfileActivity.class);
-        }else if (id == R.id.left_menu_short_video_lay) {
+        } else if (id == R.id.left_menu_short_video_lay) {
             setBlankSearch();
             performMenuActionDelay();
             Utils.startActivity(mActivity, ShortVideoActivity.class);
@@ -734,7 +727,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             Utils.startActivity(mActivity, QuizAttemptedActivity.class);
             performMenuActionDelay();
-        }else if (id == R.id.left_menu_current_affair_lay) {
+        } else if (id == R.id.left_menu_current_affair_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, CurrentAffairActivity.class);
             performMenuActionDelay();
@@ -754,11 +747,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             Utils.startActivity(mActivity, AboutUsActivity.class);
             performMenuActionDelay();
-        }else if (id == R.id.left_menu_research_lay_lay) {
+        } else if (id == R.id.left_menu_research_lay_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, ResearchPaperActivity.class);
             performMenuActionDelay();
-        }else if (id == R.id.left_menu_job_alert_lay) {
+        } else if (id == R.id.left_menu_job_alert_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, JobAlertActivity.class);
             performMenuActionDelay();
@@ -788,7 +781,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.left_menu_bookmark_video_lay) {
             performMenuActionDelay();
             Utils.startActivity(mActivity, BookmarkVideoActivity.class);
-        }else if (id == R.id.cart_lay){
+        } else if (id == R.id.cart_lay) {
             Utils.startActivity(mActivity, CartActivity.class);
         }
     }

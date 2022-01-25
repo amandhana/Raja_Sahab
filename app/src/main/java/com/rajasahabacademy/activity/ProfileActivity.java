@@ -1,10 +1,5 @@
 package com.rajasahabacademy.activity;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
@@ -16,11 +11,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,6 +21,11 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.loopj.android.http.RequestParams;
 import com.nabinbhandari.android.permissions.PermissionHandler;
@@ -48,8 +46,6 @@ import com.rajasahabacademy.model.profile_detail.Success;
 import com.rajasahabacademy.support.FileUtils;
 import com.rajasahabacademy.support.Utils;
 
-import org.json.JSONObject;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     EditText etState;
     EditText etAddress;
     EditText etEducation;
+    EditText etRefBy;
     ImageView ivImage;
     ActivityResultLauncher<Intent> cameraActivityResultLauncher;
     ActivityResultLauncher<Intent> galleryActivityResultLauncher;
@@ -74,11 +71,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     Spinner stateSpinn;
     Spinner citySpinn;
     List<Result> stateList = new ArrayList<>();
-    List<ResultCity> cityList = new ArrayList<>();
+    List
+            <ResultCity> cityList = new ArrayList<>();
     StateAdapter stateAdapter;
     CityAdapter cityAdapter;
     String stateId = "";
+    String selectedStateNameStr = "";
     String cityId = "";
+    String selectedCityNameStr = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +106,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+
     private void clickListener() {
         CardView cvBack = findViewById(R.id.cv_back);
         cvBack.setOnClickListener(this);
@@ -128,10 +129,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             addressEditLay.setVisibility(View.GONE);
             RelativeLayout educationEditLay = findViewById(R.id.education_edit_lay);
             educationEditLay.setVisibility(View.GONE);
+            tvSkip.setVisibility(View.GONE);
+            TextView tvRefferalCode = findViewById(R.id.tv_refferal_code);
+            tvRefferalCode.setVisibility(View.GONE);
             fromWhere = "guest";
         } else {
             cvBack.setVisibility(View.VISIBLE);
             tvSkip.setVisibility(View.GONE);
+           /* RelativeLayout refByLay = findViewById(R.id.ref_by_lay);
+            refByLay.setVisibility(View.GONE);*/
             fromWhere = "user";
         }
         ivImage = findViewById(R.id.iv_profile_image);
@@ -142,6 +148,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         etEducation = findViewById(R.id.et_profile_education);
         etPhone = findViewById(R.id.et_profile_phone_number);
         etAddress = findViewById(R.id.et_profile_address);
+        etRefBy = findViewById(R.id.et_ref_by);
 
         RelativeLayout cameraLay = findViewById(R.id.camera_lay);
         RelativeLayout nameEditLay = findViewById(R.id.name_edit_lay);
@@ -164,13 +171,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (stateList.get(position).getId() != null) {
                     stateId = stateList.get(position).getId();
+                    selectedStateNameStr = stateList.get(position).getName();
                     getCity();
                 } else {
                     stateId = "";
+                    selectedStateNameStr = "";
                     cityList.clear();
                     if (cityAdapter != null)
                         cityAdapter.notifyDataSetChanged();
                     cityId = "";
+                    selectedCityNameStr = "";
                 }
             }
 
@@ -185,7 +195,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (cityList.get(position).getId() != null) {
                     cityId = cityList.get(position).getId();
-                } else cityId = "";
+                    selectedCityNameStr = cityList.get(position).getName();
+                } else {
+                    cityId = "";
+                    selectedCityNameStr = "";
+                }
             }
 
             @Override
@@ -359,69 +373,80 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String nameStr = etName.getText().toString().trim();
         String emailStr = etEmail.getText().toString().trim();
         String phoneStr = etPhone.getText().toString().trim();
-        String cityStr = etCity.getText().toString().trim();
-        String stateStr = etState.getText().toString().trim();
         String addressStr = etAddress.getText().toString().trim();
         String educationStr = etEducation.getText().toString().trim();
+        String refByStr = etRefBy.getText().toString().trim();
 
-        if (nameStr.isEmpty())
+
+        if (nameStr.isEmpty()) {
             Utils.showToastPopup(mActivity, getString(R.string.name_empty_validation));
-        else if (!Utils.isValidEmail(emailStr))
+            return;
+        } else if (!Utils.isValidEmail(emailStr)) {
             Utils.showToastPopup(mActivity, getString(R.string.email_valid_validation));
-        else {
-            if (Utils.isNetworkAvailable(mActivity)) {
-                Utils.showProgressBar(mActivity);
-                Utils.hideKeyboard(mActivity);
-                RequestParams params = new RequestParams();
-                try {
-                    params.put(Constants.Params.NAME, nameStr);
-                    params.put(Constants.Params.EMAIL, emailStr);
-                    params.put(Constants.Params.PHONE, phoneStr);
-                    params.put(Constants.Params.CITY, cityStr);
-                    params.put(Constants.Params.STATE, stateStr);
-                    params.put(Constants.Params.EDUCATION, educationStr);
-                    params.put(Constants.Params.ADDRESS, addressStr);
-                    if (imageFile != null)
-                        params.put(Constants.Params.IMAGE, imageFile);
-                    params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
-                    params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
-                    Utils.printLog("ProfileDetailParams", params.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Communicator communicator = new Communicator();
-                communicator.post(101, mActivity, Constants.Apis.UPDATE_PROFILE, params, new CustomResponseListener() {
-                    @Override
-                    public void onResponse(int requestCode, String response) {
-                        Utils.hideProgressBar();
-                        try {
-                            if (response != null && !response.equals("")) {
-                                LoginResponse modelResponse = (LoginResponse) Utils.getObject(response, LoginResponse.class);
-                                if (modelResponse != null && modelResponse.getMessage() != null) {
-                                    if (modelResponse.getMessage().equalsIgnoreCase("ok")) {
-                                        Utils.saveLoginUser(mActivity, modelResponse);
-                                        if (fromWhere.equals("guest")) {
-                                            Utils.startActivityFinish(mActivity, HomeActivity.class);
-                                            Toast.makeText(mActivity, modelResponse.getNotification(), Toast.LENGTH_SHORT).show();
-                                        } else
-                                            Utils.showToastPopup(mActivity, modelResponse.getNotification());
-                                    }
+            return;
+        } else if (fromWhere.equalsIgnoreCase("guest")) {
+            if (stateId.isEmpty()) {
+                Utils.showToastPopup(mActivity, getString(R.string.select_state_validation));
+                return;
+            } else if (cityId.isEmpty()) {
+                Utils.showToastPopup(mActivity, getString(R.string.select_city_validation));
+                return;
+            }
+        }
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.NAME, nameStr);
+                params.put(Constants.Params.EMAIL, emailStr);
+                params.put(Constants.Params.PHONE, phoneStr);
+                params.put(Constants.Params.CITY, selectedCityNameStr);
+                params.put(Constants.Params.STATE, selectedStateNameStr);
+                params.put(Constants.Params.EDUCATION, educationStr);
+                params.put(Constants.Params.ADDRESS, addressStr);
+                params.put(Constants.Params.REF_BY, refByStr);
+                if (imageFile != null)
+                    params.put(Constants.Params.IMAGE, imageFile);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.UPDATE_PROFILE, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            LoginResponse modelResponse = (LoginResponse) Utils.getObject(response, LoginResponse.class);
+                            if (modelResponse != null && modelResponse.getMessage() != null) {
+                                if (modelResponse.getMessage().equalsIgnoreCase("ok")) {
+                                    Utils.saveLoginUser(mActivity, modelResponse);
+                                    if (fromWhere.equals("guest")) {
+                                        Utils.startActivityFinish(mActivity, HomeActivity.class);
+                                        Toast.makeText(mActivity, modelResponse.getNotification(), Toast.LENGTH_SHORT).show();
+                                    } else
+                                        Utils.showToastPopup(mActivity, modelResponse.getNotification());
                                 }
                             }
-                        } catch (Exception e) {
-                            e.printStackTrace();
                         }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
+                }
 
-                    @Override
-                    public void onFailure(int statusCode, Throwable error) {
-                        Utils.hideProgressBar();
-                        Utils.showToastPopup(mActivity, error.getLocalizedMessage());
-                    }
-                });
-            } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
-        }
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, error.getLocalizedMessage());
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
+
 
     private void getStateList() {
         if (Utils.isNetworkAvailable(mActivity)) {
@@ -436,7 +461,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         if (response != null && !response.equals("")) {
                             StateResponse modelResponse = (StateResponse) Utils.getObject(response, StateResponse.class);
                             if (modelResponse != null) {
-                                if (modelResponse.getNotification().equalsIgnoreCase("success")){
+                                if (modelResponse.getNotification().equalsIgnoreCase("success")) {
                                     if (modelResponse.getResults().size() > 0) {
                                         Result result = new Result();
                                         result.setName("Select state");
@@ -482,7 +507,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                         if (response != null && !response.equals("")) {
                             CityResponse modelResponse = (CityResponse) Utils.getObject(response, CityResponse.class);
                             if (modelResponse != null) {
-                                if (modelResponse.getNotification().equalsIgnoreCase("success")){
+                                if (modelResponse.getNotification().equalsIgnoreCase("success")) {
                                     if (modelResponse.getResults().size() > 0) {
                                         ResultCity result = new ResultCity();
                                         result.setName("Select city");

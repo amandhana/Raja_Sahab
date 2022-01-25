@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mActivity = this;
         mAuth = FirebaseAuth.getInstance();
         clickListener();
-        askForPermission();
         initCallback();
         onActivityResultLauncher();
     }

@@ -43,7 +43,7 @@
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_notification.xml" value="0.1408514492753623" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_payment.xml" value="0.22" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_pdf_view.xml" value="0.14855072463768115" />
-        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_cart.xml" value="0.22" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_paper.xml" value="0.1" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/activity_research_paper_detail.xml" value="0.1" />
@@ -64,9 +64,6 @@
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/toast_popup_wallet.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/track_selection_dialog.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/ustom_controls.xml" value="0.125" />
-        <entry key="..\:/Source git/Raja_Sahab/app/src/main/res/layout/activity_payment.xml" value="0.264" />
-        <entry key="..\:/Source git/Raja_Sahab/app/src/main/res/layout/activity_profile.xml" value="0.25" />
-        <entry key="..\:/Source git/Raja_Sahab/app/src/main/res/layout/left_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

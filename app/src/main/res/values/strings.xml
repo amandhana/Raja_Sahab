@@ -12,6 +12,8 @@
     <string name="name_empty_validation">Please enter name</string>
     <string name="email_empty_validation">Please enter email</string>
     <string name="email_valid_validation">Please enter valid email</string>
+    <string name="select_state_validation">Please select state</string>
+    <string name="select_city_validation">Please select city</string>
     <string name="phone_empty_validation">Please enter phone number</string>
     <string name="phone_valid_validation">Please enter valid phone number</string>
     <string name="address_empty_validation">Please enter address</string>
@@ -267,5 +269,6 @@
     <string name="job_alert">Job Alert</string>
     <string name="current_affairs">Current Affairs</string>
     <string name="checkout">Checkout</string>
+    <string name="refferal_code">Refferal Code</string>
 
 </resources>
