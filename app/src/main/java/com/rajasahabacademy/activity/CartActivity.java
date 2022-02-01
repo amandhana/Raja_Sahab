@@ -36,7 +36,7 @@ import org.json.JSONObject;
 import java.util.List;
 import java.util.Objects;
 
-public class CartActivity extends AppCompatActivity implements View.OnClickListener, PaymentResultListener {
+public class CartActivity extends AppCompatActivity implements View.OnClickListener {
 
     Activity mActivity;
     TextView tvBuyAll;
@@ -311,16 +311,6 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-    @Override
-    public void onPaymentSuccess(String s) {
-
-    }
-
-    @Override
-    public void onPaymentError(int i, String s) {
-
-    }
 
     @Override
     public void onClick(View view) {

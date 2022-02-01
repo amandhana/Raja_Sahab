@@ -71,8 +71,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     Spinner stateSpinn;
     Spinner citySpinn;
     List<Result> stateList = new ArrayList<>();
-    List
-            <ResultCity> cityList = new ArrayList<>();
+    List<ResultCity> cityList = new ArrayList<>();
     StateAdapter stateAdapter;
     CityAdapter cityAdapter;
     String stateId = "";
