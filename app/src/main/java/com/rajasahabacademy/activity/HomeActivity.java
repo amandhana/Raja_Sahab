@@ -3,8 +3,10 @@ package com.rajasahabacademy.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -72,6 +74,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Preference preference;
     ShimmerFrameLayout homeCategoryShimmer;
     private Timer timer;
+    TextView tvReferralCode;
     EditText etSearch;
     RelativeLayout cartLay;
 
@@ -165,6 +168,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         liveChatLay.setOnClickListener(this);
         homeLay.setOnClickListener(this);
 
+
+        tvReferralCode = findViewById(R.id.tv_left_menu_ref_code);
         LinearLayout leftmenuhomelay = findViewById(R.id.left_menu_home_lay);
         leftmenuhomelay.setOnClickListener(this);
         LinearLayout leftMenuSavedVideolay = findViewById(R.id.left_menu_my_save_video_lay);
@@ -191,6 +196,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftMenuBookmarkVideoLay.setOnClickListener(this);
         LinearLayout leftMenuMyOrdersLay = findViewById(R.id.left_menu_my_orders_lay);
         leftMenuMyOrdersLay.setOnClickListener(this);
+        LinearLayout leftMenuShareLay = findViewById(R.id.left_menu_share_lay);
+        leftMenuShareLay.setOnClickListener(this);
         LinearLayout leftMenuAttemptedQuizLay = findViewById(R.id.left_menu_attempted_quiz_lay);
         leftMenuAttemptedQuizLay.setOnClickListener(this);
         LinearLayout leftMenuPrivacyPolicyLay = findViewById(R.id.left_privacy_policy_lay);
@@ -199,6 +206,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         contactUsLay.setOnClickListener(this);
         LinearLayout notificationLay = findViewById(R.id.left_menu_notification_lay);
         notificationLay.setOnClickListener(this);
+        LinearLayout rateusLay = findViewById(R.id.left_rate_us_lay);
+        rateusLay.setOnClickListener(this);
         LinearLayout aboutUsLay = findViewById(R.id.left_about_us_lay);
         aboutUsLay.setOnClickListener(this);
         LinearLayout termsConditionLay = findViewById(R.id.left_terms_conditions_lay);
@@ -240,7 +249,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvWalletAmount = findViewById(R.id.tv_wallet_amount);
         tvWalletAmount.setText(getString(R.string.rank_format, "Wallet Amount : ", Utils.getSaveLoginUser(mActivity).getResults().getWallet()));
     }
-
 
     private String getFirstCharOfName() {
         if (Utils.getSaveLoginUser(mActivity).getResults().getName().equals(""))
@@ -340,7 +348,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void applyFilter() {
+    public void applyFilter() {
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -456,6 +464,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         });
         mHomeWatcher.startWatch();
     }
+
+    private void shareIntent() {
+        String appLink = "Hey, \n Your Friend " + Utils.getSaveLoginUser(mActivity).getResults().getName()
+                + " invited you to join Raja Sahab Group of Education . Use the invite code=" + Utils.getProfileDetail(mActivity).getRefCode()
+                + " to sign up and earn ₹50 . \n "
+                + "App Link https://play.google.com/store/apps/details?id=" + mActivity.getPackageName();
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, appLink);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
 
     public void showHideBottomNavigation(boolean flag) {
         LinearLayout bottomNavigationLay = findViewById(R.id.bottom_navigation_lay);
@@ -654,6 +676,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             drawerLayout.openDrawer(GravityCompat.START);
     }
 
+    private void rateUs(){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.rajasahabacademy"));
+        startActivity(intent);
+    }
+
     private void performMenuActionDelay() {
         try {
             new Handler(Looper.getMainLooper()).postDelayed(this::performNavMenuAction, 500);
@@ -747,6 +774,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             Utils.startActivity(mActivity, AboutUsActivity.class);
             performMenuActionDelay();
+        } else if (id == R.id.left_menu_share_lay) {
+            shareIntent();
         } else if (id == R.id.left_menu_research_lay_lay) {
             setBlankSearch();
             Utils.startActivity(mActivity, ResearchPaperActivity.class);
@@ -763,6 +792,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             Utils.startActivity(mActivity, RefundCancellationActivity.class);
             performMenuActionDelay();
+        } else if (id == R.id.left_rate_us_lay) {
+            rateUs();
         } else if (id == R.id.cv_logout) {
             performNavMenuAction();
             logoutPopup();

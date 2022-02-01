@@ -180,6 +180,8 @@
             android:layout_marginStart="@dimen/m5"
             android:layout_marginEnd="@dimen/m5" />
 
+
+
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/home_category_shimmer"
             android:layout_width="match_parent"

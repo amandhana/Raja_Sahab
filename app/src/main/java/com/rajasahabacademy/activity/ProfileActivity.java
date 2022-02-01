@@ -249,8 +249,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
+    // ab ek chz bata me profile pe gya hi ni to referel code kaha se milega muje
+    // upr vali line jab tk pd jab tk tuje smj n a jata me ky khna chhta hu
+    // yha se milega
     private void setUpData(Success model) {
         try {
+            Utils.saveProfileDetail(mActivity, model);
             Utils.setProfileImageUsingGlide(mActivity, model.getImage(), ivImage);
             etName.setText(model.getName());
             etName.setSelection(etName.getText().toString().length());
@@ -445,7 +449,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
-
 
     private void getStateList() {
         if (Utils.isNetworkAvailable(mActivity)) {

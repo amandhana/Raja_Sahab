@@ -79,25 +79,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="Wallet Amount : 100"
-                android:paddingStart="@dimen/m10"
-                android:paddingEnd="@dimen/m10"
                 android:layout_alignParentBottom="true"
-                android:paddingTop="@dimen/m5"
-                android:paddingBottom="@dimen/m5"
                 android:layout_marginEnd="@dimen/m10"
                 android:layout_marginBottom="@dimen/m5"
-                android:textSize="@dimen/text_13"
-                android:textColor="@color/white"/>
+                android:paddingStart="@dimen/m10"
+                android:paddingTop="@dimen/m5"
+                android:paddingEnd="@dimen/m10"
+                android:paddingBottom="@dimen/m5"
+                android:text="Wallet Amount : 100"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_13" />
 
             <com.rajasahabacademy.views.BoldTextView
                 android:id="@+id/tv_left_menu_ref_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/m5"
-                android:layout_marginTop="@dimen/m5"
-                android:text=""
                 android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/m5"
+                android:layout_marginEnd="@dimen/m5"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_14" />
 
@@ -118,7 +118,7 @@
                     android:src="@drawable/ic_arrow_back" />
             </RelativeLayout>
 
-     1   </RelativeLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -143,8 +143,8 @@
                 <LinearLayout
                     android:id="@+id/left_menu_notes_lay"
                     android:layout_width="match_parent"
-                    android:background="@color/colorPrimaryVariant"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryVariant">
 
                     <ImageView
                         android:layout_width="@dimen/m25"
@@ -163,18 +163,17 @@
                         android:textSize="@dimen/text_15" />
 
 
-
                 </LinearLayout>
 
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_marginEnd="@dimen/m15"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/m40"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m15"
                 android:layout_weight="1"
                 android:elevation="@dimen/m10"
                 app:cardCornerRadius="@dimen/m5">
@@ -182,8 +181,8 @@
                 <LinearLayout
                     android:id="@+id/left_menu_share_lay"
                     android:layout_width="match_parent"
-                    android:background="@color/colorPrimaryVariant"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryVariant">
 
                     <ImageView
                         android:layout_width="@dimen/m25"
@@ -200,7 +199,6 @@
                         android:text="@string/share"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_15" />
-
 
 
                 </LinearLayout>
@@ -229,21 +227,21 @@
                 <LinearLayout
                     android:id="@+id/left_menu_my_save_video_lay"
                     android:layout_width="match_parent"
-                    android:background="@color/colorPrimaryVariant"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryVariant">
 
                     <ImageView
                         android:layout_width="@dimen/m25"
                         android:layout_height="@dimen/m25"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginStart="@dimen/m5"
                         android:background="@drawable/ic_play" />
 
                     <com.rajasahabacademy.views.BoldTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginStart="@dimen/m5"
                         android:text="@string/my_save_video"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_13" />
@@ -255,11 +253,11 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_marginEnd="@dimen/m15"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/m40"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m10"
+                android:layout_marginEnd="@dimen/m15"
                 android:layout_weight="1"
                 android:elevation="@dimen/m10"
                 app:cardCornerRadius="@dimen/m5">
@@ -267,8 +265,8 @@
                 <LinearLayout
                     android:id="@+id/left_menu_my_save_ebook_lay"
                     android:layout_width="match_parent"
-                    android:background="@color/colorPrimaryVariant"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryVariant">
 
                     <ImageView
                         android:layout_width="@dimen/m25"
@@ -281,11 +279,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginStart="@dimen/m5"
                         android:text="@string/my_save_ebook"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_13" />
-
 
 
                 </LinearLayout>
@@ -331,7 +328,6 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
-
 
         <LinearLayout
             android:id="@+id/left_menu_my_profile_lay"
@@ -487,32 +483,6 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
-
-        <LinearLayout
-            android:id="@+id/left_menu_current_affair_lay"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/m45">
-
-            <ImageView
-                android:layout_width="@dimen/m18"
-                android:layout_height="@dimen/m18"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_current_affair"
-                android:backgroundTint="@color/colorPrimaryVariant"
-                android:contentDescription="@string/app_name" />
-
-            <com.rajasahabacademy.views.RegularTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/m15"
-                android:text="@string/current_affairs"
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_15" />
-
-
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -731,9 +701,9 @@
 
 
         <LinearLayout
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/m45">
+            android:layout_height="@dimen/m45"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="@dimen/m18"
@@ -783,6 +753,32 @@
                 android:text="@string/about_us"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_15" />
+
+            <LinearLayout
+                android:id="@+id/left_menu_current_affair_lay"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m45">
+
+                <ImageView
+                    android:layout_width="@dimen/m18"
+                    android:layout_height="@dimen/m18"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/m15"
+                    android:background="@drawable/ic_current_affair"
+                    android:backgroundTint="@color/colorPrimaryVariant"
+                    android:contentDescription="@string/app_name" />
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/m15"
+                    android:text="@string/current_affairs"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_15" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>

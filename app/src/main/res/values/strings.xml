@@ -66,8 +66,8 @@
 
     <!--Home-->
     <string name="home">Home</string>
-    <string name="my_save_video">Save Videos</string>
-    <string name="my_save_ebook">Save Ebook</string>
+    <string name="my_save_video">Saved Videos</string>
+    <string name="my_save_ebook">Saved Ebook</string>
     <string name="my_profile">My Profile</string>
     <string name="skip">Skip</string>
     <string name="my_orders">My Course</string>

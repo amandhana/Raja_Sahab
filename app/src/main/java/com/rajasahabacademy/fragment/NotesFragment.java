@@ -73,12 +73,14 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
         super.onResume();
         ((HomeActivity) mActivity).showHideBottomNavigation(false);
         ((HomeActivity) mActivity).showHideCart(true);
+        ((HomeActivity) mActivity).applyFilter();
         setUpNotesList();
     }
 
     private void init() {
         mActivity = getActivity();
         clickListener();
+        ((HomeActivity) mActivity).applyFilter();
         getBundleData();
     }
 

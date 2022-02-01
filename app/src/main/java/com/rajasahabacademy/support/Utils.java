@@ -38,6 +38,7 @@ import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.LoginActivity;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.model.login.LoginResponse;
+import com.rajasahabacademy.model.profile_detail.Success;
 import com.razorpay.Checkout;
 
 import org.json.JSONObject;
@@ -200,11 +201,21 @@ public class Utils {
         Preference preference = Preference.getInstance(context);
         preference.putString("loginUser", gson.toJson(loginResponse));
     }
+    public static void saveProfileDetail(Activity context, Success success) {
+        Gson gson = new Gson();
+        Preference preference = Preference.getInstance(context);
+        preference.putString("profile_detail", gson.toJson(success));
+    }
 
     public static LoginResponse getSaveLoginUser(Activity context) {
         Preference preference = Preference.getInstance(context);
         String resposne = preference.getString("loginUser");
         return (LoginResponse) getObject(resposne, LoginResponse.class);
+    }
+    public static Success getProfileDetail(Activity context) {
+        Preference preference = Preference.getInstance(context);
+        String resposne = preference.getString("profile_detail");
+        return (Success) getObject(resposne, Success.class);
     }
 
     public static String getUserId(Activity context) {

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -285,9 +286,11 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     public void onPaymentSuccess(String s) {
         switch (fromWhere) {
             case "course_detail":
+                Log.e("success","course_detail");
                 buyNowCourse(getPaybleAmount(), 0, "upi");
                 break;
             case "cart":
+                Log.e("success","cart");
                 Intent intent = new Intent();
                 intent.putExtra("remain_wallet", "0");
                 intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
@@ -296,6 +299,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 onBackPressed();
                 break;
             case "research_cart":
+                Log.e("success","researc_cart");
                 intent = new Intent();
                 intent.putExtra("remain_wallet", "0");
                 intent.putExtra("payble_amount", String.valueOf(getPaybleAmount()));
@@ -309,6 +313,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onPaymentError(int i, String s) {
-
+        Log.e("error",s);
     }
 }
