@@ -230,6 +230,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         TextView tvUserPhone = findViewById(R.id.tv_left_menu_phone_number);
         TextView tvFirstName = findViewById(R.id.tv_first_name);
         ImageView ivImage = findViewById(R.id.iv_left_menu_image);
+        tvReferralCode.setText("Referral Code : " + Utils.getSaveLoginUser(mActivity).getResults().getRefCode());
         ivImage.setVisibility(View.GONE);
         tvFirstName.setVisibility(View.GONE);
         if (!Utils.getImage(mActivity).equals("") && Utils.getImage(mActivity).contains("http")) {
@@ -467,7 +468,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void shareIntent() {
         String appLink = "Hey, \n Your Friend " + Utils.getSaveLoginUser(mActivity).getResults().getName()
-                + " invited you to join Raja Sahab Group of Education . Use the invite code=" + Utils.getProfileDetail(mActivity).getRefCode()
+                + " invited you to join Raja Sahab Group of Education . Use the invite code=" + Utils.getSaveLoginUser(mActivity).getResults().getRefCode()
                 + " to sign up and earn ₹50 . \n "
                 + "App Link https://play.google.com/store/apps/details?id=" + mActivity.getPackageName();
 
@@ -477,7 +478,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         sendIntent.setType("text/plain");
         startActivity(sendIntent);
     }
-
 
     public void showHideBottomNavigation(boolean flag) {
         LinearLayout bottomNavigationLay = findViewById(R.id.bottom_navigation_lay);

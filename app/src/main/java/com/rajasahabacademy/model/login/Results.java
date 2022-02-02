@@ -69,6 +69,9 @@ public class Results {
     @SerializedName("c_password")
     @Expose
     private Object cPassword;
+    @SerializedName("ref_code")
+    @Expose
+    private String refCode;
     @SerializedName("ip")
     @Expose
     private String ip;
@@ -149,6 +152,16 @@ public class Results {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getRefCode() {
+        if (refCode == null)
+            return "null";
+        return refCode;
+    }
+
+    public void setRefCode(String refCode) {
+        this.refCode = refCode;
     }
 
     public Object getDeviceId() {

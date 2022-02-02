@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/m130"
+            android:layout_height="@dimen/m150"
             android:background="@color/colorPrimaryVariant"
             android:orientation="horizontal">
 
@@ -45,6 +45,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/name_number_lay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -81,7 +82,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="@dimen/m10"
-                android:layout_marginBottom="@dimen/m5"
                 android:paddingStart="@dimen/m10"
                 android:paddingTop="@dimen/m5"
                 android:paddingEnd="@dimen/m10"
@@ -90,16 +90,6 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_13" />
 
-            <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_left_menu_ref_code"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/m5"
-                android:layout_marginEnd="@dimen/m5"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_14" />
 
             <RelativeLayout
                 android:id="@+id/back_lay_left_menu"
@@ -124,6 +114,17 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
+
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_left_menu_ref_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/m10"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_16" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -520,7 +521,6 @@
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
 
-
         <LinearLayout
             android:id="@+id/left_menu_research_lay_lay"
             android:layout_width="match_parent"
@@ -551,7 +551,6 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
-
 
         <LinearLayout
             android:id="@+id/left_menu_my_courses_lay"
@@ -641,7 +640,6 @@
 
         </LinearLayout>
 
-
         <LinearLayout
             android:id="@+id/left_menu_test_series_lay"
             android:layout_width="match_parent"
@@ -698,7 +696,6 @@
 
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"

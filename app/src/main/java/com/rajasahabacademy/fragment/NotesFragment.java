@@ -155,6 +155,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
+
     public List<ResultNotes> getList() {
         return list;
     }

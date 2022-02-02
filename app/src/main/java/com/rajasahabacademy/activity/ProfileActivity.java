@@ -283,7 +283,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             TextView tvRefferalCode = findViewById(R.id.tv_refferal_code);
             tvUserName.setText(model.getName());
             tvUserPhone.setText(model.getPhone());
-            tvRefferalCode.setText("Refferal Code : " + model.getRefCode());
+            tvRefferalCode.setText("Referral Code : " + model.getRefCode());
         } catch (Exception e) {
             e.printStackTrace();
         }
