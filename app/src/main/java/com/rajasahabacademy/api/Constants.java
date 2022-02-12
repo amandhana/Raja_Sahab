@@ -14,7 +14,8 @@ import com.rajasahabacademy.model.content.ContentResponse;
 import java.util.List;
 
 public class Constants {
-    private static final String BASE_URL_DOMAIN = "https://rs.webseochicago.com/";
+   // private static final String BASE_URL_DOMAIN = "https://rs.webseochicago.com/";
+    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/portal/";
     private static final String BASE_URL = BASE_URL_DOMAIN + "api/";
     public static final String EBOOK_PATH = "https://drive.google.com/viewerng/viewer?embedded=true&url=";
 

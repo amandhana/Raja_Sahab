@@ -260,7 +260,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void setHomeCourseAdapter() {
+    public void setHomeCourseAdapter() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false));
         homeCourseAdapter = new HomeCourseAdapter(mActivity, courseTypeList);
@@ -721,6 +721,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.left_menu_notes_lay) {
             setBlankSearch();
             performNavMenuAction();
+            setHomeCourseAdapter();
             loadFragment(NotesFragment.class.getName(), NotesFragment.newInstance(), null);
         } else if (id == R.id.left_menu_live_classes_lay) {
             setBlankSearch();
