@@ -371,8 +371,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_my_orders"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_short_video_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -433,8 +432,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_bookmark_fill"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_bookmark_question_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -500,8 +498,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_bookmark_fill"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_bookmark_video_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -562,8 +559,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_courses"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_courses_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -593,8 +589,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_live_classes"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_live_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -738,8 +733,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_about_us"
-                android:backgroundTint="@color/colorPrimaryVariant"
+                android:background="@drawable/ic_about_us_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -761,8 +755,7 @@
                     android:layout_height="@dimen/m18"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="@dimen/m15"
-                    android:background="@drawable/ic_current_affair"
-                    android:backgroundTint="@color/colorPrimaryVariant"
+                    android:background="@drawable/ic_current_affairs"
                     android:contentDescription="@string/app_name" />
 
                 <com.rajasahabacademy.views.RegularTextView
