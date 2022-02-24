@@ -16,15 +16,14 @@ import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.FutureTarget;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.rajasahabacademy.R;
-import com.rajasahabacademy.activity.CourseDetailActivity;
-import com.rajasahabacademy.activity.HomeActivity;
-import com.rajasahabacademy.activity.QuizReadyForTestActivity;
+import com.rajasahabacademy.activity.course_detail.activity.CourseDetailActivity;
+import com.rajasahabacademy.activity.home.activity.HomeActivity;
+import com.rajasahabacademy.activity.quiz.activity.QuizReadyForTestActivity;
 import com.rajasahabacademy.api.Constants;
 
 import java.util.Map;

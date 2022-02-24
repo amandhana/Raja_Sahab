@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.MySavedVideoActivity">
+    tools:context=".activity.my_save_video.activity.MySavedVideoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

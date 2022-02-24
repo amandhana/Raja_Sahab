@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".activity.ShortVideoActivity">
+    tools:context=".activity.short_video.activity.ShortVideoActivity">
 
     <RelativeLayout
         android:id="@+id/header_lay"

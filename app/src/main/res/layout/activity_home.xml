@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".activity.HomeActivity">
+    tools:context=".activity.home.activity.HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -173,10 +173,26 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recycler_view_cat"
             android:layout_width="match_parent"
             android:layout_height="@dimen/m60"
             android:layout_below="@+id/cv_header"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_marginEnd="@dimen/m5" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_sub_cat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m60"
+            android:layout_below="@+id/recycler_view_cat"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_marginEnd="@dimen/m5" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m60"
+            android:layout_below="@+id/recycler_view_sub_cat"
             android:layout_marginStart="@dimen/m5"
             android:layout_marginEnd="@dimen/m5" />
 

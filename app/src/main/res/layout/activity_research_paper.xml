@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.ResearchPaperActivity">
+    tools:context=".activity.research_cart.activity.ResearchPaperActivity">
 
     <RelativeLayout
         android:id="@+id/header_lay"

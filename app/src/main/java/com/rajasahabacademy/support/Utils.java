@@ -35,10 +35,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.loopj.android.http.BuildConfig;
 import com.rajasahabacademy.R;
-import com.rajasahabacademy.activity.LoginActivity;
-import com.rajasahabacademy.api.Constants;
-import com.rajasahabacademy.model.login.LoginResponse;
-import com.rajasahabacademy.model.profile_detail.Success;
+import com.rajasahabacademy.activity.login.activity.LoginActivity;
+import com.rajasahabacademy.activity.login.model.LoginResponse;
+import com.rajasahabacademy.activity.profile.model.profile_detail.Success;
 import com.razorpay.Checkout;
 
 import org.json.JSONObject;

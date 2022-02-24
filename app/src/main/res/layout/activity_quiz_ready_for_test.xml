@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/quiz_ready_bg"
-    tools:context=".activity.QuizReadyForTestActivity">
+    tools:context=".activity.quiz.activity.QuizReadyForTestActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

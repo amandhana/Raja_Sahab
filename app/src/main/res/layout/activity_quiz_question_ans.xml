@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/quiz_ready_bg"
-    tools:context=".activity.QuizQuestionAnsActivity">
+    tools:context=".activity.quiz.activity.QuizQuestionAnsActivity">
 
     <RelativeLayout
         android:id="@+id/data_lay"

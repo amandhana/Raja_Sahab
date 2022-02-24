@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_color"
-    tools:context=".activity.CourseTopicPdfActivity">
+    tools:context=".activity.course_detail.activity.CourseTopicPdfActivity">
 
     <RelativeLayout
         android:id="@+id/header_lay"

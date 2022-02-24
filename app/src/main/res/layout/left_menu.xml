@@ -483,12 +483,8 @@
             android:layout_height="0.5dp"
             android:background="#D7D7D7" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="#D7D7D7" />
-
         <LinearLayout
+
             android:id="@+id/left_menu_bookmark_video_lay"
             android:layout_width="match_parent"
             android:layout_height="@dimen/m45">
@@ -635,6 +631,11 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
         <LinearLayout
             android:id="@+id/left_menu_test_series_lay"
             android:layout_width="match_parent"
@@ -692,6 +693,41 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
+        <LinearLayout
+            android:id="@+id/left_menu_current_affair_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m45">
+
+            <ImageView
+                android:layout_width="@dimen/m18"
+                android:layout_height="@dimen/m18"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:background="@drawable/ic_current_affairs"
+                android:contentDescription="@string/app_name" />
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/m15"
+                android:text="@string/current_affairs"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_15" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/m45"
@@ -745,31 +781,6 @@
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_15" />
 
-            <LinearLayout
-                android:id="@+id/left_menu_current_affair_lay"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/m45">
-
-                <ImageView
-                    android:layout_width="@dimen/m18"
-                    android:layout_height="@dimen/m18"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/m15"
-                    android:background="@drawable/ic_current_affairs"
-                    android:contentDescription="@string/app_name" />
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/m15"
-                    android:text="@string/current_affairs"
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/text_15" />
-
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
@@ -803,6 +814,11 @@
 
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
 
         <LinearLayout
             android:id="@+id/left_rate_us_lay"

@@ -3,19 +3,20 @@ package com.rajasahabacademy.api;
 import android.annotation.SuppressLint;
 
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.rajasahabacademy.fragment.CourseFragment;
-import com.rajasahabacademy.fragment.HomeFragment;
-import com.rajasahabacademy.fragment.LiveClassFragment;
-import com.rajasahabacademy.fragment.LiveQuizFragment;
-import com.rajasahabacademy.fragment.NotesFragment;
-import com.rajasahabacademy.model.attempt_quiz.Question;
-import com.rajasahabacademy.model.content.ContentResponse;
+import com.rajasahabacademy.activity.home.fragment.CourseFragment;
+import com.rajasahabacademy.activity.home.fragment.HomeFragment;
+import com.rajasahabacademy.activity.home.fragment.LiveClassFragment;
+import com.rajasahabacademy.activity.quiz.fragment.LiveQuizFragment;
+import com.rajasahabacademy.activity.home.fragment.NotesFragment;
+import com.rajasahabacademy.activity.quiz.model.attempt_quiz.Question;
+import com.rajasahabacademy.activity.about_us.model.ContentResponse;
 
 import java.util.List;
 
 public class Constants {
    // private static final String BASE_URL_DOMAIN = "https://rs.webseochicago.com/";
-    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/portal/";
+//    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/portal/";
+    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/urgcare/admin/";
     private static final String BASE_URL = BASE_URL_DOMAIN + "api/";
     public static final String EBOOK_PATH = "https://drive.google.com/viewerng/viewer?embedded=true&url=";
 
@@ -141,6 +142,7 @@ public class Constants {
         public static final String PROFILE_DETAIL = BASE_URL + "details";
         public static final String UPDATE_PROFILE = BASE_URL + "udpateprofile";
         public static final String HOME_SLIDER_BANNER = BASE_URL + "sliders";
+        public static final String HOME_MAIN_CATEGORY = BASE_URL + "main_category";
         public static final String HOME_CATEGORY = BASE_URL + "category";
         public static final String HOME_LATEST_COURSE = BASE_URL + "dashboard_courses";
         public static final String COURSES = BASE_URL + "courses";

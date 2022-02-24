@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.CurrentAffairActivity">
+    tools:context=".activity.current_affair.activity.CurrentAffairActivity">
 
     <RelativeLayout
         android:id="@+id/header_lay"
