@@ -221,6 +221,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 Utils.printLog("ProfileDetailParams", params.toString());
             } catch (Exception e) {
                 e.printStackTrace();
+
             }
             Communicator communicator = new Communicator();
             communicator.post(101, mActivity, Constants.Apis.PROFILE_DETAIL, params, new CustomResponseListener() {

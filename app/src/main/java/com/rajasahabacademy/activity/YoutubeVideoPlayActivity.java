@@ -156,6 +156,9 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
 
         RelativeLayout sendLay = findViewById(R.id.send_lay);
         sendLay.setOnClickListener(this);
+        TextView marqText = findViewById(R.id.tv_title_video);
+        marqText.setSelected(true);
+        marqText.setText("This code worked for me - although I had to make sure the android");
         RelativeLayout descriptionLay = findViewById(R.id.description_lay);
         descriptionLay.setOnClickListener(this);
 

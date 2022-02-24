@@ -315,4 +315,5 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     public void onPaymentError(int i, String s) {
         Log.e("error",s);
     }
+
 }

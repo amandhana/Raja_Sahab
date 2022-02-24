@@ -130,7 +130,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (phoneStr.isEmpty())
             Utils.showToastPopup(mActivity, getString(R.string.phone_empty_validation));
         else if (phoneStr.length() < 10)
-            Utils.showToastPopup(mActivity, getString(R.string.phone_valid_validation));
+            Utils.showToastPopup(mActivity,
+                    getString(R.string.phone_valid_validation));
         else startPhoneNumberVerification("+91" + phoneStr);
     }
 

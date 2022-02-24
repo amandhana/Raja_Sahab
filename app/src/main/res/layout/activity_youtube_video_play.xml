@@ -50,8 +50,8 @@
                 android:layout_height="@dimen/m30"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/m15"
-                android:contentDescription="@string/app_name"
-                android:background="@drawable/ic_bookmark_empty"/>
+                android:background="@drawable/ic_bookmark_empty"
+                android:contentDescription="@string/app_name" />
 
 
             <RelativeLayout
@@ -129,6 +129,36 @@
 
     </RelativeLayout>
 
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m40"
+        android:layout_marginTop="@dimen/m50">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red">
+
+            <TextView
+                android:id="@+id/tv_title_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/m30"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/youtube_lay"
