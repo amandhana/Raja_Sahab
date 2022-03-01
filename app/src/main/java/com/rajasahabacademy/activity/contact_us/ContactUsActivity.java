@@ -13,10 +13,10 @@ import android.widget.Toast;
 
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.activity.about_us.model.ContentResponse;
 import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
-import com.rajasahabacademy.activity.about_us.model.content.ContentResponse;
 import com.rajasahabacademy.support.Utils;
 
 import org.json.JSONObject;
