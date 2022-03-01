@@ -171,32 +171,13 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_cat"
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/m60"
             android:layout_below="@+id/cv_header"
             android:layout_marginStart="@dimen/m5"
             android:layout_marginEnd="@dimen/m5" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_sub_cat"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/m60"
-            android:layout_below="@+id/recycler_view_cat"
-            android:layout_marginStart="@dimen/m5"
-            android:layout_marginEnd="@dimen/m5" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/m60"
-            android:layout_below="@+id/recycler_view_sub_cat"
-            android:layout_marginStart="@dimen/m5"
-            android:layout_marginEnd="@dimen/m5" />
-
-
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/home_category_shimmer"

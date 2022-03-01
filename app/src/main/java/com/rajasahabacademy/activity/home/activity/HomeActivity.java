@@ -259,7 +259,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             tvFirstName.setText(getFirstCharOfName());
         }
         String userNameStr = Utils.getSaveLoginUser(mActivity).getResults().getName();
-        String upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
+        String upperString = "";
+        if (!userNameStr.isEmpty())
+            upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
         tvUserName.setText(upperString);
         tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
@@ -694,7 +696,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    private void rateUs(){
+    private void rateUs() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.rajasahabacademy"));
         startActivity(intent);
     }
