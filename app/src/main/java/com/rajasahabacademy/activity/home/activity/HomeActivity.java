@@ -54,8 +54,6 @@ import com.rajasahabacademy.activity.chat.activity.ChatActivity;
 import com.rajasahabacademy.activity.contact_us.ContactUsActivity;
 import com.rajasahabacademy.activity.current_affair.activity.CurrentAffairActivity;
 import com.rajasahabacademy.activity.home.adapter.HomeCourseAdapter;
-import com.rajasahabacademy.activity.home.adapter.HomeCategoryAdapter;
-import com.rajasahabacademy.activity.home.adapter.HomeSubCategoryAdapter;
 import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
@@ -87,8 +85,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Activity mActivity;
     DrawerLayout drawerLayout;
     List<HomeCourseModel> courseTypeList = new ArrayList<>();
-    HomeCategoryAdapter homeCategoryAdapter;
-    HomeSubCategoryAdapter homeSubCategoryAdapter;
     HomeCourseAdapter homeCourseAdapter;
     public String Tag = "";
     public String categoryId = "";
@@ -119,7 +115,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         mActivity = this;
         preference = Preference.getInstance(mActivity);
         setClickListener();
-        setHomeCourseCategory();
         setHomeCourseAdapter();
         startTimer();
         applyFilter();
@@ -281,58 +276,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             String name = Utils.getSaveLoginUser(mActivity).getResults().getName();
             return name.substring(0, 1);
         }
-    }
-
-    public void setHomeCourseCategory() {
-        RecyclerView recyclerView = findViewById(R.id.recycler_view_cat);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.HORIZONTAL, false));
-        homeCategoryAdapter = new HomeCategoryAdapter(mActivity, courseTypeList);
-        recyclerView.setAdapter(homeCategoryAdapter);
-        if (Utils.isNetworkAvailable(mActivity)) {
-            homeCategoryShimmer.startShimmer();
-            Utils.hideKeyboard(mActivity);
-            RequestParams params = new RequestParams();
-            try {
-                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
-                params.put(Constants.Params.DEVICE_ID, Utils.getDeviceId(mActivity));
-                Utils.printLog("ProfileDetailParams", params.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Communicator communicator = new Communicator();
-            communicator.post(101, mActivity, Constants.Apis.HOME_MAIN_CATEGORY, params, new CustomResponseListener() {
-                @Override
-                public void onResponse(int requestCode, String response) {
-                    homeCategoryShimmer.setVisibility(View.GONE);
-                    stoptimertask();
-                    try {
-                        if (response != null && !response.equals("")) {
-                            HomeCategoryResponse modelResponse = (HomeCategoryResponse) Utils.getObject(response, HomeCategoryResponse.class);
-                            if (modelResponse != null && modelResponse.getStatus() != null && modelResponse.getStatus() == 1) {
-                                if (modelResponse.getCategory() != null) {
-                                    if (modelResponse.getCategory().size() > 0) {
-                                        setCourseTypeList(modelResponse.getCategory());
-                                        setSelectCat(true, 0, "0");
-                                    } else {
-                                        courseTypeList.clear();
-                                        courseTypeList.add(new HomeCourseModel("", getString(R.string.all_category), "0", true));
-                                        setSelectCat(true, 0, "0");
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onFailure(int statusCode, Throwable error) {
-                    homeCategoryShimmer.setVisibility(View.GONE);
-                    Utils.showToastPopup(mActivity, error.getLocalizedMessage());
-                }
-            });
-        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
 
     public void setHomeCourseAdapter() {

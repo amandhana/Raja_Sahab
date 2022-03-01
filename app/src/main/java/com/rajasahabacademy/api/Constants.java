@@ -15,8 +15,7 @@ import java.util.List;
 
 public class Constants {
    // private static final String BASE_URL_DOMAIN = "https://rs.webseochicago.com/";
-//    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/portal/";
-    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/urgcare/admin/";
+    private static final String BASE_URL_DOMAIN = "https://rajasahab.education/portal/";
     private static final String BASE_URL = BASE_URL_DOMAIN + "api/";
     public static final String EBOOK_PATH = "https://drive.google.com/viewerng/viewer?embedded=true&url=";
 
@@ -68,6 +67,7 @@ public class Constants {
     public static class ViewSolution {
         public static final String LIST = "attempted_list";
     }
+
 
     public static class Params {
         public static final String DEVICE_ID = "device_id";
