@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg_payment"
     tools:context=".activity.payment.activity.PaymentActivity">
 
     <RelativeLayout
@@ -51,16 +52,16 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_below="@id/header_lay"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_payment"
-        android:orientation="vertical">
+        android:layout_below="@id/header_lay">
 
-        <RelativeLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_payment_detail"
@@ -299,11 +300,10 @@
             </LinearLayout>
 
 
-        </RelativeLayout>
+        </LinearLayout>
 
 
-
-    </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

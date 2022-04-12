@@ -37,6 +37,7 @@ public class BookmarkPdfActivity extends AppCompatActivity {
 
 
     private void getBookmarkedPdf(){
+        recyclerViewBookmarkedPdf = findViewById(R.id.recycler_view_bookmarked_notes);
         recyclerViewBookmarkedPdf.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
@@ -60,25 +61,25 @@ public class BookmarkPdfActivity extends AppCompatActivity {
                                 if (modelResponse.getSuccess()) {
                                     if (modelResponse.getData().size() > 0) {
                                         recyclerViewBookmarkedPdf.setVisibility(View.VISIBLE);
-                                        findViewById(R.id.tv_no_bookmark).setVisibility(View.GONE);
+                                        findViewById(R.id.tv_no_course_pdf).setVisibility(View.GONE);
                                         recyclerViewBookmarkedPdf.setAdapter(new BookmarkedPdfAdapter(mActivity, modelResponse.getData()));
                                     } else {
                                         recyclerViewBookmarkedPdf.setVisibility(View.GONE);
-                                        findViewById(R.id.tv_no_bookmark).setVisibility(View.VISIBLE);
+                                        findViewById(R.id.tv_no_course_pdf).setVisibility(View.VISIBLE);
                                     }
                                 } else {
                                     recyclerViewBookmarkedPdf.setVisibility(View.GONE);
-                                    findViewById(R.id.tv_no_bookmark).setVisibility(View.VISIBLE);
+                                    findViewById(R.id.tv_no_course_pdf).setVisibility(View.VISIBLE);
                                 }
                             } else {
                                 recyclerViewBookmarkedPdf.setVisibility(View.GONE);
-                                findViewById(R.id.tv_no_bookmark).setVisibility(View.VISIBLE);
+                                findViewById(R.id.tv_no_course_pdf).setVisibility(View.VISIBLE);
                             }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                         recyclerViewBookmarkedPdf.setVisibility(View.GONE);
-                        findViewById(R.id.tv_no_bookmark).setVisibility(View.VISIBLE);
+                        findViewById(R.id.tv_no_course_pdf).setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -86,7 +87,7 @@ public class BookmarkPdfActivity extends AppCompatActivity {
                 public void onFailure(int statusCode, Throwable error) {
                     Utils.hideProgressBar();
                     recyclerViewBookmarkedPdf.setVisibility(View.GONE);
-                    findViewById(R.id.tv_no_bookmark).setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_no_course_pdf).setVisibility(View.VISIBLE);
                 }
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));

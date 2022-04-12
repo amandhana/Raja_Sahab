@@ -176,7 +176,6 @@ public class Constants {
         public static final String ADD_BOOKMARK_VIDEO = BASE_URL + "add_bookmark_video";
         public static final String REMOVE_BOOKMARK_VIDEO = BASE_URL + "remove_bookmark_video";
         public static final String GET_BOOKMARK_VIDEO = BASE_URL + "get_bookmark_video";
-        public static final String GET_BOOKMARK_EBOOK = BASE_URL + "get_bookmark_ebook";
         public static final String GET_COUPONS = BASE_URL + "get_coupons";
         public static final String ADD_NOTE_CART = BASE_URL + "add_note_carts";
         public static final String REMOVE_NOTE_CART = BASE_URL + "remove_note_cart";
@@ -196,6 +195,7 @@ public class Constants {
         public static final String CITY = BASE_URL + "city";
         public static final String ADD_BOOKMARK_EBOOK = BASE_URL + "add_bookmark_ebook";
         public static final String REMOVE_BOOKMARK_EBOOK = BASE_URL + "remove_bookmark_ebook";
+        public static final String GET_BOOKMARK_EBOOK = BASE_URL + "get_bookmark_ebook";
     }
 
     public static class AppSaveData {
