@@ -308,106 +308,67 @@
                                     android:id="@+id/video_recycler_lay"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:visibility="gone"
                                     android:layout_below="@+id/all_video_tops_lay">
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/recycler_view_video_tops"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:layout_marginTop="@dimen/m10"
+                                        android:layout_marginEnd="@dimen/m5"
+                                        android:layout_marginBottom="@dimen/m10"
+                                        android:visibility="gone" />
 
                                     <com.rajasahabacademy.views.RegularTextView
                                         android:id="@+id/tv_no_subject_video"
                                         android:layout_width="match_parent"
                                         android:layout_height="@dimen/m200"
                                         android:gravity="center"
-                                        android:text="@string/no_subject"
+                                        android:text="No Video"
                                         android:textColor="@color/primary_text_color"
                                         android:textSize="@dimen/text_16"
                                         android:visibility="gone" />
 
-
-                                    <com.facebook.shimmer.ShimmerFrameLayout
-                                        android:id="@+id/course_detail_video_shimmer"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="vertical">
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="@dimen/m30"
-                                                android:layout_marginStart="@dimen/m5"
-                                                android:layout_marginTop="@dimen/m25"
-                                                android:layout_marginEnd="@dimen/m5"
-                                                android:weightSum="3">
-
-                                                <View
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_marginEnd="@dimen/m5"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/placeholder_bg" />
-
-                                                <View
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_marginStart="@dimen/m5"
-                                                    android:layout_marginEnd="@dimen/m5"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/placeholder_bg" />
-
-
-                                                <View
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_marginStart="@dimen/m5"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/placeholder_bg" />
-
-
-                                            </LinearLayout>
-
-                                            <LinearLayout
-                                                android:layout_width="match_parent"
-                                                android:layout_height="@dimen/m30"
-                                                android:layout_marginStart="@dimen/m5"
-                                                android:layout_marginTop="@dimen/m15"
-                                                android:layout_marginEnd="@dimen/m5"
-                                                android:layout_marginBottom="@dimen/m10"
-                                                android:weightSum="3">
-
-                                                <View
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_marginEnd="@dimen/m5"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/placeholder_bg" />
-
-                                                <View
-                                                    android:layout_width="0dp"
-                                                    android:layout_height="match_parent"
-                                                    android:layout_marginStart="@dimen/m5"
-                                                    android:layout_marginEnd="@dimen/m5"
-                                                    android:layout_weight="1"
-                                                    android:background="@color/placeholder_bg" />
-
-                                                <androidx.recyclerview.widget.RecyclerView
-                                                    android:id="@+id/recycler_view_video_tops"
-                                                    android:layout_width="match_parent"
-                                                    android:layout_height="wrap_content"
-                                                    android:layout_marginStart="@dimen/m5"
-                                                    android:layout_marginTop="@dimen/m10"
-                                                    android:layout_marginEnd="@dimen/m5"
-                                                    android:layout_marginBottom="@dimen/m10"
-                                                    android:visibility="visible" />
-
-                                            </LinearLayout>
-
-                                        </LinearLayout>
-
-
-                                    </com.facebook.shimmer.ShimmerFrameLayout>
-
-
                                 </RelativeLayout>
+
+                                <com.facebook.shimmer.ShimmerFrameLayout
+                                    android:id="@+id/course_detail_video_shimmer"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/m200"
+                                    android:layout_below="@+id/video_recycler_lay">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/m50"
+                                            android:layout_marginEnd="@dimen/m5"
+                                            android:background="@color/placeholder_bg" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/m50"
+                                            android:layout_marginEnd="@dimen/m5"
+                                            android:layout_marginTop="@dimen/m15"
+                                            android:background="@color/placeholder_bg" />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/m50"
+                                            android:layout_marginTop="@dimen/m15"
+                                            android:layout_marginEnd="@dimen/m5"
+                                            android:background="@color/placeholder_bg" />
+
+
+                                    </LinearLayout>
+
+
+                                </com.facebook.shimmer.ShimmerFrameLayout>
 
                             </RelativeLayout>
 

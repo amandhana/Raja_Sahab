@@ -148,6 +148,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                             CourseSubjectResponse modelResponse = (CourseSubjectResponse) Utils.getObject(response, CourseSubjectResponse.class);
                             if (modelResponse != null && modelResponse.getSuccess() != null && modelResponse.getSuccess()) {
                                 if (modelResponse.getVideosCategory() != null && modelResponse.getVideosCategory().size() > 0) {
+                                    findViewById(R.id.video_recycler_lay).setVisibility(View.VISIBLE);
                                     recyclerViewVideo.setVisibility(View.VISIBLE);
                                     findViewById(R.id.tv_no_subject_video).setVisibility(View.GONE);
                                     courseDetailVideoAdapter = new CourseDetailVideoAdapter(mActivity, modelResponse.getVideosCategory(),
@@ -157,6 +158,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                             getCourseBuyStatus());
                                     recyclerViewVideo.setAdapter(courseDetailVideoAdapter);
                                 } else {
+                                    findViewById(R.id.video_recycler_lay).setVisibility(View.GONE);
                                     recyclerViewVideo.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);
                                 }
@@ -197,7 +199,6 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
                 @Override
                 public void onFailure(int statusCode, Throwable error) {
-                    courseDetailVideoShimmer.setVisibility(View.GONE);
                     courseDetailPdfShimmer.setVisibility(View.GONE);
                     recyclerViewVideo.setVisibility(View.GONE);
                     findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);
