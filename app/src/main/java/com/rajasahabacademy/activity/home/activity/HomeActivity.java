@@ -877,8 +877,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             performMenuActionDelay();
             Utils.startActivity(mActivity, BookmarkVideoActivity.class);
         } else if (id == R.id.cart_lay) {
+            performMenuActionDelay();
             Utils.startActivity(mActivity, CartActivity.class);
         }else if (id == R.id.left_menu_bookmark_pdf_lay) {
+            performMenuActionDelay();
             Utils.startActivity(mActivity, BookmarkPdfActivity.class);
         }
     }
