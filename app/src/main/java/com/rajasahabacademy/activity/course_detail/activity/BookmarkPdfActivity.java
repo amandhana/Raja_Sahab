@@ -1,6 +1,7 @@
 package com.rajasahabacademy.activity.course_detail.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,7 +18,7 @@ import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.api.CustomResponseListener;
 import com.rajasahabacademy.support.Utils;
 
-public class BookmarkPdfActivity extends AppCompatActivity {
+public class BookmarkPdfActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
     RecyclerView recyclerViewBookmarkedPdf;
 
@@ -31,10 +32,14 @@ public class BookmarkPdfActivity extends AppCompatActivity {
 
     private void init() {
         mActivity = this;
+        setUpClickListener();
         getBookmarkedPdf();
     }
 
-
+    private void setUpClickListener(){
+        CardView cvmenu = findViewById(R.id.cv_back);
+        cvmenu.setOnClickListener(this);
+    }
 
     private void getBookmarkedPdf(){
         recyclerViewBookmarkedPdf = findViewById(R.id.recycler_view_bookmarked_notes);
@@ -92,6 +97,12 @@ public class BookmarkPdfActivity extends AppCompatActivity {
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
     }
-
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.cv_back) {
+            onBackPressed();
+        }
+    }
 
 }
