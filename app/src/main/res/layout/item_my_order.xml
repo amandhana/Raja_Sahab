@@ -2,126 +2,185 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/m130"
+    android:layout_height="@dimen/m200"
     android:layout_marginStart="@dimen/m15"
     android:layout_marginTop="@dimen/m10"
     android:layout_marginEnd="@dimen/m15"
     android:background="@color/bg_color">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m120">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/m5"
+        android:elevation="@dimen/m10"
+        app:cardCornerRadius="@dimen/m10"
+        app:cardElevation="@dimen/m5">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_image"
-            android:layout_width="@dimen/m110"
-            android:layout_height="@dimen/m110"
-            android:layout_centerVertical="true"
-            android:elevation="@dimen/m10"
-            app:cardCornerRadius="@dimen/m10"
-            app:cardPreventCornerOverlap="false">
-
-            <ImageView
-                android:id="@+id/iv_order_history"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/app_name" />
-
-        </androidx.cardview.widget.CardView>
-
-        <RelativeLayout
+        <LinearLayout
+            android:background="@drawable/bg_my_orders_item"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/cv_image">
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
 
-            <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_order_history_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/m10"
-                android:layout_marginTop="@dimen/m10"
-                android:maxLines="2"
-                android:text=""
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_12" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_image"
+                android:layout_width="@dimen/m110"
+                android:layout_height="@dimen/m150"
+                android:layout_marginStart="@dimen/m30"
+                android:elevation="@dimen/m10"
+                app:cardPreventCornerOverlap="false">
 
-            <RelativeLayout
-                android:id="@+id/amount_lay"
+                <ImageView
+                    android:id="@+id/iv_order_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY" />
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/m20"
+                android:layout_marginTop="@dimen/m20"
+                android:layout_marginBottom="@dimen/m20"
+                android:background="@color/colorPrimary" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_order_history_name"
-                android:layout_marginStart="@dimen/m10"
-                android:layout_marginTop="@dimen/m5">
+                android:layout_marginStart="@dimen/m20"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/rupee_cancel_lay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:visibility="gone">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:layout_width="@dimen/m12"
-                        android:layout_height="@dimen/m12"
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/m5"
+                        android:layout_height="@dimen/m5"
                         android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_rupee"
-                        android:backgroundTint="@color/secondary_text_color"
-                        android:contentDescription="@string/app_name" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:maxLines="1"
-                        android:text=""
-                        android:textColor="@color/secondary_text_color"
-                        android:textSize="@dimen/text_13" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/m5"
-                    android:layout_toEndOf="@+id/rupee_cancel_lay">
-
-                    <ImageView
-                        android:layout_width="@dimen/m12"
-                        android:layout_height="@dimen/m12"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_rupee"
-                        android:backgroundTint="@color/primary_text_color"
-                        android:contentDescription="@string/app_name" />
+                        android:background="@drawable/circle_white"
+                        android:backgroundTint="@color/colorPrimary" />
 
                     <com.rajasahabacademy.views.BoldTextView
-                        android:id="@+id/tv_total_amount"
+                        android:id="@+id/tv_order_history_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:maxLines="1"
+                        android:layout_marginStart="@dimen/m5"
+                        android:maxLines="2"
                         android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_13" />
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_14" />
+
 
                 </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/amount_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m10"
+                    android:layout_marginBottom="@dimen/m10">
+
+                    <LinearLayout
+                        android:id="@+id/rupee_cancel_lay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="@dimen/m15"
+                            android:layout_height="@dimen/m15"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/secondary_text_color"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/text_13" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/rupee_cancel_lay">
+
+                        <ImageView
+                            android:layout_width="@dimen/m15"
+                            android:layout_height="@dimen/m15"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/colorPrimary"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:id="@+id/tv_total_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text=""
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_18" />
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
 
                 <com.rajasahabacademy.views.RegularTextView
                     android:id="@+id/tv_publish_time"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/m25"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/bg_button_20"
-                    android:backgroundTint="@color/white"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:paddingStart="@dimen/m15"
-                    android:paddingEnd="@dimen/m15"
                     android:text=""
-                    android:textColor="@color/secondary_text_color"
+                    android:textColor="@color/primary_text_color"
+                    android:textSize="@dimen/text_16" />
+
+
+                <com.rajasahabacademy.views.BoldTextView
+                    android:id="@+id/tv_view_details"
+                    android:layout_width="@dimen/m100"
+                    android:layout_height="@dimen/m30"
+                    android:layout_marginTop="@dimen/m20"
+                    android:layout_marginBottom="@dimen/m10"
+                    android:background="@drawable/bg_button_20"
+                    android:gravity="center"
+                    android:text="@string/view_details"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_12" />
 
-            </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m120"
+        android:visibility="gone">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -144,21 +203,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/text_10" />
 
-                <com.rajasahabacademy.views.RegularTextView
-                    android:id="@+id/tv_view_details"
-                    android:layout_width="@dimen/m100"
-                    android:layout_height="@dimen/m25"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/m5"
-                    android:layout_marginBottom="@dimen/m10"
-                    android:layout_toEndOf="@+id/tv_order_repeat"
-                    android:background="@drawable/bg_button_5"
-                    android:backgroundTint="#2e404e"
-                    android:gravity="center"
-                    android:text="@string/view_details"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_10" />
-
 
             </RelativeLayout>
 
@@ -170,6 +214,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary"
+        android:visibility="gone" />
 
 </RelativeLayout>

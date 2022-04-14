@@ -11,24 +11,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/m50"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/bg_header">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_back"
-            android:layout_width="@dimen/m34"
-            android:layout_height="@dimen/m34"
+            android:layout_width="@dimen/m24"
+            android:layout_height="@dimen/m24"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/m15"
             android:elevation="@dimen/m10"
-            app:cardCornerRadius="@dimen/m17">
+            app:cardCornerRadius="@dimen/m12">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
+                    android:layout_width="@dimen/m15"
+                    android:layout_height="@dimen/m15"
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_arrow_back"
                     android:contentDescription="@string/app_name" />
@@ -41,7 +41,9 @@
         <com.rajasahabacademy.views.BoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/m20"
+            android:layout_alignParentEnd="true"
             android:text="@string/my_orders"
             android:textColor="@color/white"
             android:textSize="@dimen/text_18" />
