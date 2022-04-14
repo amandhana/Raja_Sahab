@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Raja Sahab"
 include ':app'
+include ':curved_bottom_navigation'

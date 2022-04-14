@@ -70,6 +70,7 @@ import com.rajasahabacademy.activity.home.model.latest_course.Course;
 import com.rajasahabacademy.activity.home.model.latest_course.Video;
 import com.rajasahabacademy.activity.home.model.notes.ResultNotes;
 import com.rajasahabacademy.activity.quiz.model.ResultLiveQuiz;
+import com.rajasahabacademy.databinding.ActivityHomeBinding;
 import com.rajasahabacademy.support.HomeWatcher;
 import com.rajasahabacademy.support.Preference;
 import com.rajasahabacademy.support.Utils;
@@ -95,12 +96,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvReferralCode;
     EditText etSearch;
     RelativeLayout cartLay;
+    ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.darkThemeForceStop();
-        setContentView(R.layout.activity_home);
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         init();
     }
 
@@ -175,16 +178,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         RelativeLayout layoutNotification = findViewById(R.id.notification_lay);
         layoutNotification.setOnClickListener(this);
         drawerLayout = findViewById(R.id.drawer_Layout);
-        LinearLayout myOrdersLay = findViewById(R.id.my_orders_lay);
-        LinearLayout homeLay = findViewById(R.id.home_lay);
-        LinearLayout liveQuizLay = findViewById(R.id.live_quiz_lay);
-        LinearLayout liveChatLay = findViewById(R.id.live_chat_lay);
+
         etSearch = findViewById(R.id.et_search);
 
-        myOrdersLay.setOnClickListener(this);
-        liveQuizLay.setOnClickListener(this);
-        liveChatLay.setOnClickListener(this);
-        homeLay.setOnClickListener(this);
+        binding.homeUnselctLay.setOnClickListener(this);
+        binding.myCourseUnselctLay.setOnClickListener(this);
+        binding.quizUnselctLay.setOnClickListener(this);
+        binding.liveChatUnselctLay.setOnClickListener(this);
 
 
         tvReferralCode = findViewById(R.id.tv_left_menu_ref_code);
@@ -500,11 +500,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void showHideBottomNavigation(boolean flag) {
-        LinearLayout bottomNavigationLay = findViewById(R.id.bottom_navigation_lay);
-        if (flag)
-            bottomNavigationLay.setVisibility(View.VISIBLE);
+        if (flag) {
+            binding.bottomNavigationLay.setVisibility(View.VISIBLE);
+            binding.bottomLay.setVisibility(View.VISIBLE);
+        }
         else
-            bottomNavigationLay.setVisibility(View.GONE);
+        {
+            binding.bottomNavigationLay.setVisibility(View.GONE);
+            binding.bottomLay.setVisibility(View.GONE);
+        }
     }
 
     public void showHideCart(boolean flag) {
@@ -641,15 +645,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @SuppressLint("UseCompatLoadingForColorStateLists")
     public void resetAllBottom(String type) {
-        ImageView ivMyOrders = findViewById(R.id.iv_my_orders);
+        binding.homeCircleSelectLay.setVisibility(View.INVISIBLE);
+        binding.myCourseCircleSelectLay.setVisibility(View.INVISIBLE);
+        binding.quizCircleSelectLay.setVisibility(View.INVISIBLE);
+        binding.liveChatCircleSelectLay.setVisibility(View.INVISIBLE);
+
+        binding.homeSelectLay.setVisibility(View.INVISIBLE);
+        binding.myCourseSelectLay.setVisibility(View.INVISIBLE);
+        binding.quizSelectLay.setVisibility(View.INVISIBLE);
+        binding.liveChatSelectLay.setVisibility(View.INVISIBLE);
+
+        binding.homeUnselctLay.setVisibility(View.VISIBLE);
+        binding.myCourseUnselctLay.setVisibility(View.VISIBLE);
+        binding.quizUnselctLay.setVisibility(View.VISIBLE);
+        binding.liveChatUnselctLay.setVisibility(View.VISIBLE);
+        /*ImageView ivMyOrders = findViewById(R.id.iv_my_orders);
         ImageView ivHome = findViewById(R.id.iv_home);
         ImageView ivLiveQuiz = findViewById(R.id.iv_live_quiz);
         ImageView ivLiveChat = findViewById(R.id.iv_live_chat);
 
-        LinearLayout homeLay = findViewById(R.id.home_lay);
-        LinearLayout courseLay = findViewById(R.id.my_orders_lay);
-        LinearLayout liveQuizLay = findViewById(R.id.live_quiz_lay);
-        LinearLayout liveChatLay = findViewById(R.id.live_chat_lay);
 
         TextView tvMyOrders = findViewById(R.id.tv_my_orders);
         TextView tvHome = findViewById(R.id.tv_home);
@@ -661,29 +675,41 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ivLiveChat.setBackgroundTintList(getResources().getColorStateList(R.color.primary_text_color));
         ivHome.setBackgroundTintList(getResources().getColorStateList(R.color.primary_text_color));
 
-        homeLay.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimaryVariant));
+//        homeLay.setBackgroundTintList(getResources().getColorStateList(R.color.colorPrimaryVariant));
 
         tvMyOrders.setTextColor(getResources().getColor(R.color.primary_text_color));
         tvHome.setTextColor(getResources().getColor(R.color.primary_text_color));
         tvLiveQuiz.setTextColor(getResources().getColor(R.color.primary_text_color));
-        tvLiveChat.setTextColor(getResources().getColor(R.color.primary_text_color));
+        tvLiveChat.setTextColor(getResources().getColor(R.color.primary_text_color));*/
 
         switch (type) {
-            case "My Order":
-                ivMyOrders.setBackgroundTintList(getResources().getColorStateList(R.color.white));
-                tvMyOrders.setTextColor(getResources().getColor(R.color.white));
-                break;
             case "Home":
-                ivHome.setBackgroundTintList(getResources().getColorStateList(R.color.white));
-                tvHome.setTextColor(getResources().getColor(R.color.white));
+                binding.homeCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.homeSelectLay.setVisibility(View.VISIBLE);
+                binding.homeUnselctLay.setVisibility(View.INVISIBLE);
+                /*ivHome.setBackgroundTintList(getResources().getColorStateList(R.color.white));
+                tvHome.setTextColor(getResources().getColor(R.color.white));*/
+                break;
+            case "My Order":
+                binding.myCourseCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.myCourseSelectLay.setVisibility(View.VISIBLE);
+                binding.myCourseUnselctLay.setVisibility(View.INVISIBLE);
+                /*ivMyOrders.setBackgroundTintList(getResources().getColorStateList(R.color.white));
+                tvMyOrders.setTextColor(getResources().getColor(R.color.white));*/
                 break;
             case "Live Quiz":
-                ivLiveQuiz.setBackgroundResource(R.drawable.ic_home_live_quiz_active);
-                tvLiveQuiz.setTextColor(getResources().getColor(R.color.white));
+                binding.quizCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.quizSelectLay.setVisibility(View.VISIBLE);
+                binding.quizUnselctLay.setVisibility(View.INVISIBLE);
+                /*ivLiveQuiz.setBackgroundResource(R.drawable.ic_home_live_quiz_active);
+                tvLiveQuiz.setTextColor(getResources().getColor(R.color.white));*/
                 break;
             case "Live Chat":
-                ivLiveChat.setBackgroundTintList(getResources().getColorStateList(R.color.white));
-                tvLiveChat.setTextColor(getResources().getColor(R.color.white));
+                binding.liveChatCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.liveChatSelectLay.setVisibility(View.VISIBLE);
+                binding.liveChatUnselctLay.setVisibility(View.INVISIBLE);
+                /*ivLiveChat.setBackgroundTintList(getResources().getColorStateList(R.color.white));
+                tvLiveChat.setTextColor(getResources().getColor(R.color.white));*/
                 break;
         }
     }
@@ -726,15 +752,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             resetAllBottom("Live Classes");
             loadFragment(LiveClassFragment.class.getName(), LiveClassFragment.newInstance(), null);
-        }*/ else if (id == R.id.home_lay) {
+        }*/ else if (id == R.id.home_unselct_lay) {
             setBlankSearch();
             resetAllBottom("Home");
             loadFragment(HomeFragment.class.getName(), HomeFragment.newInstance(), getHomeBundleData());
-        } else if (id == R.id.live_quiz_lay) {
+        }
+        else if (id == R.id.my_course_unselct_lay) {
+            setBlankSearch();
+            resetAllBottom("My Order");
+            Utils.startActivity(mActivity, MyOrdersActivity.class);
+        }else if (id == R.id.quiz_unselct_lay) {
             setBlankSearch();
             resetAllBottom("Live Quiz");
             loadFragment(LiveQuizFragment.class.getName(), LiveQuizFragment.newInstance(), getHomeBundleData());
-        } else if (id == R.id.left_menu_home_lay) {
+        } else if (id == R.id.live_chat_unselct_lay) {
+            setBlankSearch();
+            resetAllBottom("Live Chat");
+            Utils.startActivity(mActivity, ChatActivity.class);
+        }  else if (id == R.id.left_menu_home_lay) {
             setBlankSearch();
             performNavMenuAction();
             loadFragment(HomeFragment.class.getName(), HomeFragment.newInstance(), getHomeBundleData());
@@ -751,14 +786,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             performNavMenuAction();
             loadFragment(CourseFragment.class.getName(), CourseFragment.newInstance(), getHomeBundleData());
-        } else if (id == R.id.my_orders_lay) {
-            setBlankSearch();
-            resetAllBottom("My Order");
-            Utils.startActivity(mActivity, MyOrdersActivity.class);
-        } else if (id == R.id.live_chat_lay) {
-            setBlankSearch();
-            resetAllBottom("Live Chat");
-            Utils.startActivity(mActivity, ChatActivity.class);
         } else if (id == R.id.left_menu_my_profile_lay) {
             setBlankSearch();
             performMenuActionDelay();

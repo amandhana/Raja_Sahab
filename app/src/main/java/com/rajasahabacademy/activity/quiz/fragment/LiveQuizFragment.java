@@ -63,7 +63,7 @@ public class LiveQuizFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ((HomeActivity) mActivity).showHideBottomNavigation(false);
+        ((HomeActivity) mActivity).showHideBottomNavigation(true);
         ((HomeActivity) mActivity).showHideCart(false);
         ((HomeActivity) mActivity).resetAllBottom("Live Quiz");
         setUpQuizList();
