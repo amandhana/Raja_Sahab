@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -77,7 +78,7 @@ public class NotesFragment extends Fragment implements View.OnClickListener {
     private void clickListener() {
         notesShimmer = rootView.findViewById(R.id.notes_shimmer);
         recyclerView = rootView.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(mActivity, 2,RecyclerView.VERTICAL, false));
     }
 
     private void getBundleData() {

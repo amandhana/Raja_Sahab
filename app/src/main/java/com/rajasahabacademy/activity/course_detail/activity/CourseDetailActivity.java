@@ -227,20 +227,24 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private void showHideVideoSubjectList() {
         if (recyclerViewVideo.getVisibility() == View.VISIBLE) {
             ViewUtils.collapse(recyclerViewVideo);
+            ViewUtils.collapse(findViewById(R.id.video_recycler_lay));
             ivVideoDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_down);
         } else {
             ivVideoDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_up);
             ViewUtils.expand(recyclerViewVideo);
+            ViewUtils.expand(findViewById(R.id.video_recycler_lay));
         }
     }
 
     private void showHidePdfSubjectList() {
         if (recyclerViewPdf.getVisibility() == View.VISIBLE) {
             ViewUtils.collapse(recyclerViewPdf);
+            ViewUtils.collapse(findViewById(R.id.pdf_recycler_lay));
             ivPdfDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_down);
         } else {
             ivPdfDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_up);
             ViewUtils.expand(recyclerViewPdf);
+            ViewUtils.expand(findViewById(R.id.pdf_recycler_lay));
         }
     }
 

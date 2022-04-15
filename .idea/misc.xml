@@ -4,10 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/bg_header.xml" value="0.1265" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/border_bg_10.xml" value="0.1265" />
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/ic_home.xml" value="0.1265" />
-        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_my_orders.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_course_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_my_orders.xml" value="0.25" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_notes_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/fragment_notes.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_home_latest_course.xml" value="0.33" />
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_my_order.xml" value="0.22" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_pdf_notes_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/left_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/drawable/ic_cart.xml" value="0.20925925925925926" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/layout/activity_bookmark.xml" value="0.1641337386018237" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/layout/activity_cart.xml" value="0.1641337386018237" />

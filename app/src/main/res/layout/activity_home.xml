@@ -43,12 +43,12 @@
 
                 <RelativeLayout
                     android:id="@+id/header_logo_lay"
-                    android:layout_toEndOf="@id/iv_menu"
                     android:layout_width="@dimen/m30"
                     android:layout_height="@dimen/m30"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/circle_white"
-                    android:layout_marginStart="@dimen/m10">
+                    android:layout_marginStart="@dimen/m10"
+                    android:layout_toEndOf="@id/iv_menu"
+                    android:background="@drawable/circle_white">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="@dimen/m30"
@@ -129,17 +129,17 @@
                             android:layout_width="@dimen/m15"
                             android:layout_height="@dimen/m15"
                             android:layout_marginStart="@dimen/m20"
-                            android:visibility="gone"
-                            android:background="@drawable/circle_white">
+                            android:background="@drawable/circle_white"
+                            android:visibility="gone">
 
                             <com.rajasahabacademy.views.RegularTextView
                                 android:id="@+id/tv_cart_count"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text=""
                                 android:layout_centerInParent="true"
+                                android:text=""
                                 android:textColor="@color/primary_text_color"
-                                android:textSize="@dimen/text_8"/>
+                                android:textSize="@dimen/text_8" />
 
                         </RelativeLayout>
 
@@ -151,8 +151,8 @@
                         android:layout_height="@dimen/m30"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/m10"
-                        android:elevation="@dimen/m10"
                         android:layout_toEndOf="@+id/cart_lay"
+                        android:elevation="@dimen/m10"
                         android:visibility="visible">
 
                         <ImageView
@@ -212,18 +212,76 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/m60"
-                android:weightSum="4"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:weightSum="5">
 
 
                 <LinearLayout
-                    android:id="@+id/home_unselct_lay"
-                    android:visibility="invisible"
-                    android:layout_height="match_parent"
+                    android:id="@+id/my_course_unselct_lay"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/m1"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_my_orders"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_my_course_new"
+                        android:contentDescription="@string/app_name" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_my_orders"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/my_courses"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/short_video_unselct_lay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/m1"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/iv_short_video"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_short_video_new"
+                        android:contentDescription="@string/app_name" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_short_video"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/short_video"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/home_unselct_lay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="invisible">
 
                     <ImageView
                         android:id="@+id/iv_home"
@@ -245,50 +303,21 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/my_course_unselct_lay"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_marginStart="@dimen/m1"
-                    android:visibility="visible"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/iv_my_orders"
-                        android:layout_width="@dimen/m22"
-                        android:layout_height="@dimen/m22"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home_my_order"
-                        android:contentDescription="@string/app_name" />
-
-                    <com.rajasahabacademy.views.BoldTextView
-                        android:id="@+id/tv_my_orders"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@string/my_courses"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/text_11" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/quiz_unselct_lay"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/m1"
+                    android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <ImageView
                         android:id="@+id/iv_live_quiz"
-                        android:layout_width="@dimen/m22"
-                        android:layout_height="@dimen/m22"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home_live_quiz"
+                        android:background="@drawable/ic_quiz_new"
                         android:contentDescription="@string/app_name" />
 
                     <com.rajasahabacademy.views.BoldTextView
@@ -305,23 +334,23 @@
                 <LinearLayout
                     android:id="@+id/live_chat_unselct_lay"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
                     android:layout_marginStart="@dimen/m1"
+                    android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
                     <RelativeLayout
-                        android:layout_width="@dimen/m22"
-                        android:layout_height="@dimen/m22"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
                         android:layout_gravity="center_horizontal">
 
                         <ImageView
                             android:id="@+id/iv_live_chat"
-                            android:layout_width="@dimen/m22"
-                            android:layout_height="@dimen/m22"
-                            android:background="@drawable/ic_home_live_chat"
+                            android:layout_width="@dimen/m35"
+                            android:layout_height="@dimen/m25"
+                            android:background="@drawable/ic_chat_new"
                             android:contentDescription="@string/app_name" />
 
                         <com.rajasahabacademy.views.RegularTextView
@@ -357,20 +386,21 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/secondary_text_color"/>
+                    android:background="@color/secondary_text_color" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="4">
+                    android:weightSum="5">
+
 
                     <RelativeLayout
-                        android:id="@+id/home_circle_select_lay"
+                        android:id="@+id/my_course_circle_select_lay"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/m40"
                         android:layout_weight="1"
-                        android:visibility="visible"
-                        android:background="@drawable/circle_half">
+                        android:background="@drawable/circle_half"
+                        android:visibility="invisible">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -383,37 +413,55 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/my_course_circle_select_lay"
+                        android:id="@+id/short_video_circle_select_lay"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/m40"
                         android:layout_weight="1"
-                        android:visibility="invisible"
-                        android:background="@drawable/circle_half">
+                        android:background="@drawable/circle_half"
+                        android:visibility="invisible">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginStart="1dp"
                             android:layout_marginEnd="1dp"
-                            android:background="@color/white"/>
+                            android:background="@color/white" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/home_circle_select_lay"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/m40"
+                        android:layout_weight="1"
+                        android:background="@drawable/circle_half"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginEnd="1dp"
+                            android:background="@color/white" />
 
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:id="@+id/quiz_circle_select_lay"
-                        android:visibility="invisible"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/m40"
                         android:layout_weight="1"
-                        android:background="@drawable/circle_half">
+                        android:background="@drawable/circle_half"
+                        android:visibility="invisible">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginStart="1dp"
                             android:layout_marginEnd="1dp"
-                            android:background="@color/white"/>
+                            android:background="@color/white" />
 
 
                     </RelativeLayout>
@@ -421,17 +469,17 @@
                     <RelativeLayout
                         android:id="@+id/live_chat_circle_select_lay"
                         android:layout_width="0dp"
-                        android:visibility="invisible"
                         android:layout_height="@dimen/m40"
                         android:layout_weight="1"
-                        android:background="@drawable/circle_half">
+                        android:background="@drawable/circle_half"
+                        android:visibility="invisible">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginStart="1dp"
                             android:layout_marginEnd="1dp"
-                            android:background="@color/white"/>
+                            android:background="@color/white" />
 
 
                     </RelativeLayout>
@@ -447,36 +495,9 @@
             android:id="@+id/bottom_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="4"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/m40">
-
-            <RelativeLayout
-                android:id="@+id/home_select_lay"
-                android:layout_width="0dp"
-                android:visibility="visible"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <RelativeLayout
-                    android:layout_width="@dimen/m50"
-                    android:layout_height="@dimen/m50"
-                    android:background="@drawable/circle_white"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_centerHorizontal="true">
-
-                    <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home"
-                        android:layout_centerInParent="true"
-                        android:contentDescription="@string/app_name" />
-
-
-                </RelativeLayout>
-
-            </RelativeLayout>
+            android:layout_marginBottom="@dimen/m40"
+            android:weightSum="5">
 
             <RelativeLayout
                 android:id="@+id/my_course_select_lay"
@@ -488,17 +509,71 @@
                 <RelativeLayout
                     android:layout_width="@dimen/m50"
                     android:layout_height="@dimen/m50"
-                    android:background="@drawable/circle_white"
+                    android:layout_centerHorizontal="true"
                     android:backgroundTint="@color/colorPrimary"
-                    android:layout_centerHorizontal="true">
+                    android:background="@drawable/circle_white">
 
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home_my_order"
-                        android:backgroundTint="@color/white"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
                         android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_my_course_new"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/short_video_select_lay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/m50"
+                    android:layout_height="@dimen/m50"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/circle_white">
+
+                    <ImageView
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_short_video_new"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="@string/app_name" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/home_select_lay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/m50"
+                    android:layout_height="@dimen/m50"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/circle_white">
+
+                    <ImageView
+                        android:layout_width="@dimen/m50"
+                        android:layout_height="@dimen/m50"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_home"
                         android:contentDescription="@string/app_name" />
 
 
@@ -516,16 +591,17 @@
                 <RelativeLayout
                     android:layout_width="@dimen/m50"
                     android:layout_height="@dimen/m50"
-                    android:background="@drawable/circle_white"
+                    android:layout_centerHorizontal="true"
                     android:backgroundTint="@color/colorPrimary"
-                    android:layout_centerHorizontal="true">
+                    android:background="@drawable/circle_white">
 
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home_live_quiz"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
                         android:layout_centerInParent="true"
+                        android:backgroundTint="@color/white"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_quiz_new"
                         android:contentDescription="@string/app_name" />
 
 
@@ -537,22 +613,22 @@
                 android:id="@+id/live_chat_select_lay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="invisible"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:visibility="invisible">
 
                 <RelativeLayout
                     android:layout_width="@dimen/m50"
                     android:layout_height="@dimen/m50"
+                    android:layout_centerHorizontal="true"
                     android:background="@drawable/circle_white"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_centerHorizontal="true">
+                    android:backgroundTint="@color/colorPrimary">
 
                     <ImageView
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_home_live_chat"
+                        android:layout_width="@dimen/m35"
+                        android:layout_height="@dimen/m25"
                         android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/ic_chat_new"
                         android:backgroundTint="@color/white"
                         android:contentDescription="@string/app_name" />
 

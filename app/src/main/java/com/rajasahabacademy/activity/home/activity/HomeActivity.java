@@ -185,6 +185,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         binding.myCourseUnselctLay.setOnClickListener(this);
         binding.quizUnselctLay.setOnClickListener(this);
         binding.liveChatUnselctLay.setOnClickListener(this);
+        binding.shortVideoUnselctLay.setOnClickListener(this);
 
 
         tvReferralCode = findViewById(R.id.tv_left_menu_ref_code);
@@ -503,9 +504,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         if (flag) {
             binding.bottomNavigationLay.setVisibility(View.VISIBLE);
             binding.bottomLay.setVisibility(View.VISIBLE);
-        }
-        else
-        {
+        } else {
             binding.bottomNavigationLay.setVisibility(View.GONE);
             binding.bottomLay.setVisibility(View.GONE);
         }
@@ -648,15 +647,18 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         binding.homeCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.myCourseCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.quizCircleSelectLay.setVisibility(View.INVISIBLE);
+        binding.shortVideoCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.liveChatCircleSelectLay.setVisibility(View.INVISIBLE);
 
         binding.homeSelectLay.setVisibility(View.INVISIBLE);
         binding.myCourseSelectLay.setVisibility(View.INVISIBLE);
         binding.quizSelectLay.setVisibility(View.INVISIBLE);
+        binding.shortVideoSelectLay.setVisibility(View.INVISIBLE);
         binding.liveChatSelectLay.setVisibility(View.INVISIBLE);
 
         binding.homeUnselctLay.setVisibility(View.VISIBLE);
         binding.myCourseUnselctLay.setVisibility(View.VISIBLE);
+        binding.shortVideoUnselctLay.setVisibility(View.VISIBLE);
         binding.quizUnselctLay.setVisibility(View.VISIBLE);
         binding.liveChatUnselctLay.setVisibility(View.VISIBLE);
         /*ImageView ivMyOrders = findViewById(R.id.iv_my_orders);
@@ -711,6 +713,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 /*ivLiveChat.setBackgroundTintList(getResources().getColorStateList(R.color.white));
                 tvLiveChat.setTextColor(getResources().getColor(R.color.white));*/
                 break;
+
+            case "Short Video":
+                binding.shortVideoCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.shortVideoSelectLay.setVisibility(View.VISIBLE);
+                binding.shortVideoUnselctLay.setVisibility(View.INVISIBLE);
+                /*ivLiveChat.setBackgroundTintList(getResources().getColorStateList(R.color.white));
+                tvLiveChat.setTextColor(getResources().getColor(R.color.white));*/
+                break;
         }
     }
 
@@ -756,12 +766,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             resetAllBottom("Home");
             loadFragment(HomeFragment.class.getName(), HomeFragment.newInstance(), getHomeBundleData());
-        }
-        else if (id == R.id.my_course_unselct_lay) {
+        } else if (id == R.id.my_course_unselct_lay) {
             setBlankSearch();
             resetAllBottom("My Order");
             Utils.startActivity(mActivity, MyOrdersActivity.class);
-        }else if (id == R.id.quiz_unselct_lay) {
+        } else if (id == R.id.quiz_unselct_lay) {
             setBlankSearch();
             resetAllBottom("Live Quiz");
             loadFragment(LiveQuizFragment.class.getName(), LiveQuizFragment.newInstance(), getHomeBundleData());
@@ -769,7 +778,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             resetAllBottom("Live Chat");
             Utils.startActivity(mActivity, ChatActivity.class);
-        }  else if (id == R.id.left_menu_home_lay) {
+        }else if (id == R.id.short_video_unselct_lay) {
+            setBlankSearch();
+            resetAllBottom("Short Video");
+            Utils.startActivity(mActivity, ShortVideoActivity.class);
+        } else if (id == R.id.left_menu_home_lay) {
             setBlankSearch();
             performNavMenuAction();
             loadFragment(HomeFragment.class.getName(), HomeFragment.newInstance(), getHomeBundleData());

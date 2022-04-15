@@ -70,91 +70,105 @@
             android:textColor="@color/primary_text_color"
             android:textSize="@dimen/text_12" />
 
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/m10"
-            android:layout_marginEnd="@dimen/m10">
+            android:layout_height="wrap_content">
+
 
             <RelativeLayout
-                android:id="@+id/amount_lay"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:background="@color/colorPrimary">
 
-                <LinearLayout
-                    android:id="@+id/rupee_cancel_lay"
+                <RelativeLayout
+                    android:id="@+id/amount_lay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:visibility="gone">
+                    android:layout_centerVertical="true">
 
-                    <ImageView
-                        android:layout_width="@dimen/m12"
-                        android:layout_height="@dimen/m12"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_rupee"
-                        android:backgroundTint="@color/secondary_text_color"
-                        android:contentDescription="@string/app_name" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_latest_course_total_amount"
+                    <LinearLayout
+                        android:id="@+id/rupee_cancel_lay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text=""
-                        android:textColor="@color/secondary_text_color"
-                        android:textSize="@dimen/text_14" />
+                        android:layout_centerVertical="true"
+                        android:visibility="gone">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/secondary_text_color"
+                            android:contentDescription="@string/app_name" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/m5"
-                    android:layout_toEndOf="@+id/rupee_cancel_lay">
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_latest_course_total_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/secondary_text_color"
+                            android:textSize="@dimen/text_14" />
 
-                    <ImageView
-                        android:layout_width="@dimen/m12"
-                        android:layout_height="@dimen/m12"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/ic_rupee"
-                        android:backgroundTint="@color/primary_text_color"
-                        android:contentDescription="@string/app_name" />
+                    </LinearLayout>
 
-                    <com.rajasahabacademy.views.BoldTextView
-                        android:id="@+id/tv_latest_course_amount"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_14" />
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/m5"
+                        android:layout_toEndOf="@+id/rupee_cancel_lay"
+                        android:padding="@dimen/m5">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="@dimen/m12"
+                            android:layout_height="@dimen/m12"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="@dimen/m20"
+                            android:background="@drawable/ic_rupee"
+                            android:backgroundTint="@color/white"
+                            android:contentDescription="@string/app_name" />
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:id="@+id/tv_latest_course_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_14" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
 
             </RelativeLayout>
 
             <com.rajasahabacademy.views.BoldTextView
                 android:id="@+id/tv_buy_now_home"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/m30"
+                android:layout_height="@dimen/m40"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/m20"
                 android:layout_marginStart="@dimen/m5"
                 android:background="@drawable/bg_button_5"
+                android:backgroundTint="@color/colorPrimaryVariant"
                 android:gravity="center"
-                android:paddingStart="@dimen/m20"
-                android:paddingEnd="@dimen/m20"
+                android:paddingStart="@dimen/m10"
+                android:paddingEnd="@dimen/m10"
                 android:text="@string/buy_now"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_12" />
 
-
         </RelativeLayout>
+
+
+
+
 
     </RelativeLayout>
 
