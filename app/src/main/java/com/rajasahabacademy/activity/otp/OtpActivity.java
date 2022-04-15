@@ -84,6 +84,7 @@ public class OtpActivity extends AppCompatActivity implements View.OnClickListen
         getMobileData();
         initCallback();
         getFirebaseToken();
+        bindOtpMessageReceiver();
     }
 
     private void clickListener() {
