@@ -168,9 +168,13 @@
             android:name=".activity.payment.activity.PaymentActivity"
             android:exported="true" />
 
+        <!--<meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_live_1C0zNQIulD5zCk"/>-->
+
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_live_1C0zNQIulD5zCk"/>
+            android:value="rzp_test_g3Bglr4evyLBVy"/>
 
 
 
