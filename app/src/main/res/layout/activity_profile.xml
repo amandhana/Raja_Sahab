@@ -5,7 +5,7 @@
     android:id="@+id/top_lay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/bg_ebook"
     android:orientation="vertical"
     android:visibility="visible"
     tools:context=".activity.profile.activity.ProfileActivity">
@@ -192,8 +192,7 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6">
+                    android:background="@drawable/bg_et_profile">
 
                     <com.rajasahabacademy.views.RegularEditText
                         android:id="@+id/et_profile_name"
@@ -239,8 +238,7 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6">
+                    android:background="@drawable/bg_et_profile">
 
                     <com.rajasahabacademy.views.RegularEditText
                         android:id="@+id/et_profile_email"
@@ -287,8 +285,8 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6"
+                    android:background="@drawable/bg_et_profile"
+
                     android:visibility="visible">
 
                     <com.rajasahabacademy.views.RegularEditText
@@ -315,8 +313,8 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6"
+                    android:background="@drawable/bg_et_profile"
+
                     android:visibility="gone">
 
                     <com.rajasahabacademy.views.RegularEditText
@@ -362,7 +360,7 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/spinner_bg">
+                    android:background="@drawable/bg_et_profile">
 
                     <Spinner
                         android:id="@+id/state_spinn"
@@ -377,6 +375,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="10dp"
                         android:background="@drawable/ic_drop_down"
+                        android:backgroundTint="@color/colorPrimaryVariant"
                         android:contentDescription="@string/app_name" />
 
                 </RelativeLayout>
@@ -387,7 +386,7 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/spinner_bg">
+                    android:background="@drawable/bg_et_profile">
 
                     <Spinner
                         android:id="@+id/city_spinn"
@@ -401,6 +400,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="10dp"
+                        android:backgroundTint="@color/colorPrimaryVariant"
                         android:background="@drawable/ic_drop_down"
                         android:contentDescription="@string/app_name" />
 
@@ -412,8 +412,8 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6"
+                    android:background="@drawable/bg_et_profile"
+
                     android:visibility="gone">
 
                     <com.rajasahabacademy.views.RegularEditText
@@ -459,8 +459,8 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6"
+                    android:background="@drawable/bg_et_profile"
+
                     android:visibility="visible">
 
                     <com.rajasahabacademy.views.RegularEditText
@@ -508,8 +508,8 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6"
+                    android:background="@drawable/bg_et_profile"
+
                     android:visibility="visible">
 
                     <com.rajasahabacademy.views.RegularEditText
@@ -557,8 +557,7 @@
                     android:layout_marginStart="@dimen/m15"
                     android:layout_marginTop="@dimen/m20"
                     android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:backgroundTint="#D6D6D6">
+                    android:background="@drawable/bg_et_profile">
 
                     <com.rajasahabacademy.views.RegularEditText
                         android:id="@+id/et_profile_phone_number"

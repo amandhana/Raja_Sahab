@@ -4,23 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_splash"
     tools:context=".activity.splash.SplashActivity">
 
     <pl.droidsonroids.gif.GifImageView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/giffy_splash"/>
+        android:background="@drawable/giffy_splash" />
 
     <ImageView
         android:id="@+id/iv_splash_logo"
-        android:visibility="gone"
-        android:layout_width="@dimen/m100"
-        android:layout_height="@dimen/m100"
+        android:layout_width="@dimen/m150"
+        android:layout_height="@dimen/m150"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/m150"
-        android:background="@color/white"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_app_icon" />
+        android:src="@drawable/splash_logo_1" />
+
+    <ImageView
+        android:id="@+id/iv_splash_logo_2"
+        android:layout_width="@dimen/m200"
+        android:layout_height="@dimen/m100"
+        android:layout_below="@+id/iv_splash_logo"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/splash_logo_2" />
 
     <com.rajasahabacademy.views.BoldTextView
         android:id="@+id/tv_splash_welcome"
