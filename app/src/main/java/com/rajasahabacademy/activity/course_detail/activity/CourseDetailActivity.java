@@ -167,11 +167,11 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewPdf.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.VISIBLE);
                                 }
-                                if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
+                                /*if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
                                         fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE_SLIDER)) {
                                     if (modelResponse.getCourse() != null)
                                         setUpDataFromNotification(modelResponse.getCourse());
-                                }
+                                }*/
                             } else {
                                 recyclerViewVideo.setVisibility(View.GONE);
                                 findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);

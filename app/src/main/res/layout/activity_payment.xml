@@ -7,89 +7,94 @@
     android:orientation="vertical"
     tools:context=".activity.payment.activity.PaymentActivity">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/header_lay"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_above="@+id/buy_now_lay">
-
-        <RelativeLayout
-            android:id="@+id/header_lay"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/m50"
-            android:background="@drawable/bg_header">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_back"
-                android:layout_width="@dimen/m34"
-                android:layout_height="@dimen/m34"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/m15"
-                android:elevation="@dimen/m10"
-                app:cardCornerRadius="@dimen/m17">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="@dimen/m15"
-                        android:layout_height="@dimen/m15"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/ic_arrow_back"
-                        android:contentDescription="@string/app_name" />
-
-                </RelativeLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <com.rajasahabacademy.views.RegularTextView
-                android:id="@+id/tv_course_video_subject"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/m15"
-                android:text="@string/price_details"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_16" />
-
-        </RelativeLayout>
+        android:layout_height="@dimen/m50"
+        android:background="@drawable/bg_header">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/m15"
-            android:elevation="@dimen/m5"
-            app:cardCornerRadius="@dimen/m5">
+            android:id="@+id/cv_back"
+            android:layout_width="@dimen/m34"
+            android:layout_height="@dimen/m34"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m15"
+            android:elevation="@dimen/m10"
+            app:cardCornerRadius="@dimen/m17">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/m10">
+                android:layout_height="match_parent">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_gravity="center"
+                <ImageView
+                    android:layout_width="@dimen/m15"
+                    android:layout_height="@dimen/m15"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_arrow_back"
+                    android:contentDescription="@string/app_name" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_course_video_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/m15"
+            android:text="@string/price_details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_payment"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_payment_detail"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="@dimen/m140"
+                android:layout_marginStart="@dimen/m40"
+                android:layout_marginEnd="@dimen/m40"
+                android:elevation="@dimen/m5"
+                app:cardCornerRadius="@dimen/m20"
+                app:cardElevation="@dimen/m5">
+
+                <LinearLayout
+                    android:background="@drawable/bg_payment_card"
                     android:layout_width="match_parent"
-                    android:layout_margin="@dimen/m5"
-                    android:elevation="@dimen/m10"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/m10">
 
                     <LinearLayout
+                        android:layout_margin="@dimen/m20"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_height="wrap_content">
+                        android:background="@drawable/border_bg_20">
 
                         <RelativeLayout
                             android:id="@+id/wallet_lay"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/m50"
-                            android:layout_marginEnd="@dimen/m15"
-                            android:layout_marginStart="@dimen/m15">
+                            android:layout_marginStart="@dimen/m15"
+                            android:layout_marginEnd="@dimen/m15">
 
-                            <com.rajasahabacademy.views.RegularTextView
+                            <com.rajasahabacademy.views.BoldTextView
                                 android:id="@+id/tv_wallet_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -114,178 +119,191 @@
 
                     </LinearLayout>
 
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_upi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/m40"
+                        android:layout_below="@+id/wallet_lay"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/m15"
+                        android:layout_marginBottom="@dimen/m15"
+                        android:background="@drawable/bg_button_10"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:gravity="center"
+                        android:paddingStart="@dimen/m30"
+                        android:paddingEnd="@dimen/m30"
+                        android:text="Select an option to pay"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:padding="@dimen/m10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/m5">
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_price"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:id="@+id/tv_total_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/m10"
+                        android:visibility="gone">
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wallet :"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                        <com.rajasahabacademy.views.RegularTextView
+                            android:id="@+id/tv_wallet_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/coupon_amount_lay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/m10"
+                        android:visibility="gone">
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Coupon Amount:"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:id="@+id/tv_coupon_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/m10">
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/payble_price"
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                        <com.rajasahabacademy.views.BoldTextView
+                            android:id="@+id/tv_payble_amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text=""
+                            android:textColor="@color/primary_text_color"
+                            android:textSize="@dimen/text_16" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:backgroundTint="@color/black"
+                        android:layout_height="1dp"/>
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="@dimen/m15"
+                        android:text="@string/available_offers"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_18" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_no_offer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/m15"
+                        android:gravity="center"
+                        android:text="@string/no_offers"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/text_18"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_below="@id/cv_payment_detail"
+                android:id="@+id/buy_now_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/m40">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="@dimen/m30"
+                    android:layout_marginEnd="@dimen/m30"
+                    android:layout_height="@dimen/m60"
+                    android:elevation="@dimen/m10"
+                    app:cardCornerRadius="@dimen/m10"
+                    app:cardUseCompatPadding="true">
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimary"
+                        android:gravity="center"
+                        android:textSize="@dimen/text_18"
+                        android:text="@string/checkout"
+                        android:textColor="@color/white" />
 
                 </androidx.cardview.widget.CardView>
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:id="@+id/tv_upi"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/m40"
-                    android:layout_below="@+id/wallet_lay"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/m15"
-                    android:layout_marginBottom="@dimen/m15"
-                    android:background="@drawable/bg_button_10"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:paddingStart="@dimen/m30"
-                    android:paddingEnd="@dimen/m30"
-                    android:text="Select an option to pay"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text_16" />
-
-                <RelativeLayout
-                    android:layout_marginTop="@dimen/m5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/total_price"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_total_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/m10">
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Wallet :"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_wallet_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/coupon_amount_lay"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginTop="@dimen/m10">
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Coupon Amount:"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_coupon_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/m10">
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/payble_price"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                    <com.rajasahabacademy.views.RegularTextView
-                        android:id="@+id/tv_payble_amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text=""
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="@dimen/text_16" />
-
-                </RelativeLayout>
 
             </LinearLayout>
 
 
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
-        <com.rajasahabacademy.views.RegularTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/m15"
-            android:text="@string/available_offers"
-            android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text_18" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible" />
-
-        <com.rajasahabacademy.views.RegularTextView
-            android:id="@+id/tv_no_offer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/m15"
-            android:gravity="center"
-            android:text="@string/no_offers"
-            android:textColor="@color/primary_text_color"
-            android:textSize="@dimen/text_18"
-            android:visibility="gone" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/buy_now_lay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/m15">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/m60"
-            android:elevation="@dimen/m10"
-            app:cardCornerRadius="@dimen/m10"
-            app:cardUseCompatPadding="true">
-
-            <com.rajasahabacademy.views.RegularTextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:gravity="center"
-                android:text="@string/checkout"
-                android:textColor="@color/white" />
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
 
 </RelativeLayout>
