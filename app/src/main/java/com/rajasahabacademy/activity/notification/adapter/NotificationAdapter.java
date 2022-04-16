@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.course_detail.activity.CourseDetailActivity;
+import com.rajasahabacademy.activity.my_save_ebook.activity.MySaveEbookActivity;
+import com.rajasahabacademy.activity.notification.activity.NotificationActivity;
 import com.rajasahabacademy.activity.quiz.activity.QuizReadyForTestActivity;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.activity.notification.model.Result;
@@ -68,6 +70,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     bundle.putString(Constants.Quiz.FROM_WHERE, "");
                     Utils.startActivityBundle(context, QuizReadyForTestActivity.class, bundle);
                 }
+            } else if (list.get(position).getIsType().equalsIgnoreCase("manual")) {
             }
         });
 

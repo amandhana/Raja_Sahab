@@ -51,6 +51,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     String fromWhereStr = "";
     String courseId = "";
     ActivityResultLauncher<Intent> someActivityResultLauncher;
+    ImageView ivDescriptionArrow;
+    private TextView tvDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,10 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void setClickListener() {
+        tvDescription = findViewById(R.id.tv_description);
+        ivDescriptionArrow = findViewById(R.id.iv_description_arrow);
+        RelativeLayout descriptionLay = findViewById(R.id.description_lay);
+
         bottomAmountLay = findViewById(R.id.bottom_amount_lay);
         recyclerViewVideo = findViewById(R.id.recycler_view_video_tops);
         recyclerViewVideo.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false));
@@ -115,6 +121,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         cvmenu.setOnClickListener(this);
         videoDropDownLay.setOnClickListener(this);
         pdfLay.setOnClickListener(this);
+        descriptionLay.setOnClickListener(this);
     }
 
     private void getCourseSubject() {
@@ -167,11 +174,13 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewPdf.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.VISIBLE);
                                 }
-                                if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
+                                if (modelResponse.getCourse() != null)
+                                    setUpDataFromNotification(modelResponse.getCourse());
+                                /*if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
                                         fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE_SLIDER)) {
                                     if (modelResponse.getCourse() != null)
                                         setUpDataFromNotification(modelResponse.getCourse());
-                                }
+                                }*/
                             } else {
                                 recyclerViewVideo.setVisibility(View.GONE);
                                 findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);
@@ -207,6 +216,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         TextView tvCourseTitle = findViewById(R.id.tv_course_title);
         tvAmount = findViewById(R.id.tv_course_detail_amount_1);
         tvCourseTitle.setText(model.getTitle());
+        Utils.setHtmlText(model.getDescription(),tvDescription);
         tvAmount.setText(model.getPrice());
         if (model.getCourseBuyStatus().equals("0") &&
                 !model.getPrice().equals("0")) {
@@ -245,6 +255,16 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             ivPdfDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_up);
             ViewUtils.expand(recyclerViewPdf);
             ViewUtils.expand(findViewById(R.id.pdf_recycler_lay));
+        }
+    }
+
+    private void showHideDescription() {
+        if (tvDescription.getVisibility() == View.VISIBLE) {
+            ViewUtils.collapse(tvDescription);
+            ivDescriptionArrow.setBackgroundResource(R.drawable.ic_arrow_drop_down);
+        } else {
+            ViewUtils.expand(tvDescription);
+            ivDescriptionArrow.setBackgroundResource(R.drawable.ic_arrow_drop_up);
         }
     }
 
@@ -397,6 +417,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             showHideVideoSubjectList();
         } else if (id == R.id.pdf_lay) {
             showHidePdfSubjectList();
+        } else if (id == R.id.description_lay) {
+            showHideDescription();
         } else if (id == R.id.buy_now_lay)
             startPayment();
     }
