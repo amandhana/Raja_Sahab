@@ -167,11 +167,11 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewPdf.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.VISIBLE);
                                 }
-                                if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
+                                /*if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
                                         fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE_SLIDER)) {
                                     if (modelResponse.getCourse() != null)
                                         setUpDataFromNotification(modelResponse.getCourse());
-                                }
+                                }*/
                             } else {
                                 recyclerViewVideo.setVisibility(View.GONE);
                                 findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);
@@ -227,20 +227,24 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private void showHideVideoSubjectList() {
         if (recyclerViewVideo.getVisibility() == View.VISIBLE) {
             ViewUtils.collapse(recyclerViewVideo);
+            ViewUtils.collapse(findViewById(R.id.video_recycler_lay));
             ivVideoDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_down);
         } else {
             ivVideoDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_up);
             ViewUtils.expand(recyclerViewVideo);
+            ViewUtils.expand(findViewById(R.id.video_recycler_lay));
         }
     }
 
     private void showHidePdfSubjectList() {
         if (recyclerViewPdf.getVisibility() == View.VISIBLE) {
             ViewUtils.collapse(recyclerViewPdf);
+            ViewUtils.collapse(findViewById(R.id.pdf_recycler_lay));
             ivPdfDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_down);
         } else {
             ivPdfDropDown.setBackgroundResource(R.drawable.ic_arrow_drop_up);
             ViewUtils.expand(recyclerViewPdf);
+            ViewUtils.expand(findViewById(R.id.pdf_recycler_lay));
         }
     }
 

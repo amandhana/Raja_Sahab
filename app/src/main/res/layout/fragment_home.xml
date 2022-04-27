@@ -113,31 +113,60 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
                             android:layout_toStartOf="@+id/see_all_latest_course_lay"
-                            android:orientation="vertical"
-                            android:layout_marginTop="@dimen/m30"
+                            android:layout_marginTop="@dimen/m10"
                             android:visibility="gone">
 
-                            <com.rajasahabacademy.views.BoldTextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="@dimen/m15"
-                                android:layout_marginEnd="@dimen/m15"
-                                android:text="Ongoing Courses"
-                                android:textColor="@color/primary_text_color"
-                                android:textSize="@dimen/text_16" />
+                            <View
+                                android:layout_marginStart="@dimen/m10"
+                                android:layout_width="2dp"
+                                android:background="@color/colorPrimaryVariant"
+                                android:layout_height="@dimen/m60"/>
 
-                            <com.rajasahabacademy.views.RegularTextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginStart="@dimen/m15"
-                                android:layout_marginEnd="@dimen/m15"
-                                android:text="Start Your Preparation Today"
-                                android:textColor="@color/primary_text_color"
-                                android:textSize="@dimen/text_14" />
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
 
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <com.rajasahabacademy.views.BoldTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:text="Ongoing"
+                                        android:textColor="@color/colorPrimary"
+                                        android:textSize="@dimen/text_16" />
+
+                                    <com.rajasahabacademy.views.BoldTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginEnd="@dimen/m15"
+                                        android:text="Courses"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:padding="@dimen/m5"
+                                        android:background="@color/colorPrimaryVariant"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/text_16" />
+
+                                </LinearLayout>
+
+                                <com.rajasahabacademy.views.RegularTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginStart="@dimen/m5"
+                                    android:layout_marginEnd="@dimen/m15"
+                                    android:text="Start Your Preparation Today"
+                                    android:textColor="@color/primary_text_color"
+                                    android:textSize="@dimen/text_12" />
+
+                            </LinearLayout>
 
                         </LinearLayout>
 

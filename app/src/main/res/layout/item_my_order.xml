@@ -24,18 +24,27 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_image"
-                android:layout_width="@dimen/m110"
-                android:layout_height="@dimen/m150"
-                android:layout_marginStart="@dimen/m30"
+                android:layout_width="@dimen/m160"
+                android:layout_height="@dimen/m110"
+                android:layout_marginStart="@dimen/m20"
                 android:elevation="@dimen/m10"
                 app:cardPreventCornerOverlap="false">
 
-                <ImageView
-                    android:id="@+id/iv_order_history"
+                <RelativeLayout
+                    android:background="@color/colorPrimary"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/app_name"
-                    android:scaleType="fitXY" />
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_order_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:background="@color/white"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitXY" />
+
+                </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
 

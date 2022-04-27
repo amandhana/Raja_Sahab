@@ -58,14 +58,14 @@ public class HomeLatestCourseAdapter extends RecyclerView.Adapter<HomeLatestCour
         switch (list.get(position).getCourseBuyStatus()) {
             case "0":
                 viewHolder.tvBuyNow.setVisibility(View.VISIBLE);
-                viewHolder.tvBuyNow.setText("Buy");
+                viewHolder.tvBuyNow.setText("Buy Now");
                 break;
             case "1":
                 viewHolder.tvBuyNow.setVisibility(View.INVISIBLE);
                 break;
             default:
                 viewHolder.tvBuyNow.setVisibility(View.VISIBLE);
-                viewHolder.tvBuyNow.setText("Buy");
+                viewHolder.tvBuyNow.setText("Buy Now");
                 break;
         }
         if (list.get(position).getPrice().equals("0")) {

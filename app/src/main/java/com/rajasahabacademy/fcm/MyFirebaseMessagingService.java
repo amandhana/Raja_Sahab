@@ -23,6 +23,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.course_detail.activity.CourseDetailActivity;
 import com.rajasahabacademy.activity.home.activity.HomeActivity;
+import com.rajasahabacademy.activity.notification.activity.NotificationActivity;
 import com.rajasahabacademy.activity.quiz.activity.QuizReadyForTestActivity;
 import com.rajasahabacademy.api.Constants;
 
@@ -85,6 +86,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 resultIntent.putExtra(Constants.Params.TEST_ID, quizId);
                 resultIntent.putExtra(Constants.Params.TEST_DURATION, duration);
                 resultIntent.putExtra(Constants.Quiz.FROM_WHERE, Constants.Quiz.FROM_WHERE_VALUE);
+            } else if (type.equalsIgnoreCase("manual")) {
+                resultIntent = new Intent(this, NotificationActivity.class);
             } else resultIntent = new Intent(this, HomeActivity.class);
 
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);

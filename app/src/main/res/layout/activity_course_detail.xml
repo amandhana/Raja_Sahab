@@ -14,8 +14,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/m100"
-            android:descendantFocusability="blocksDescendants">
+            android:descendantFocusability="blocksDescendants"
+            android:paddingBottom="@dimen/m100">
 
             <RelativeLayout
                 android:id="@+id/header_lay"
@@ -65,10 +65,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/header_lay"
-                android:layout_margin="@dimen/m5"
-                android:layout_marginBottom="-10dp"
-                android:elevation="@dimen/m10"
-                app:cardCornerRadius="@dimen/m10"
                 app:cardPreventCornerOverlap="false">
 
                 <LinearLayout
@@ -97,89 +93,68 @@
 
             </androidx.cardview.widget.CardView>
 
-            <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_course_title"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_course_detail"
-                android:layout_marginStart="@dimen/m10"
-                android:layout_marginTop="@dimen/m10"
-                android:layout_marginEnd="@dimen/m10"
-                android:maxLines="2"
-                android:text=""
-                android:textColor="@color/primary_text_color"
-                android:textSize="@dimen/text_20" />
+                android:layout_below="@+id/iv_course_detail"
+                android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/all_video_tops_lay"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/m40"
-                android:layout_below="@+id/tv_course_title"
-                android:layout_marginStart="@dimen/m5"
-                android:layout_marginTop="@dimen/m20"
-                android:layout_marginEnd="@dimen/m5"
-                android:background="@drawable/bg_round_60">
-
-                <ImageView
-                    android:id="@+id/iv_all_video_tops"
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/m5"
-                    android:layout_marginStart="@dimen/m5"
-                    android:background="@drawable/ic_live_classes"
-                    android:contentDescription="@string/app_name" />
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/m10"
-                    android:layout_toEndOf="@id/iv_all_video_tops"
-                    android:text="@string/all_video_tops"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_14" />
-
-                <ImageView
-                    android:id="@+id/iv_video_drop_down"
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/ic_arrow_drop_up"
-                    android:contentDescription="@string/app_name" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/video_recycler_lay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/all_video_tops_lay">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_video_tops"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/m5"
-                    android:layout_marginTop="@dimen/m15"
-                    android:layout_marginEnd="@dimen/m5"
-                    android:visibility="visible" />
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:id="@+id/tv_no_subject_video"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/m200"
-                    android:gravity="center"
-                    android:text="@string/no_subject"
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/text_16"
-                    android:visibility="gone" />
+                    android:background="@drawable/bg_course_detail">
 
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/course_detail_video_shimmer"
+                    <ImageView
+                        android:id="@+id/iv_share_course"
+                        android:layout_width="@dimen/m30"
+                        android:layout_height="@dimen/m10"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="@dimen/m10"
+                        android:background="@drawable/ic_share_new" />
+
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_course_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginTop="@dimen/m10"
+                        android:layout_marginEnd="@dimen/m10"
+                        android:layout_toStartOf="@+id/iv_share_course"
+                        android:maxLines="2"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16" />
+
+                    <com.rajasahabacademy.views.RegularTextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_course_title"
+                        android:padding="@dimen/m5"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_14" />
+
+                    <com.rajasahabacademy.views.BoldTextView
+                        android:id="@+id/tv_read_more"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="@dimen/m10"
+                        android:layout_marginStart="@dimen/m10"
+                        android:layout_marginTop="@dimen/m10"
+                        android:layout_marginEnd="@dimen/m10"
+                        android:layout_toStartOf="@+id/iv_share_course"
+                        android:maxLines="2"
+                        android:text="Read More... "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16" />
+
+
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -188,216 +163,334 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/m30"
-                            android:layout_marginStart="@dimen/m5"
-                            android:layout_marginTop="@dimen/m25"
-                            android:layout_marginEnd="@dimen/m5"
-                            android:weightSum="3">
+                            android:layout_height="@dimen/m210"
+                            android:layout_margin="@dimen/m10"
+                            app:cardCornerRadius="@dimen/m10"
+                            app:cardElevation="@dimen/m5">
 
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
+                            <RelativeLayout
+                                android:background="@drawable/bg_my_orders_item"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
 
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
+                                <RelativeLayout
+                                    android:id="@+id/all_video_tops_lay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/m40"
+                                    android:layout_marginStart="@dimen/m5"
+                                    android:layout_marginEnd="@dimen/m5">
+
+                                    <ImageView
+                                        android:id="@+id/iv_all_video_tops"
+                                        android:layout_width="@dimen/m20"
+                                        android:layout_height="@dimen/m20"
+                                        android:layout_centerVertical="true"
+                                        android:layout_margin="@dimen/m5"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:background="@drawable/ic_live_classes"
+                                        android:contentDescription="@string/app_name" />
+
+                                    <com.rajasahabacademy.views.RegularTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="@dimen/m10"
+                                        android:layout_toEndOf="@id/iv_all_video_tops"
+                                        android:text="@string/all_video_tops"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_14" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_video_drop_down"
+                                        android:layout_width="@dimen/m20"
+                                        android:layout_height="@dimen/m20"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginEnd="@dimen/m15"
+                                        android:background="@drawable/ic_arrow_drop_up"
+                                        android:contentDescription="@string/app_name" />
 
 
-                        </LinearLayout>
+                                </RelativeLayout>
 
-                        <LinearLayout
+                                <RelativeLayout
+                                    android:id="@+id/video_recycler_lay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/all_video_tops_lay">
+
+                                    <com.rajasahabacademy.views.RegularTextView
+                                        android:id="@+id/tv_no_subject_video"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/m200"
+                                        android:gravity="center"
+                                        android:text="@string/no_subject"
+                                        android:textColor="@color/primary_text_color"
+                                        android:textSize="@dimen/text_16"
+                                        android:visibility="gone" />
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/recycler_view_video_tops"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:layout_marginTop="@dimen/m15"
+                                        android:layout_marginEnd="@dimen/m5"
+                                        android:visibility="visible" />
+
+
+                                    <com.facebook.shimmer.ShimmerFrameLayout
+                                        android:id="@+id/course_detail_video_shimmer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/m30"
+                                                android:layout_marginStart="@dimen/m5"
+                                                android:layout_marginTop="@dimen/m25"
+                                                android:layout_marginEnd="@dimen/m5"
+                                                android:weightSum="3">
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/m30"
+                                                android:layout_marginStart="@dimen/m5"
+                                                android:layout_marginTop="@dimen/m15"
+                                                android:layout_marginEnd="@dimen/m5"
+                                                android:layout_marginBottom="@dimen/m10"
+                                                android:weightSum="3">
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/m30"
-                            android:layout_marginStart="@dimen/m5"
-                            android:layout_marginTop="@dimen/m15"
-                            android:layout_marginEnd="@dimen/m5"
-                            android:layout_marginBottom="@dimen/m10"
-                            android:weightSum="3">
+                            android:layout_height="@dimen/m210"
+                            android:layout_margin="@dimen/m10"
+                            app:cardCornerRadius="@dimen/m10"
+                            app:cardElevation="@dimen/m5">
 
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_my_orders_item">
 
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
+                                <RelativeLayout
+                                    android:id="@+id/pdf_lay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/m40"
+                                    android:layout_marginStart="@dimen/m5"
+                                    android:layout_marginEnd="@dimen/m5">
 
-                        </LinearLayout>
+                                    <ImageView
+                                        android:id="@+id/iv_pdf_notes"
+                                        android:layout_width="@dimen/m20"
+                                        android:layout_height="@dimen/m20"
+                                        android:layout_centerVertical="true"
+                                        android:layout_margin="@dimen/m5"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:background="@drawable/ic_pdf"
+                                        android:contentDescription="@string/app_name" />
+
+                                    <com.rajasahabacademy.views.RegularTextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="@dimen/m10"
+                                        android:layout_toEndOf="@id/iv_pdf_notes"
+                                        android:text="@string/all_ebook_tops"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/text_14" />
+
+                                    <ImageView
+                                        android:id="@+id/iv_pdf_drop_down"
+                                        android:layout_width="@dimen/m20"
+                                        android:layout_height="@dimen/m20"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginEnd="@dimen/m15"
+                                        android:background="@drawable/ic_arrow_drop_up"
+                                        android:contentDescription="@string/app_name" />
+
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/pdf_recycler_lay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/pdf_lay">
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:visibility="visible"
+                                        android:id="@+id/recycler_view_pdf_notes"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/m5"
+                                        android:layout_marginTop="@dimen/m15"
+                                        android:layout_marginEnd="@dimen/m5" />
+
+                                    <com.rajasahabacademy.views.RegularTextView
+                                        android:id="@+id/tv_no_subject_pdf"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/m200"
+                                        android:gravity="center"
+                                        android:text="@string/no_subject"
+                                        android:textColor="@color/primary_text_color"
+                                        android:textSize="@dimen/text_16"
+                                        android:visibility="gone" />
+
+                                    <com.facebook.shimmer.ShimmerFrameLayout
+                                        android:id="@+id/course_detail_pdf_shimmer"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/m30"
+                                                android:layout_marginStart="@dimen/m5"
+                                                android:layout_marginTop="@dimen/m25"
+                                                android:layout_marginEnd="@dimen/m5"
+                                                android:weightSum="3">
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/m30"
+                                                android:layout_marginStart="@dimen/m5"
+                                                android:layout_marginTop="@dimen/m15"
+                                                android:layout_marginEnd="@dimen/m5"
+                                                android:layout_marginBottom="@dimen/m10"
+                                                android:weightSum="3">
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                                <View
+                                                    android:layout_width="0dp"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginStart="@dimen/m5"
+                                                    android:layout_marginEnd="@dimen/m5"
+                                                    android:layout_weight="1"
+                                                    android:background="@color/placeholder_bg" />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+
+                                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
 
                     </LinearLayout>
 
 
-                </com.facebook.shimmer.ShimmerFrameLayout>
+                </androidx.cardview.widget.CardView>
 
 
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
-                android:id="@+id/pdf_lay"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/m40"
-                android:layout_below="@+id/video_recycler_lay"
-                android:layout_marginStart="@dimen/m5"
-                android:layout_marginTop="@dimen/m50"
-                android:layout_marginEnd="@dimen/m5"
-                android:background="@drawable/bg_round_60">
-
-                <ImageView
-                    android:id="@+id/iv_pdf_notes"
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="@dimen/m5"
-                    android:layout_marginStart="@dimen/m5"
-                    android:background="@drawable/ic_pdf"
-                    android:contentDescription="@string/app_name" />
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/m10"
-                    android:layout_toEndOf="@id/iv_pdf_notes"
-                    android:text="@string/all_ebook_tops"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_14" />
-
-                <ImageView
-                    android:id="@+id/iv_pdf_drop_down"
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/ic_arrow_drop_up"
-                    android:contentDescription="@string/app_name" />
-
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pdf_lay">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler_view_pdf_notes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/m5"
-                    android:layout_marginTop="@dimen/m15"
-                    android:layout_marginEnd="@dimen/m5" />
-
-                <com.rajasahabacademy.views.RegularTextView
-                    android:id="@+id/tv_no_subject_pdf"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/m200"
-                    android:gravity="center"
-                    android:text="@string/no_subject"
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/text_16"
-                    android:visibility="gone" />
-
-                <com.facebook.shimmer.ShimmerFrameLayout
-                    android:id="@+id/course_detail_pdf_shimmer"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/m30"
-                            android:layout_marginStart="@dimen/m5"
-                            android:layout_marginTop="@dimen/m25"
-                            android:layout_marginEnd="@dimen/m5"
-                            android:weightSum="3">
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/m30"
-                            android:layout_marginStart="@dimen/m5"
-                            android:layout_marginTop="@dimen/m15"
-                            android:layout_marginEnd="@dimen/m5"
-                            android:layout_marginBottom="@dimen/m10"
-                            android:weightSum="3">
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="@dimen/m5"
-                                android:layout_marginEnd="@dimen/m5"
-                                android:layout_weight="1"
-                                android:background="@color/placeholder_bg" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-                </com.facebook.shimmer.ShimmerFrameLayout>
-
-            </RelativeLayout>
 
         </RelativeLayout>
 

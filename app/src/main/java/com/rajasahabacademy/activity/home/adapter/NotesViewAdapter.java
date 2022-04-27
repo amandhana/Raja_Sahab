@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -47,19 +48,20 @@ public class NotesViewAdapter extends RecyclerView.Adapter<NotesViewAdapter.View
     @SuppressLint({"SetTextI18n", "UseCompatLoadingForColorStateLists"})
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
+        Utils.setImageUsingGlide(context, list.get(position).getThumbnail(), viewHolder.ivthumbnail);
         viewHolder.tvName.setText(list.get(position).getTitle());
         if (list.get(position).getPaid().equalsIgnoreCase("0")){
-            viewHolder.tvView.setVisibility(View.GONE);
+            viewHolder.ivView.setVisibility(View.GONE);
             viewHolder.tvAddCart.setVisibility(View.VISIBLE);
         }else{
-            viewHolder.tvView.setVisibility(View.VISIBLE);
+            viewHolder.ivView.setVisibility(View.VISIBLE);
             viewHolder.tvAddCart.setVisibility(View.GONE);
         }
         if (list.get(position).getIsCart().equalsIgnoreCase("1"))
             viewHolder.tvAddCart.setText(context.getString(R.string.remove_cart));
         else viewHolder.tvAddCart.setText(context.getString(R.string.add_cart));
 
-        viewHolder.tvView.setOnClickListener(view -> {
+        viewHolder.ivView.setOnClickListener(view -> {
             if (!list.get(position).getPath().equals("")) {
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.Course.EBOOK_PATH, list.get(position).getPath());
@@ -84,14 +86,16 @@ public class NotesViewAdapter extends RecyclerView.Adapter<NotesViewAdapter.View
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView tvName;
-        final TextView tvView;
+        final ImageView ivthumbnail;
+        final ImageView ivView;
         final TextView tvAddCart;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_course_name);
-            tvView = itemView.findViewById(R.id.tv_view);
+            ivView = itemView.findViewById(R.id.iv_view);
             tvAddCart = itemView.findViewById(R.id.tv_add_cart);
+            ivthumbnail = itemView.findViewById(R.id.iv_thumbnail);
         }
     }
 }

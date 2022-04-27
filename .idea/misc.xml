@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable-v24/border_bg_20.xml" value="0.1265" />
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/bg_header.xml" value="0.1265" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/bg_round_60.xml" value="0.1265" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/border_bg_10.xml" value="0.1265" />
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/drawable/ic_home.xml" value="0.1265" />
-        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_my_orders.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_course_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_my_orders.xml" value="0.25" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_notes_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/activity_payment.xml" value="0.19" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/fragment_notes.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_home_latest_course.xml" value="0.33" />
         <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_my_order.xml" value="0.22" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_payment.xml" value="0.1675929884566054" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/item_pdf_notes_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/Git/Raja_Sahab/app/src/main/res/layout/left_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/drawable/ic_cart.xml" value="0.20925925925925926" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/layout/activity_bookmark.xml" value="0.1641337386018237" />
         <entry key="..\:/AndroidProject/RajaSahab(Aman)/source/app/src/main/res/layout/activity_cart.xml" value="0.1641337386018237" />
@@ -75,6 +87,13 @@
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/toast_popup_wallet.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/track_selection_dialog.xml" value="0.125" />
         <entry key="..\:/Source git/Raja Sahab/source/app/src/main/res/layout/ustom_controls.xml" value="0.125" />
+        <entry key="..\:/Source git/Raja/app/src/main/res/layout/activity_course_detail.xml" value="0.25" />
+        <entry key="..\:/Source git/Raja/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Source git/Raja/app/src/main/res/layout/activity_quiz_rank.xml" value="0.19074074074074074" />
+        <entry key="..\:/Source git/Raja/app/src/main/res/layout/item_home_latest_course.xml" value="0.25" />
+        <entry key="..\:/SourceGit/Raja/app/src/main/res/layout/activity_course_detail.xml" value="0.19166666666666668" />
+        <entry key="..\:/SourceGit/Raja/app/src/main/res/layout/activity_course_topic_video.xml" value="0.20416666666666666" />
+        <entry key="..\:/SourceGit/Raja/app/src/main/res/layout/item_course_topic.xml" value="0.20416666666666666" />
         <entry key="..\:/Vishnu/AndroidProjects/Demo/doc/icon/project/RajaSahab/source/app/src/main/res/drawable-v24/toast_popup_bg.xml" value="0.1885" />
         <entry key="..\:/Vishnu/AndroidProjects/Demo/doc/icon/project/RajaSahab/source/app/src/main/res/drawable/circle_half.xml" value="0.1885" />
         <entry key="..\:/Vishnu/AndroidProjects/Demo/doc/icon/project/RajaSahab/source/app/src/main/res/drawable/circle_half_home_bottom.xml" value="0.197" />
