@@ -108,6 +108,8 @@ public class Course {
     }
 
     public String getDescription() {
+        if (description == null)
+            return "";
         return description;
     }
 

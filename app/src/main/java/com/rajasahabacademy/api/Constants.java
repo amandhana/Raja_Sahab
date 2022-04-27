@@ -111,6 +111,7 @@ public class Constants {
     public static class Course {
         public static final String COURSE_ID = "course_id";
         public static final String COURSE_TITLE = "course_title";
+        public static final String COURSE_DESCRIPTION = "course_description";
         public static final String EXPIRE_AMOUNT = "expire_amount";
         public static final String TOTAL_AMOUNT = "total_amount";
         public static final String SUBJECT_ID = "subject_id";

@@ -78,6 +78,7 @@ public class HomeLatestCourseAdapter extends RecyclerView.Adapter<HomeLatestCour
             intent.putExtra(Constants.Preference.COURSE_IMAGE, list.get(position).getThumbnail());
             intent.putExtra(Constants.Course.COURSE_ID, list.get(position).getId());
             intent.putExtra(Constants.Course.COURSE_TITLE, list.get(position).getTitle());
+            intent.putExtra(Constants.Course.COURSE_DESCRIPTION, list.get(position).getDescription());
             intent.putExtra(Constants.Course.EXPIRE_AMOUNT, list.get(position).getExpire());
             intent.putExtra(Constants.Course.TOTAL_AMOUNT, list.get(position).getPrice());
             intent.putExtra(Constants.Course.COURSE_BUY_STATUS, list.get(position).getCourseBuyStatus());

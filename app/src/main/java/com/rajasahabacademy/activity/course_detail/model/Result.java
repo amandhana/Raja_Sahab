@@ -118,6 +118,8 @@ public class Result {
     }
 
     public String getDescription() {
+        if (description == null)
+            return "";
         return description;
     }
 

@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -51,6 +52,9 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     String fromWhereStr = "";
     String courseId = "";
     ActivityResultLauncher<Intent> someActivityResultLauncher;
+    int descriptionLineCount;
+
+    // ye readmore wala ?? google pe dekh iska
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +143,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                     courseDetailVideoShimmer.setVisibility(View.GONE);
                     courseDetailPdfShimmer.setVisibility(View.GONE);
                     try {
+
                         if (response != null && !response.equals("")) {
                             CourseSubjectResponse modelResponse = (CourseSubjectResponse) Utils.getObject(response, CourseSubjectResponse.class);
                             if (modelResponse != null && modelResponse.getSuccess() != null && modelResponse.getSuccess()) {
@@ -251,9 +256,11 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void setUpPrice() {
         TextView tvCourseTitle = findViewById(R.id.tv_course_title);
+        TextView tvDescription = findViewById(R.id.tv_description);
         TextView tvTotalAmount = findViewById(R.id.tv_course_detail_total_amount_1);
         tvAmount = findViewById(R.id.tv_course_detail_amount_1);
         tvCourseTitle.setText(getIntent().getStringExtra(Constants.Course.COURSE_TITLE));
+        Utils.setHtmlText(getIntent().getStringExtra(Constants.Course.COURSE_DESCRIPTION),tvDescription);
         tvAmount.setText(getIntent().getStringExtra(Constants.Course.TOTAL_AMOUNT));
         tvTotalAmount.setText(getIntent().getStringExtra(Constants.Course.EXPIRE_AMOUNT));
         tvTotalAmount.setPaintFlags(tvTotalAmount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
@@ -265,6 +272,30 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             bottomAmountLay.setVisibility(View.GONE);
             courseStatus = "free";
         }
+
+
+        TextView tvReadMore = findViewById(R.id.tv_read_more);
+        tvDescription.post(() -> {
+            descriptionLineCount = tvDescription.getLineCount();
+            if (descriptionLineCount < 7)
+                tvReadMore.setVisibility(View.GONE);
+            else {
+                tvDescription.setMaxLines(6);
+                tvReadMore.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        tvReadMore.setOnClickListener(view -> {
+            if (tvReadMore.getText().toString().equals("Read More...")){
+                tvDescription.setMaxLines(descriptionLineCount);
+                tvReadMore.setText("View Less");
+            }else{
+                tvDescription.setMaxLines(6);
+                tvReadMore.setText("Read More...");
+            }
+
+        });
     }
 
     private int getPaybleAmount() {

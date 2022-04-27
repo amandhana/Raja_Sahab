@@ -56,6 +56,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.ViewHold
             intent.putExtra(Constants.Preference.COURSE_IMAGE, list.get(position).getThumbnail());
             intent.putExtra(Constants.Course.COURSE_ID, list.get(position).getCourseId());
             intent.putExtra(Constants.Course.COURSE_TITLE, list.get(position).getCourseTitle());
+            intent.putExtra(Constants.Course.COURSE_DESCRIPTION, list.get(position).getDescription());
             intent.putExtra(Constants.Course.EXPIRE_AMOUNT, "");
             intent.putExtra(Constants.Course.TOTAL_AMOUNT, list.get(position).getPrice());
             intent.putExtra(Constants.Course.COURSE_BUY_STATUS, "1");

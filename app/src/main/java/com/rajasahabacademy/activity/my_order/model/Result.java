@@ -32,7 +32,7 @@ public class Result {
     private String updatedAt;
     @SerializedName("description")
     @Expose
-    private Object description;
+    private String description;
     @SerializedName("discount_price")
     @Expose
     private String discountPrice;
@@ -114,11 +114,13 @@ public class Result {
         this.updatedAt = updatedAt;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
+        if (description == null)
+            return "";
         return description;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

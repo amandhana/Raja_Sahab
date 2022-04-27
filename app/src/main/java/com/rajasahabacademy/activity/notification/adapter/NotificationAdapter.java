@@ -55,6 +55,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     intent.putExtra(Constants.Preference.COURSE_IMAGE, list.get(position).getThumbnail());
                     intent.putExtra(Constants.Course.COURSE_ID, list.get(position).getCourseId());
                     intent.putExtra(Constants.Course.COURSE_TITLE, list.get(position).getTitle());
+                    intent.putExtra(Constants.Course.COURSE_DESCRIPTION, ""); // model me key add kr den agr res[ose me aye to
                     intent.putExtra(Constants.Course.EXPIRE_AMOUNT, "");
                     intent.putExtra(Constants.Course.TOTAL_AMOUNT, list.get(position).getPrice());
                     intent.putExtra(Constants.Course.COURSE_BUY_STATUS, list.get(position).getCourseBuyStatus());

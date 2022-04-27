@@ -97,13 +97,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_course_detail"
-                android:background="@color/colorPrimaryVariant"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/bg_course_detail">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/m200"
-                    android:background="@drawable/bg_course_detail">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/iv_share_course"
@@ -137,21 +136,19 @@
                         android:layout_below="@+id/tv_course_title"
                         android:padding="@dimen/m5"
                         android:text=""
+                        android:ellipsize="end"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_14" />
 
                     <com.rajasahabacademy.views.BoldTextView
                         android:id="@+id/tv_read_more"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_margin="@dimen/m10"
-                        android:layout_marginStart="@dimen/m10"
-                        android:layout_marginTop="@dimen/m10"
-                        android:layout_marginEnd="@dimen/m10"
-                        android:layout_toStartOf="@+id/iv_share_course"
+                        android:layout_below="@+id/tv_description"
+                        android:padding="@dimen/m10"
+                        android:layout_marginBottom="@dimen/m10"
                         android:maxLines="2"
-                        android:text="Read More... "
+                        android:text="Read More..."
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_16" />
 
