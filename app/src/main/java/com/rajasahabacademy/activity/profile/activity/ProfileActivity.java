@@ -104,7 +104,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         clickListener();
         onActivityCamera();
         onActivityGallery();
-        getProfileDetail();
         getStateList();
     }
 
@@ -514,12 +513,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                    getProfileDetail();
                 }
 
                 @Override
                 public void onFailure(int statusCode, Throwable error) {
                     Utils.hideProgressBar();
                     Utils.showToastPopup(mActivity, error.getLocalizedMessage());
+                    getProfileDetail();
                 }
             });
         } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
