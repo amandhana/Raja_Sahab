@@ -270,5 +270,6 @@
     <string name="current_affairs">Current Affairs</string>
     <string name="checkout">Checkout</string>
     <string name="refferal_code">Refferal Code</string>
+    <string name="content_summary"><u>CONTENT SUMMARY</u></string>
 
 </resources>

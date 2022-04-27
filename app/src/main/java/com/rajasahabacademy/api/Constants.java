@@ -19,11 +19,11 @@ public class Constants {
     private static final String BASE_URL = BASE_URL_DOMAIN + "api/";
     public static final String EBOOK_PATH = "https://drive.google.com/viewerng/viewer?embedded=true&url=";
 
-    public static class FragmentReference {
+    public static class FragmentReference {        @SuppressLint("StaticFieldLeak")
+    public static CourseFragment courseFragment = null;
+
         @SuppressLint("StaticFieldLeak")
         public static HomeFragment homeFragment = null;
-        @SuppressLint("StaticFieldLeak")
-        public static CourseFragment courseFragment = null;
         @SuppressLint("StaticFieldLeak")
         public static LiveQuizFragment liveQuizFragment = null;
         @SuppressLint("StaticFieldLeak")

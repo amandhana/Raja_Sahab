@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ public class CourseTopicPdfAdapter extends RecyclerView.Adapter<CourseTopicPdfAd
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
+        Utils.setImageUsingGlide(context, list.get(position).getThumbnail(), viewHolder.ivPdfThumbnail);
         viewHolder.tvEbookName.setText(list.get(position).getTitle());
         viewHolder.itemView.setOnClickListener(view -> {
             if (courseByStatus.equalsIgnoreCase("1")) {
@@ -63,10 +65,12 @@ public class CourseTopicPdfAdapter extends RecyclerView.Adapter<CourseTopicPdfAd
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView tvEbookName;
+        final ImageView ivPdfThumbnail;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvEbookName = itemView.findViewById(R.id.tv_ebook_name);
+            ivPdfThumbnail = itemView.findViewById(R.id.iv_pdf_thumbnail);
         }
     }
 }

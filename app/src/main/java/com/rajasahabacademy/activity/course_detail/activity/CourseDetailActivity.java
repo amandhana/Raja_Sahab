@@ -110,7 +110,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         ivVideoDropDown = findViewById(R.id.iv_video_drop_down);
         ivPdfDropDown = findViewById(R.id.iv_pdf_drop_down);
         LinearLayout buyNowLay = findViewById(R.id.buy_now_lay);
-        buyNowLay.setOnClickListener(this);
+        LinearLayout bottomAmountLay = findViewById(R.id.bottom_amount_lay);
+        bottomAmountLay.setOnClickListener(this);
 
         cvmenu.setOnClickListener(this);
         videoDropDownLay.setOnClickListener(this);
@@ -155,7 +156,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     findViewById(R.id.tv_no_subject_video).setVisibility(View.VISIBLE);
                                 }
                                 if (modelResponse.getEbookCategory() != null && modelResponse.getEbookCategory().size() > 0) {
-                                    recyclerViewPdf.setVisibility(View.GONE);
+                                    recyclerViewPdf.setVisibility(View.VISIBLE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.GONE);
                                     courseDetailPdfAdapter = new CourseDetailPdfAdapter(mActivity, modelResponse.getEbookCategory(),
                                             courseId
@@ -272,7 +273,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         return (int) amountD;
     }
 
-    private void buyNowCourse(int paybleAmount,int remainWalletAmount,String paymentType) {
+    private void buyNowCourse(int paybleAmount, int remainWalletAmount, String paymentType) {
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
@@ -397,7 +398,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
             showHideVideoSubjectList();
         } else if (id == R.id.pdf_lay) {
             showHidePdfSubjectList();
-        } else if (id == R.id.buy_now_lay)
+        } else if (id == R.id.bottom_amount_lay) {
             startPayment();
+        }
     }
 }

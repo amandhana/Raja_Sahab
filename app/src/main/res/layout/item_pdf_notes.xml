@@ -9,22 +9,38 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/m15"
         android:elevation="@dimen/m10"
-        app:cardCornerRadius="@dimen/m10">
+        app:cardCornerRadius="@dimen/m10"
+        app:cardElevation="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_thumbnail"
+                android:layout_width="@dimen/m70"
+                android:layout_height="@dimen/m50"
+                app:cardCornerRadius="@dimen/m10">
 
-            <ImageView
-                android:id="@+id/cv_course_image"
-                android:layout_width="@dimen/m40"
-                android:layout_height="@dimen/m40"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/m10"
-                android:background="@drawable/ic_pdf"
-                android:contentDescription="@string/app_name" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary">
 
+                    <ImageView
+                        android:id="@+id/iv_pdf_thumbnail"
+                        android:layout_width="@dimen/m60"
+                        android:layout_height="@dimen/m40"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/m10"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="fitXY" />
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
 
             <com.rajasahabacademy.views.BoldTextView
                 android:id="@+id/tv_ebook_name"
@@ -34,12 +50,21 @@
                 android:layout_marginStart="@dimen/m10"
                 android:layout_marginTop="@dimen/m10"
                 android:layout_marginEnd="@dimen/m5"
-                android:layout_toEndOf="@+id/cv_course_image"
-                android:text=""
-                android:maxLines="2"
+                android:layout_toEndOf="@+id/cv_thumbnail"
                 android:ellipsize="end"
+                android:maxLines="2"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_14" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m10"
+                android:backgroundTint="@color/colorPrimary"
+                android:background="@drawable/circle_white" />
 
         </RelativeLayout>
 
