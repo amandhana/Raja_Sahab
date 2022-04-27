@@ -1,6 +1,7 @@
 package com.rajasahabacademy.activity.profile.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -79,6 +81,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String selectedStateNameStr = "";
     String cityId = "";
     String selectedCityNameStr = "";
+    String selectedCityFromApi = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +110,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
+    @SuppressLint("ClickableViewAccessibility")
     private void clickListener() {
         CardView cvBack = findViewById(R.id.cv_back);
         cvBack.setOnClickListener(this);
@@ -165,6 +169,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         stateSpinn = findViewById(R.id.state_spinn);
         citySpinn = findViewById(R.id.city_spinn);
+
+        stateSpinn.setOnTouchListener((View view,MotionEvent motionEvent) -> {
+            selectedCityFromApi = "";
+            return false;
+        });
 
         stateSpinn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -283,9 +292,37 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             tvUserName.setText(model.getName());
             tvUserPhone.setText(model.getPhone());
             tvRefferalCode.setText("Referral Code : " + model.getRefCode());
+            selectedCityFromApi = model.getCity();
+            stateSpinn.setSelection(getSelectedState(model.getState()));
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private int getSelectedState(String state) {
+        int position = 0;
+        if (stateList.size() > 0) {
+            for (int i = 0; i < stateList.size(); i++) {
+                if (state.equalsIgnoreCase(stateList.get(i).getName())) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        return position;
+    }
+
+    private int getSelectedCity(String city) {
+        int position = 0;
+        if (cityList.size() > 0) {
+            for (int i = 0; i < cityList.size(); i++) {
+                if (city.equalsIgnoreCase(cityList.get(i).getName())) {
+                    position = i;
+                    break;
+                }
+            }
+        }
+        return position;
     }
 
     private void photoSelect() {
@@ -516,6 +553,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                         cityList.add(0, result);
                                         cityAdapter = new CityAdapter(mActivity, cityList);
                                         citySpinn.setAdapter(cityAdapter);
+                                        citySpinn.setSelection(getSelectedCity(selectedCityFromApi));
                                     }
                                 }
                             }
