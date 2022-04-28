@@ -2,7 +2,6 @@ package com.rajasahabacademy.activity.course_detail.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajasahabacademy.R;
-import com.rajasahabacademy.activity.course_detail.model.course_pdf.Ebook;
-import com.rajasahabacademy.activity.pdf_view.PdfViewActivity;
-import com.rajasahabacademy.api.Constants;
+import com.rajasahabacademy.activity.course_detail.model.bookmarked_pdf.Datum;
 import com.rajasahabacademy.support.Utils;
 
 import java.util.List;
 
 public class BookmarkedPdfAdapter extends RecyclerView.Adapter<BookmarkedPdfAdapter.ViewHolder> {
     private final Activity context;
-    String courseByStatus = "";
+    List<Datum> list;
 
-    public BookmarkedPdfAdapter(Activity context) {
+    public BookmarkedPdfAdapter(Activity context, List<Datum> list) {
         this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -38,11 +36,13 @@ public class BookmarkedPdfAdapter extends RecyclerView.Adapter<BookmarkedPdfAdap
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
+        Utils.setImageUsingGlide(context, list.get(position).getThumbnail(), viewHolder.ivPdfThumbnail);
+        viewHolder.tvEbookName.setText(list.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return list.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
