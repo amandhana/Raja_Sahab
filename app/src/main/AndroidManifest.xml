@@ -15,8 +15,8 @@
     </queries>
 
     <application
-        android:fullBackupContent="true"
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
@@ -24,6 +24,9 @@
         android:roundIcon="@drawable/ic_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.RajaSahab">
+        <activity
+            android:name=".activity.course_detail.activity.BookmarkPdfActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.current_affair.activity.CurrentAffairDetailActivity"
             android:exported="true" />
@@ -48,7 +51,6 @@
         <activity
             android:name=".activity.research_cart.activity.ResearchPaperActivity"
             android:exported="true" />
-
         <activity
             android:name=".activity.bookmark.activity.BookmarkVideoActivity"
             android:exported="true" />
@@ -133,8 +135,8 @@
             android:exported="true" />
         <activity
             android:name=".activity.otp.OtpActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:exported="true"/>
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activity.home.activity.HomeActivity"
             android:exported="true"
@@ -152,32 +154,30 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.razorpay.RzpTokenReceiver"
+        <receiver
+            android:name="com.razorpay.RzpTokenReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="rzp.device_token.share" />
             </intent-filter>
         </receiver>
 
-
-
         <activity
             android:name=".activity.payment.activity.PaymentActivity"
             android:exported="true" />
-
-        <!--<meta-data
+        <!--
+<meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_live_1C0zNQIulD5zCk"/>-->
-
+            android:value="rzp_live_1C0zNQIulD5zCk"/>
+        -->
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_g3Bglr4evyLBVy"/>
-
-
+            android:value="rzp_test_g3Bglr4evyLBVy" />
 
         <service
             android:name=".fcm.MyFirebaseMessagingService"
@@ -187,14 +187,13 @@
             </intent-filter>
         </service>
 
-        <receiver android:name=".support.SmsReceiver"
+        <receiver
+            android:name=".support.SmsReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
-
     </application>
 
 </manifest>

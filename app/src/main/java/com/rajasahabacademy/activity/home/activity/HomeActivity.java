@@ -33,6 +33,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.activity.course_detail.activity.BookmarkPdfActivity;
 import com.rajasahabacademy.activity.job_alert.activity.JobAlertActivity;
 import com.rajasahabacademy.activity.login.activity.LoginActivity;
 import com.rajasahabacademy.activity.my_order.activity.MyOrdersActivity;
@@ -209,6 +210,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftCurrentAffairlay.setOnClickListener(this);
         LinearLayout leftMenuCourseLay = findViewById(R.id.left_menu_my_courses_lay);
         leftMenuCourseLay.setOnClickListener(this);
+        LinearLayout leftMenuBookmarkPdfLay = findViewById(R.id.left_menu_bookmark_pdf_lay);
+        leftMenuBookmarkPdfLay.setOnClickListener(this);
         LinearLayout leftMenuBookmarkLay = findViewById(R.id.left_menu_bookmark_lay);
         leftMenuBookmarkLay.setOnClickListener(this);
         LinearLayout leftMenuBookmarkVideoLay = findViewById(R.id.left_menu_bookmark_video_lay);
@@ -875,6 +878,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Utils.startActivity(mActivity, BookmarkVideoActivity.class);
         } else if (id == R.id.cart_lay) {
             Utils.startActivity(mActivity, CartActivity.class);
+        }else if (id == R.id.left_menu_bookmark_pdf_lay) {
+            Utils.startActivity(mActivity, BookmarkPdfActivity.class);
         }
     }
 }
