@@ -44,6 +44,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     ImageView ivPdfDropDown;
     RecyclerView recyclerViewVideo;
     RecyclerView recyclerViewPdf;
+    TextView tvDescription;
     TextView tvAmount;
     LinearLayout bottomAmountLay;
     String courseStatus = "free";
@@ -114,6 +115,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
         ivVideoDropDown = findViewById(R.id.iv_video_drop_down);
         ivPdfDropDown = findViewById(R.id.iv_pdf_drop_down);
         LinearLayout buyNowLay = findViewById(R.id.buy_now_lay);
+        tvDescription = findViewById(R.id.tv_description);
         LinearLayout bottomAmountLay = findViewById(R.id.bottom_amount_lay);
         bottomAmountLay.setOnClickListener(this);
 

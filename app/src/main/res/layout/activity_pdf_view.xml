@@ -123,6 +123,20 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/iv_pdf_bookmark"
+        android:layout_width="@dimen/m30"
+        android:layout_height="@dimen/m30"
+        android:visibility="visible"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/m15"
+        android:layout_marginTop="@dimen/m5"
+        android:layout_marginBottom="@dimen/m5"
+        android:contentDescription="@string/app_name"
+        android:backgroundTint="@color/primary_text_color"
+        android:background="@drawable/ic_bookmark_empty"/>
+
+
     <RelativeLayout
         android:id="@+id/pdf_lay"
         android:layout_width="match_parent"

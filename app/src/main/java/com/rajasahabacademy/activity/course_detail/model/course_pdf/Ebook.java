@@ -9,6 +9,9 @@ public class Ebook {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("bookmark")
+    @Expose
+    private String bookmark;
     @SerializedName("title")
     @Expose
     private String title;
@@ -50,11 +53,23 @@ public class Ebook {
     private String updatedAt;
 
     public String getId() {
+        if (id == null)
+            return "";
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getBookmark() {
+        if (bookmark == null)
+            return "";
+        return bookmark;
+    }
+
+    public void setBookmark(String bookmark) {
+        this.bookmark = bookmark;
     }
 
     public String getTitle() {
