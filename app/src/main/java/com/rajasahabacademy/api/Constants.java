@@ -105,6 +105,7 @@ public class Constants {
         public static final String WALLET_AMOUNT = "wallet_amount";
         public static final String STATE_ID = "state_id";
         public static final String REF_BY = "ref_by";
+        public static final String EBOOK_ID = "ebook_id";
 
     }
 
@@ -192,6 +193,8 @@ public class Constants {
         public static final String REMOVE_LIKE_VIDEO = BASE_URL + "remove_like_video";
         public static final String STATES = BASE_URL + "states";
         public static final String CITY = BASE_URL + "city";
+        public static final String ADD_BOOKMARK_EBOOK = BASE_URL + "add_bookmark_ebook";
+        public static final String REMOVE_BOOKMARK_EBOOK = BASE_URL + "remove_bookmark_ebook";
     }
 
     public static class AppSaveData {

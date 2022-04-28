@@ -50,6 +50,8 @@ public class CourseTopicPdfAdapter extends RecyclerView.Adapter<CourseTopicPdfAd
                     bundle.putString(Constants.Course.EBOOK_PATH, list.get(position).getPath());
                     bundle.putString(Constants.Course.EBOOK_NAME, list.get(position).getTitle());
                     bundle.putString(Constants.Course.FROM_WHERE, "");
+                    bundle.putString("bookmark", list.get(position).getBookmark());
+                    bundle.putString("ebook_id", list.get(position).getId());
                     Utils.startActivityBundle(context, PdfViewActivity.class, bundle);
                 } else
                     Utils.showToastPopup(context, context.getResources().getString(R.string.ebook_path_valid));

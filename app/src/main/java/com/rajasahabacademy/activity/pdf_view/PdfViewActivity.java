@@ -37,11 +37,14 @@ import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.github.barteksc.pdfviewer.PDFView;
+import com.loopj.android.http.RequestParams;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
+import com.rajasahabacademy.api.CustomResponseListener;
 import com.rajasahabacademy.support.Preference;
 import com.rajasahabacademy.support.Utils;
 
@@ -50,6 +53,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
+
+import org.json.JSONObject;
 
 public class PdfViewActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -72,6 +77,9 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
     int dl_progress;
     TextView tvPercent;
     String fromWhere = "";
+    ImageView ivBookmark;
+    String bookmark = "";
+    String ebookId = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +105,7 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
 
     private void clickListener() {
         pdfViewShimmer = findViewById(R.id.pdf_view_shimmer);
+        ivBookmark = findViewById(R.id.iv_pdf_bookmark);
         webView = findViewById(R.id.web_view);
         pdfLay = findViewById(R.id.pdf_lay);
         pdfView = findViewById(R.id.pdfView);
@@ -112,6 +121,7 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
         ivDownload.setOnClickListener(this);
         deleteLay = findViewById(R.id.delete_lay);
         deleteLay.setOnClickListener(this);
+        ivBookmark.setOnClickListener(this);
 
     }
 
@@ -121,6 +131,12 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
             fromWhere = bundle.getString(Constants.Course.FROM_WHERE);
             ebookPath = bundle.getString(Constants.Course.EBOOK_PATH);
             ebookName = bundle.getString(Constants.Course.EBOOK_NAME);
+            if (bundle.getString("bookmark") != null) {
+                ivBookmark.setVisibility(View.VISIBLE);
+                bookmark = bundle.getString("bookmark");
+            } else ivBookmark.setVisibility(View.GONE);
+            if (bundle.getString("ebook_id") != null)
+                ebookId = bundle.getString("ebook_id");
             if (fromWhere.equals("Offline")) {
                 ivDownload.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
@@ -137,13 +153,17 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
                 downloadCompleteNotify();
             }
         }
+
+        if (bookmark.equals("1"))
+            ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+        else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
     }
 
     private void checkDownloadStatus() {
         if (!ebookName.equals("")) {
             String path = Environment.getExternalStorageDirectory() + "/Ebook";
             File fileDir = new File(path);
-            File saveFilePath = new File(fileDir, ebookName+".pdf");
+            File saveFilePath = new File(fileDir, ebookName + ".pdf");
             if (!saveFilePath.exists()) {
                 ivDownload.setVisibility(View.VISIBLE);
                 deleteLay.setVisibility(View.GONE);
@@ -332,7 +352,7 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
             cvOk.setOnClickListener(v -> {
                 String path = Environment.getExternalStorageDirectory() + "/Ebook";
                 File fileDir = new File(path);
-                File saveFilePath = new File(fileDir, ebookName+".pdf");
+                File saveFilePath = new File(fileDir, ebookName + ".pdf");
                 if (saveFilePath.exists()) {
                     saveFilePath.delete();
                     try {
@@ -353,6 +373,84 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    private void addBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.EBOOK_ID, ebookId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_BOOKMARK_EBOOK, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                                bookmark = "1";
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void removeBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.EBOOK_ID, ebookId);
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_BOOKMARK_EBOOK, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+                                bookmark = "0";
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -362,6 +460,10 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
             downloadPermission();
         else if (view.getId() == R.id.delete_lay) {
             deletePopup();
+        } else if (view.getId() == R.id.iv_pdf_bookmark) {
+            if (!bookmark.equals("1"))
+                addBookmark();
+            else removeBookmark();
         }
     }
 }
