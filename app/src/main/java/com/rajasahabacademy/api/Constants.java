@@ -118,6 +118,7 @@ public class Constants {
         public static final String SUBJECT_ID = "subject_id";
         public static final String VIDEO_ID = "video_id";
         public static final String VIDEO_PATH = "video_path";
+        public static final String VIDEO_TITLE = "video_title";
         public static final String VIDEO_DESCRIPTION = "video_description";
         public static final String VIDEO_BOOKMARK = "video_bookmark";
         public static final String VIDEO_TYPE = "video_type";

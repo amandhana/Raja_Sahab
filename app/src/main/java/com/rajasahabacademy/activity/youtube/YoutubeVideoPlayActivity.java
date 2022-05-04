@@ -83,6 +83,7 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     private TextView tvDescription;
     private View mPlayButtonLayout;
     private ImageButton play_video, pause_video;
+    private String videTitle = "";
     private String videoId = "";
     private String videoPath = "";
     private String videoDescription = "";
@@ -101,6 +102,7 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     int dl_progress;
     String fileName;
     TextView tvPercent;
+    private TextView tvTitle;
 
     ImageView ivBookmark;
     String bookmarkStr = "";
@@ -135,6 +137,8 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     }
 
     private void clickListener() {
+        tvTitle = findViewById(R.id.tv_title_video);
+        tvTitle.setSelected(true);
         tvDescription = findViewById(R.id.tv_description);
         mPlayTimeTextView = findViewById(R.id.play_time);
         mSeekBar = findViewById(R.id.video_seekbar);
@@ -185,12 +189,20 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
             videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
             videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
             bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
+            videTitle = bundle.getString(Constants.Course.VIDEO_TITLE);
         }
         if (videoDescription.isEmpty())
             findViewById(R.id.cv_title_description).setVisibility(View.GONE);
         else {
             findViewById(R.id.cv_title_description).setVisibility(View.VISIBLE);
             Utils.setHtmlText(videoDescription, tvDescription);
+        }
+
+        if (videTitle.isEmpty())
+            tvTitle.setVisibility(View.GONE);
+        else {
+            tvTitle.setVisibility(View.VISIBLE);
+            Utils.setHtmlText(videTitle, tvTitle);
         }
 
         if (!fromWhereStr.equals("Bookmark")) {

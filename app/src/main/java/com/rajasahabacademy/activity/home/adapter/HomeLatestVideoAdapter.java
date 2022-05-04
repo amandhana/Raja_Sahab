@@ -57,6 +57,7 @@ public class HomeLatestVideoAdapter extends RecyclerView.Adapter<HomeLatestVideo
                     Bundle bundle = new Bundle();
                     bundle.putString(Constants.Course.VIDEO_ID, list.get(position).getId());
                     bundle.putString(Constants.Course.VIDEO_PATH, list.get(position).getPath());
+                    bundle.putString(Constants.Course.VIDEO_TITLE, list.get(position).getTitle());
                     bundle.putString(Constants.Course.FROM_WHERE, "");
                     bundle.putString(Constants.Course.VIDEO_DESCRIPTION, list .get(position).getDescription());
                     bundle.putString(Constants.Course.VIDEO_BOOKMARK, list .get(position).getBookmark());
