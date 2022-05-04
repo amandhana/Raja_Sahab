@@ -93,14 +93,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:visibility="gone">
+                        android:visibility="visible">
 
                         <ImageView
+                            android:layout_marginStart="@dimen/m10"
                             android:layout_width="@dimen/m12"
                             android:layout_height="@dimen/m12"
                             android:layout_gravity="center_vertical"
                             android:background="@drawable/ic_rupee"
-                            android:backgroundTint="@color/secondary_text_color"
+                            android:backgroundTint="@color/white"
                             android:contentDescription="@string/app_name" />
 
                         <com.rajasahabacademy.views.RegularTextView
@@ -109,7 +110,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:text=""
-                            android:textColor="@color/secondary_text_color"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/text_14" />
 
                     </LinearLayout>
@@ -153,8 +154,8 @@
                 android:layout_height="@dimen/m40"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="@dimen/m20"
                 android:layout_marginStart="@dimen/m5"
+                android:layout_marginEnd="@dimen/m5"
                 android:background="@drawable/bg_button_5"
                 android:backgroundTint="@color/colorPrimaryVariant"
                 android:gravity="center"

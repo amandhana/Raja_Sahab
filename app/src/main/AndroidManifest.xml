@@ -18,7 +18,7 @@
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/ic_app_icon"
+        android:icon="@drawable/ic_round_app_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@drawable/ic_app_icon"
@@ -170,6 +170,9 @@
         <activity
             android:name=".activity.payment.activity.PaymentActivity"
             android:exported="true" />
+
+        <activity android:name="com.razorpay.CheckoutActivity"
+            android:exported="true"/>
         <!--
 <meta-data
             android:name="com.razorpay.ApiKey"

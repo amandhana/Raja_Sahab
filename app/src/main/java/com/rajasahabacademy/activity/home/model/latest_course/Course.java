@@ -18,9 +18,15 @@ public class Course {
     @SerializedName("expire")
     @Expose
     private String expire;
+
     @SerializedName("price")
     @Expose
     private String price;
+
+    @SerializedName("sale_price")
+    @Expose
+    private String saleprice;
+
     @SerializedName("status")
     @Expose
     private String status;
@@ -177,4 +183,13 @@ public class Course {
         this.courseBuyStatus = courseBuyStatus;
     }
 
+    public String getSaleprice() {
+        if (saleprice == null)
+            return "0";
+        return saleprice;
+    }
+
+    public void setSaleprice(String saleprice) {
+        this.saleprice = saleprice;
+    }
 }

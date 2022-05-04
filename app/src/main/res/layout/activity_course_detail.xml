@@ -74,7 +74,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/m250">
+                        android:layout_height="@dimen/m200">
 
                         <ImageView
                             android:id="@+id/iv_image"
@@ -305,6 +305,7 @@
                                 </RelativeLayout>
 
                                 <RelativeLayout
+                                    android:layout_marginBottom="@dimen/m10"
                                     android:id="@+id/video_recycler_lay"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -427,19 +428,20 @@
                                 </RelativeLayout>
 
                                 <RelativeLayout
+                                    android:layout_marginBottom="@dimen/m10"
                                     android:id="@+id/pdf_recycler_lay"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/pdf_lay">
 
                                     <androidx.recyclerview.widget.RecyclerView
-                                        android:visibility="visible"
                                         android:id="@+id/recycler_view_pdf_notes"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="@dimen/m5"
                                         android:layout_marginTop="@dimen/m15"
-                                        android:layout_marginEnd="@dimen/m5" />
+                                        android:layout_marginEnd="@dimen/m5"
+                                        android:visibility="visible" />
 
                                     <com.rajasahabacademy.views.RegularTextView
                                         android:id="@+id/tv_no_subject_pdf"

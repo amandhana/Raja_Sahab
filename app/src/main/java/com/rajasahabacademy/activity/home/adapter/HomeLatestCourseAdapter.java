@@ -51,7 +51,7 @@ public class HomeLatestCourseAdapter extends RecyclerView.Adapter<HomeLatestCour
         Utils.setImageUsingGlide(context, list.get(position).getThumbnail(), viewHolder.ivImage);
         viewHolder.tvName.setText(list.get(position).getTitle());
         viewHolder.tvAmount.setText(list.get(position).getPrice());
-        viewHolder.tvTotalAmount.setText(list.get(position).getExpire());
+        viewHolder.tvTotalAmount.setText(list.get(position).getSaleprice());
         viewHolder.tvTotalAmount.setPaintFlags(viewHolder.tvTotalAmount.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         viewHolder.amountLay.setVisibility(View.VISIBLE);
 

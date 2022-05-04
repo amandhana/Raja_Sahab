@@ -27,11 +27,10 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:layout_width="@dimen/m20"
-                    android:layout_height="@dimen/m20"
+                    android:layout_width="20dp"
+                    android:layout_height="15dp"
                     android:layout_centerInParent="true"
                     android:background="@drawable/ic_arrow_back"
-                    android:backgroundTint="@color/primary_text_color"
                     android:contentDescription="@string/app_name" />
 
             </RelativeLayout>
