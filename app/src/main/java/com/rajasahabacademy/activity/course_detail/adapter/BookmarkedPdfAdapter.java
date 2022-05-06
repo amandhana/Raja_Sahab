@@ -2,6 +2,7 @@ package com.rajasahabacademy.activity.course_detail.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.course_detail.model.bookmarked_pdf.Datum;
+import com.rajasahabacademy.activity.pdf_view.PdfViewActivity;
+import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.support.Utils;
 
 import java.util.List;
@@ -38,6 +41,17 @@ public class BookmarkedPdfAdapter extends RecyclerView.Adapter<BookmarkedPdfAdap
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         Utils.setImageUsingGlide(context, list.get(position).getThumbnail(), viewHolder.ivPdfThumbnail);
         viewHolder.tvEbookName.setText(list.get(position).getTitle());
+        viewHolder.itemView.setOnClickListener(view -> {
+            if (!list.get(position).getPath().equals("")) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.Course.EBOOK_PATH, list.get(position).getPath());
+                bundle.putString(Constants.Course.EBOOK_NAME, list.get(position).getTitle());
+                bundle.putString(Constants.Course.FROM_WHERE, "");
+                bundle.putString("ebook_id", list.get(position).getId());
+                Utils.startActivityBundle(context, PdfViewActivity.class, bundle);
+            } else
+                Utils.showToastPopup(context, context.getResources().getString(R.string.ebook_path_valid));
+        });
     }
 
     @Override

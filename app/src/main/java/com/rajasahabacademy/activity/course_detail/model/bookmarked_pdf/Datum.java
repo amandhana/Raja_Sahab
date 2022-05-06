@@ -21,6 +21,9 @@ public class Datum {
     @SerializedName("thumbnail")
     @Expose
     private String thumbnail;
+    @SerializedName("path")
+    @Expose
+    private String path;
 
     public String getId() {
         return id;
@@ -54,6 +57,16 @@ public class Datum {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public String getPath() {
+        if (path == null)
+            return "";
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
 }
