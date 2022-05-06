@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m20"
+        android:background="@drawable/toast_popup_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/m20">
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/m30"
+            android:layout_height="@dimen/m30"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/m10"
+            android:layout_marginEnd="@dimen/m5"
+            android:background="@drawable/ic_delete"
+            android:backgroundTint="@color/primary_text_color"
+            android:contentDescription="@string/app_name"
+            android:visibility="visible" />
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_select_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/m10"
+            android:layout_marginTop="15sp"
+            android:text="Select Type"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_18"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/pending_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40"
+            android:layout_marginStart="@dimen/m50"
+            android:layout_marginTop="@dimen/m20"
+            android:layout_marginEnd="@dimen/m50"
+            android:background="@drawable/bg_button_5">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_pending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Pending"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ongoing_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40"
+            android:layout_marginStart="@dimen/m50"
+            android:layout_marginTop="@dimen/m20"
+            android:layout_marginEnd="@dimen/m50"
+            android:background="@drawable/filter_live_class_bg_5">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_ongoing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Ongoing"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/completed_lay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/m40"
+            android:layout_marginStart="@dimen/m50"
+            android:layout_marginTop="@dimen/m20"
+            android:layout_marginEnd="@dimen/m50"
+            android:background="@drawable/filter_live_class_bg_5">
+
+            <com.rajasahabacademy.views.RegularTextView
+                android:id="@+id/tv_completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Completed"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

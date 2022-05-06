@@ -197,6 +197,7 @@ public class Constants {
         public static final String ADD_BOOKMARK_EBOOK = BASE_URL + "add_bookmark_ebook";
         public static final String REMOVE_BOOKMARK_EBOOK = BASE_URL + "remove_bookmark_ebook";
         public static final String GET_BOOKMARK_EBOOK = BASE_URL + "get_bookmark_ebook";
+        public static final String GET_LIVE = BASE_URL + "get_live";
     }
 
     public static class AppSaveData {

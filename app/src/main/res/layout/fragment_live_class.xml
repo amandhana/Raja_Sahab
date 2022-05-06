@@ -1,16 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.home.fragment.LiveClassFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".activity.home.fragment.LiveClassFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m15"
+        app:cardCornerRadius="@dimen/m15"
+        app:cardElevation="@dimen/m25">
+
+        <com.rajasahabacademy.views.RegularTextView
+            android:id="@+id/tv_class_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingStart="@dimen/m25"
+            android:paddingTop="@dimen/m10"
+            android:paddingEnd="@dimen/m25"
+            android:paddingBottom="@dimen/m10"
+            android:text="Pending Classes"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16" />
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_live_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:nestedScrollingEnabled="false" />
+        android:layout_below="@+id/cv_status"
+        android:visibility="gone" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/live_class_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cv_status"
+        android:layout_marginStart="@dimen/m15"
+        android:layout_marginTop="@dimen/m10"
+        android:layout_marginEnd="@dimen/m15"
+        android:layout_marginBottom="@dimen/m15">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m150"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="@dimen/m100"
+                android:layout_height="@dimen/m20"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/m20"
+                android:layout_marginTop="@dimen/m5"
+                android:background="@color/placeholder_bg" />
 
 
-</LinearLayout>
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.rajasahabacademy.views.RegularTextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="No Live Classes"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone" />
+
+
+    <RelativeLayout
+        android:id="@+id/filter_lay"
+        android:layout_width="@dimen/m50"
+        android:layout_height="@dimen/m50"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/m20"
+        android:layout_marginBottom="@dimen/m10"
+        android:background="@drawable/circle_red"
+        android:backgroundTint="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="@dimen/m30"
+            android:layout_height="@dimen/m30"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_filter_live_class"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/app_name" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
