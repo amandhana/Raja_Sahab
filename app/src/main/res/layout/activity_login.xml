@@ -64,23 +64,59 @@
                     android:textColor="@color/secondary_text_color"
                     android:textSize="@dimen/text_15" />
 
-                <com.rajasahabacademy.views.RegularEditText
-                    android:id="@+id/et_phone"
+                <LinearLayout
+                    android:layout_marginTop="@dimen/m10"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/m45"
-                    android:layout_marginStart="@dimen/m15"
-                    android:layout_marginTop="@dimen/m20"
-                    android:layout_marginEnd="@dimen/m15"
-                    android:background="@drawable/edit_text_bg"
-                    android:hint="@string/mobile_number"
-                    android:imeOptions="actionDone"
-                    android:inputType="phone"
-                    android:maxLength="15"
-                    android:paddingStart="@dimen/m10"
-                    android:paddingEnd="@dimen/m10"
-                    android:textColor="@color/primary_text_color"
-                    android:textColorHint="@color/hint_color"
-                    android:textSize="@dimen/text_14" />
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_marginStart="@dimen/m10"
+                        android:background="@drawable/edit_text_bg"
+                        android:layout_width="@dimen/m80"
+                        android:layout_height="@dimen/m40">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="@dimen/m30"
+                                android:layout_height="@dimen/m30"
+                                android:background="@drawable/ic_india_flag" />
+
+                            <com.rajasahabacademy.views.BoldTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/m5"
+                                android:text="+91"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/text_16" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <com.rajasahabacademy.views.RegularEditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/m45"
+                        android:layout_marginStart="@dimen/m15"
+                        android:layout_marginEnd="@dimen/m15"
+                        android:background="@drawable/edit_text_bg"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/m10"
+                        android:paddingEnd="@dimen/m10"
+                        android:textColor="@color/primary_text_color"
+                        android:textColorHint="@color/hint_color"
+                        android:textSize="@dimen/text_14" />
+
+
+                </LinearLayout>
+
 
                 <com.rajasahabacademy.views.BoldTextView
                     android:id="@+id/tv_send_otp"
