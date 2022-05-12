@@ -300,9 +300,14 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     }
 
     private int getPaybleAmount() {
-        String amount = tvAmount.getText().toString();
-        double amountD = Double.parseDouble(amount);
-        return (int) amountD;
+        try{
+            String amount = tvAmount.getText().toString();
+            double amountD = Double.parseDouble(amount);
+            return (int) amountD;
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     private void buyNowCourse(int paybleAmount, int remainWalletAmount, String paymentType) {

@@ -180,7 +180,7 @@
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_g3Bglr4evyLBVy" />
+            android:value="rzp_live_p9U7slkWomndgU" />
 
         <service
             android:name=".fcm.MyFirebaseMessagingService"

@@ -182,34 +182,44 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
     }
 
     private void getBundleData() {
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            fromWhereStr = bundle.getString(Constants.Course.FROM_WHERE);
-            videoId = bundle.getString(Constants.Course.VIDEO_ID);
-            videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
-            videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
-            bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
-            videTitle = bundle.getString(Constants.Course.VIDEO_TITLE);
-        }
-        if (videoDescription.isEmpty())
-            findViewById(R.id.cv_title_description).setVisibility(View.GONE);
-        else {
-            findViewById(R.id.cv_title_description).setVisibility(View.VISIBLE);
-            Utils.setHtmlText(videoDescription, tvDescription);
-        }
+        try {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                if (bundle.getString(Constants.Course.FROM_WHERE) != null)
+                    fromWhereStr = bundle.getString(Constants.Course.FROM_WHERE);
+                if (bundle.getString(Constants.Course.VIDEO_ID) != null)
+                    videoId = bundle.getString(Constants.Course.VIDEO_ID);
+                if (bundle.getString(Constants.Course.VIDEO_PATH) != null)
+                    videoPath = bundle.getString(Constants.Course.VIDEO_PATH);
+                if (bundle.getString(Constants.Course.VIDEO_DESCRIPTION) != null)
+                    videoDescription = bundle.getString(Constants.Course.VIDEO_DESCRIPTION);
+                if (bundle.getString(Constants.Course.VIDEO_BOOKMARK) != null)
+                    bookmarkStr = bundle.getString(Constants.Course.VIDEO_BOOKMARK);
+                if (bundle.getString(Constants.Course.VIDEO_TITLE) != null)
+                    videTitle = bundle.getString(Constants.Course.VIDEO_TITLE);
+            }
+            if (videoDescription.isEmpty())
+                findViewById(R.id.cv_title_description).setVisibility(View.GONE);
+            else {
+                findViewById(R.id.cv_title_description).setVisibility(View.VISIBLE);
+                Utils.setHtmlText(videoDescription, tvDescription);
+            }
 
-        if (videTitle.isEmpty())
-            tvTitle.setVisibility(View.GONE);
-        else {
-            tvTitle.setVisibility(View.VISIBLE);
-            Utils.setHtmlText(videTitle, tvTitle);
-        }
+            if (videTitle.isEmpty())
+                tvTitle.setVisibility(View.GONE);
+            else {
+                tvTitle.setVisibility(View.VISIBLE);
+                Utils.setHtmlText(videTitle, tvTitle);
+            }
 
-        if (!fromWhereStr.equals("Bookmark")) {
-            if (bookmarkStr.equals("1"))
-                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
-            else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
-        } else findViewById(R.id.end_lay).setVisibility(View.GONE);
+            if (!fromWhereStr.equals("Bookmark")) {
+                if (bookmarkStr.equals("1"))
+                    ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+            } else findViewById(R.id.end_lay).setVisibility(View.GONE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setUpYoutubePlayerView() {

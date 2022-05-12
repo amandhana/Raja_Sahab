@@ -248,26 +248,31 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setUpLeftMenuData() {
-        TextView tvUserName = findViewById(R.id.tv_left_menu_username);
-        TextView tvUserPhone = findViewById(R.id.tv_left_menu_phone_number);
-        TextView tvFirstName = findViewById(R.id.tv_first_name);
-        ImageView ivImage = findViewById(R.id.iv_left_menu_image);
-        tvReferralCode.setText("Referral Code : " + Utils.getSaveLoginUser(mActivity).getResults().getRefCode());
-        ivImage.setVisibility(View.GONE);
-        tvFirstName.setVisibility(View.GONE);
-        if (!Utils.getImage(mActivity).equals("") && Utils.getImage(mActivity).contains("http")) {
-            ivImage.setVisibility(View.VISIBLE);
-            Utils.setProfileImageUsingGlide(mActivity, Utils.getImage(mActivity), ivImage);
-        } else {
-            tvFirstName.setVisibility(View.VISIBLE);
-            tvFirstName.setText(getFirstCharOfName());
+        try {
+            TextView tvUserName = findViewById(R.id.tv_left_menu_username);
+            TextView tvUserPhone = findViewById(R.id.tv_left_menu_phone_number);
+            TextView tvFirstName = findViewById(R.id.tv_first_name);
+            ImageView ivImage = findViewById(R.id.iv_left_menu_image);
+            tvReferralCode.setText("Referral Code : " + Utils.getSaveLoginUser(mActivity).getResults().getRefCode());
+            ivImage.setVisibility(View.GONE);
+            tvFirstName.setVisibility(View.GONE);
+            if (!Utils.getImage(mActivity).equals("") && Utils.getImage(mActivity).contains("http")) {
+                ivImage.setVisibility(View.VISIBLE);
+                Utils.setProfileImageUsingGlide(mActivity, Utils.getImage(mActivity), ivImage);
+            } else {
+                tvFirstName.setVisibility(View.VISIBLE);
+                tvFirstName.setText(getFirstCharOfName());
+            }
+            String userNameStr = Utils.getSaveLoginUser(mActivity).getResults().getName();
+            String upperString = "";
+            if (!userNameStr.isEmpty() && userNameStr.length() > 1)
+                upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
+            else upperString = "R";
+            tvUserName.setText(upperString);
+            tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        String userNameStr = Utils.getSaveLoginUser(mActivity).getResults().getName();
-        String upperString = "";
-        if (!userNameStr.isEmpty())
-            upperString = userNameStr.substring(0, 1).toUpperCase() + userNameStr.substring(1).toLowerCase();
-        tvUserName.setText(upperString);
-        tvUserPhone.setText(Utils.getSaveLoginUser(mActivity).getResults().getPhone());
     }
 
     public void setWalletAmount() {
@@ -781,7 +786,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             resetAllBottom("Live Chat");
             Utils.startActivity(mActivity, ChatActivity.class);
-        }else if (id == R.id.short_video_unselct_lay) {
+        } else if (id == R.id.short_video_unselct_lay) {
             setBlankSearch();
             resetAllBottom("Short Video");
             Utils.startActivity(mActivity, ShortVideoActivity.class);
@@ -879,7 +884,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.cart_lay) {
             performMenuActionDelay();
             Utils.startActivity(mActivity, CartActivity.class);
-        }else if (id == R.id.left_menu_bookmark_pdf_lay) {
+        } else if (id == R.id.left_menu_bookmark_pdf_lay) {
             performMenuActionDelay();
             Utils.startActivity(mActivity, BookmarkPdfActivity.class);
         }

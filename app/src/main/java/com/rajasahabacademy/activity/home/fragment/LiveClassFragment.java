@@ -246,18 +246,60 @@ public class LiveClassFragment extends Fragment implements View.OnClickListener 
 
             pendingLay.setOnClickListener(view -> {
                 filterStatus = "Pending";
+                tvStatus.setText(filterStatus + " Classes");
                 dialogPopup.dismiss();
-                init();
+                if (userDetails != null) {
+                    if (userDetails.getUpcoming().size() > 0) {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.GONE);
+                        List<Object> list = new ArrayList<>(userDetails.getUpcoming());
+                        recyclerView.setAdapter(new LiveClassAdapter(mActivity, list, LiveClassFragment.this));
+                    } else {
+                        recyclerView.setVisibility(View.GONE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                    rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                }
             });
             onGoingLay.setOnClickListener(view -> {
                 filterStatus = "Ongoing";
+                tvStatus.setText(filterStatus + " Classes");
                 dialogPopup.dismiss();
-                init();
+                if (userDetails != null) {
+                    if (userDetails.getOncoming().size() > 0) {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.GONE);
+                        List<Object> list = new ArrayList<>(userDetails.getOncoming());
+                        recyclerView.setAdapter(new LiveClassAdapter(mActivity, list, LiveClassFragment.this));
+                    } else {
+                        recyclerView.setVisibility(View.GONE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                    rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                }
             });
             completedLay.setOnClickListener(view -> {
                 filterStatus = "Completed";
+                tvStatus.setText(filterStatus + " Classes");
                 dialogPopup.dismiss();
-                init();
+                if (userDetails != null) {
+                    if (userDetails.getComplated().size() > 0) {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.GONE);
+                        List<Object> list = new ArrayList<>(userDetails.getComplated());
+                        recyclerView.setAdapter(new LiveClassAdapter(mActivity, list, LiveClassFragment.this));
+                    } else {
+                        recyclerView.setVisibility(View.GONE);
+                        rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                    }
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                    rootView.findViewById(R.id.tv_no_data).setVisibility(View.VISIBLE);
+                }
             });
 
             ImageView ivClose = dialogPopup.findViewById(R.id.iv_close);
