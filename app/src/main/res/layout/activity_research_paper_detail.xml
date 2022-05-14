@@ -41,7 +41,6 @@
                             android:layout_height="@dimen/m20"
                             android:layout_centerInParent="true"
                             android:background="@drawable/ic_arrow_back"
-                            android:backgroundTint="@color/primary_text_color"
                             android:contentDescription="@string/app_name" />
 
                     </RelativeLayout>

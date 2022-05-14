@@ -73,7 +73,7 @@
                         android:layout_marginStart="@dimen/m10"
                         android:background="@drawable/edit_text_bg"
                         android:layout_width="@dimen/m80"
-                        android:layout_height="@dimen/m40">
+                        android:layout_height="@dimen/m45">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -81,6 +81,7 @@
                             android:gravity="center_vertical">
 
                             <ImageView
+                                android:layout_marginStart="@dimen/m5"
                                 android:layout_width="@dimen/m30"
                                 android:layout_height="@dimen/m30"
                                 android:background="@drawable/ic_india_flag" />

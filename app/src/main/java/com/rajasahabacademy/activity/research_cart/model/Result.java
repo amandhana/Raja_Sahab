@@ -38,7 +38,7 @@ public class Result {
     private String isCart;
     @SerializedName("paid")
     @Expose
-    private Integer paid;
+    private String paid;
 
     public String getId() {
         return id;
@@ -132,11 +132,13 @@ public class Result {
         this.isCart = isCart;
     }
 
-    public Integer getPaid() {
+    public String getPaid() {
+        if (paid == null)
+            return "";
         return paid;
     }
 
-    public void setPaid(Integer paid) {
+    public void setPaid(String paid) {
         this.paid = paid;
     }
 

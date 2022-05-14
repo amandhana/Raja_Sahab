@@ -44,7 +44,8 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
         Utils.setImageUsingGlide(context,list.get(position).getThumbnail(),viewHolder.ivImage);
         viewHolder.tvTitle.setText(list.get(position).getTitle());
-        viewHolder.tvView.setOnClickListener(view -> {
+
+        viewHolder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(context, ResearchPaperDetailActivity.class);
             intent.putExtra(Constants.ResearchPaper.DESCRIPTION, list.get(position).getDescription());
             intent.putExtra(Constants.ResearchPaper.STATUS, list.get(position).getStatus());
@@ -53,6 +54,7 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
             intent.putExtra(Constants.ResearchPaper.THUMBNAIL, list.get(position).getThumbnail());
             intent.putExtra(Constants.ResearchPaper.IS_CART, list.get(position).getIsCart());
             intent.putExtra(Constants.ResearchPaper.RESEARCH_ID, list.get(position).getId());
+            intent.putExtra(Constants.ResearchPaper.GET_PAID, list.get(position).getPaid());
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation(context, viewHolder.ivImage, context.getResources().getString(R.string.course_image_transition));
             context.startActivity(intent, options.toBundle());
@@ -69,13 +71,13 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImage;
         TextView tvTitle;
-        TextView tvView;
+        final ImageView ivView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivImage = itemView.findViewById(R.id.iv_research_paper_thumbnail);
             tvTitle = itemView.findViewById(R.id.tv_research_paper_title);
-            tvView = itemView.findViewById(R.id.tv_view);
+            ivView = itemView.findViewById(R.id.iv_view);
         }
     }
 }

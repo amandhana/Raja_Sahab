@@ -1,75 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/m10"
+    android:layout_marginEnd="@dimen/m10"
+    android:layout_marginStart="@dimen/m10"
+    android:layout_marginBottom="@dimen/m10"
+    android:background="@drawable/border_bg_10">
+
+    <ImageView
+        android:id="@+id/iv_research_paper_thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m200"
+        android:layout_marginStart="@dimen/m5"
+        android:layout_marginTop="@dimen/m5"
+        android:layout_marginEnd="@dimen/m5"
+        android:layout_marginBottom="@dimen/m5"
+        android:contentDescription="@string/app_name" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_lay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/m45"
+        android:layout_below="@+id/iv_research_paper_thumbnail"
+        android:layout_marginStart="1.5dp"
+        android:layout_marginEnd="1.5dp"
+        android:layout_marginBottom="@dimen/m5"
+        android:background="@color/white">
+
+
+        <com.rajasahabacademy.views.BoldTextView
+            android:id="@+id/tv_research_paper_title"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_toStartOf="@id/vertical_view"
+            android:ellipsize="end"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_8" />
+
+        <View
+            android:id="@+id/vertical_view"
+            android:layout_width="0.5dp"
+            android:layout_height="@dimen/m30"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/m5"
+            android:layout_marginEnd="@dimen/m10"
+            android:layout_toStartOf="@+id/view_add_cart_lay"
+            android:background="@color/secondary_text_color" />
+
+        <RelativeLayout
+            android:id="@+id/view_add_cart_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <ImageView
+                android:id="@+id/iv_view"
+                android:layout_width="@dimen/m20"
+                android:layout_height="@dimen/m20"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/m10"
+                android:background="@drawable/iv_view_pdf" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/m80"
-        android:layout_margin="@dimen/m15"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/m10"
         android:elevation="@dimen/m10"
+        android:visibility="gone"
         app:cardCornerRadius="@dimen/m10">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_research_paper_image"
-                android:layout_width="@dimen/m110"
-                android:layout_height="match_parent"
-                android:elevation="@dimen/m10"
-                app:cardCornerRadius="@dimen/m10">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/iv_research_paper_thumbnail"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:contentDescription="@string/app_name" />
-
-                </RelativeLayout>
+            android:layout_height="match_parent"
+            android:padding="@dimen/m10">
 
 
-            </androidx.cardview.widget.CardView>
-
-            <com.rajasahabacademy.views.RegularTextView
-                android:id="@+id/tv_research_paper_title"
+            <RelativeLayout
+                android:id="@+id/end_lay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/m20"
-                android:layout_marginTop="@dimen/m10"
-                android:layout_toEndOf="@+id/cv_research_paper_image"
-                android:maxLines="1"
-                android:text=""
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_14" />
+                android:layout_alignParentEnd="true">
 
-            <com.rajasahabacademy.views.BoldTextView
-                android:id="@+id/tv_view"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/m30"
-                android:layout_below="@+id/tv_research_paper_title"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/m5"
-                android:layout_marginTop="@dimen/m5"
-                android:layout_marginEnd="@dimen/m10"
-                android:layout_toStartOf="@+id/tv_research_paper_title"
-                android:background="@drawable/bg_button_5"
-                android:gravity="center"
-                android:paddingStart="@dimen/m20"
-                android:paddingEnd="@dimen/m20"
-                android:text="@string/view"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text_12" />
+
+                <com.rajasahabacademy.views.RegularTextView
+                    android:id="@+id/tv_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/m30"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/m5"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/m20"
+                    android:paddingEnd="@dimen/m20"
+                    android:text="@string/view"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_13"
+                    android:visibility="gone" />
+
+
+
+
+            </RelativeLayout>
 
         </RelativeLayout>
-
 
     </androidx.cardview.widget.CardView>
 

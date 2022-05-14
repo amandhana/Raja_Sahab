@@ -2,6 +2,7 @@ package com.rajasahabacademy.activity.research_cart.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,7 +53,7 @@ public class ResearchPaperActivity extends AppCompatActivity implements View.OnC
 
     private void setResearchPaperView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_research_paper);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(mActivity,2, LinearLayoutManager.VERTICAL, false));
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
