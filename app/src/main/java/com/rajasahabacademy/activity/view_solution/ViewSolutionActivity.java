@@ -8,12 +8,19 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
+import com.rajasahabacademy.api.Communicator;
 import com.rajasahabacademy.api.Constants;
 import com.rajasahabacademy.activity.quiz.model.attempt_quiz.Question;
+import com.rajasahabacademy.api.CustomResponseListener;
+import com.rajasahabacademy.support.Utils;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -36,6 +43,8 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
 
     TextView tvCurrentQuestion;
     TextView tvTotalQuestion;
+
+    ImageView ivBookmark;
 
     List<Question> list;
     int questionNoIndex = 0;
@@ -86,6 +95,9 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
 
         tvTotalQuestion.setText(String.valueOf(list.size()));
         loadQuestion();
+
+        ivBookmark = findViewById(R.id.iv_bookmark);
+        ivBookmark.setOnClickListener(this);
     }
 
     private void loadQuestion() {
@@ -96,6 +108,10 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
             tvOption2.setBackgroundColor(Color.TRANSPARENT);
             tvOption3.setBackgroundColor(Color.TRANSPARENT);
             tvOption4.setBackgroundColor(Color.TRANSPARENT);
+           if (list.get(questionNoIndex).getBookmark().equals("1"))
+                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+            else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+
             String message = "<font color='black'>" + "<b>" + list.get(questionNoIndex).getQuestion() + "</b>" + "<font color='cyan'>" + "<font size='22'></font>";
             webView.loadData(message, "text/html", "utf8");
 
@@ -172,6 +188,84 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
             questionNoIndex = 0;
     }
 
+    private void addBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getId());
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.ADD_BOOKMARK_QUESTION, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
+                                list.get(questionNoIndex).setBookmark("1");
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
+    private void removeBookmark() {
+        if (Utils.isNetworkAvailable(mActivity)) {
+            Utils.showProgressBar(mActivity);
+            Utils.hideKeyboard(mActivity);
+            RequestParams params = new RequestParams();
+            try {
+                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getId());
+                params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
+                Utils.printLog("ProfileDetailParams", params.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Communicator communicator = new Communicator();
+            communicator.post(101, mActivity, Constants.Apis.REMOVE_BOOKMARK_QUESTION, params, new CustomResponseListener() {
+                @Override
+                public void onResponse(int requestCode, String response) {
+                    Utils.hideProgressBar();
+                    try {
+                        if (response != null && !response.equals("")) {
+                            JSONObject jsonObject = new JSONObject(response);
+                            if (jsonObject.optBoolean("success")) {
+                                ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+                                list.get(questionNoIndex).setBookmark("0");
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Throwable error) {
+                    Utils.hideProgressBar();
+                    Utils.showToastPopup(mActivity, getString(R.string.quiz_list_failure));
+                }
+            });
+        } else Utils.showToastPopup(mActivity, getString(R.string.internet_error));
+    }
+
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.cv_back) {
@@ -180,5 +274,10 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
             loadPreviousQuestion();
         else if (view.getId() == R.id.next_lay)
             loadNextQuestion();
+        else if (view.getId() == R.id.iv_bookmark) {
+            if (!list.get(questionNoIndex).getBookmark().equals("1"))
+                addBookmark();
+            else removeBookmark();
+        }
     }
 }

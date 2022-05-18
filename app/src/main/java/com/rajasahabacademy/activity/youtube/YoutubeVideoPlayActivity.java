@@ -115,6 +115,8 @@ public class YoutubeVideoPlayActivity extends YouTubeBaseActivity implements Vie
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_youtube_video_play);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

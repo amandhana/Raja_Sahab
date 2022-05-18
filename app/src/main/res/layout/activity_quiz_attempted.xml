@@ -45,6 +45,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/text_18" />
 
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_cart"
             android:layout_width="@dimen/m30"

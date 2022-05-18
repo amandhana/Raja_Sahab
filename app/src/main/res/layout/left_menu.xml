@@ -576,7 +576,7 @@
             android:background="#D7D7D7" />
 
         <LinearLayout
-            android:id="@+id/left_menu_live_classes_lay"
+            android:id="@+id/left_menu_quiz_lay"
             android:layout_width="match_parent"
             android:layout_height="@dimen/m45">
 
@@ -585,7 +585,7 @@
                 android:layout_height="@dimen/m18"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:background="@drawable/ic_live_new"
+                android:background="@drawable/ic_quiz_new"
                 android:contentDescription="@string/app_name" />
 
             <com.rajasahabacademy.views.RegularTextView
@@ -593,7 +593,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/m15"
-                android:text="@string/live_classes"
+                android:text="@string/quiz"
                 android:textColor="@color/primary_text_color"
                 android:textSize="@dimen/text_15" />
 

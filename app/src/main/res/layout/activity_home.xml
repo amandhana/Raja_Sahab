@@ -303,7 +303,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/quiz_unselct_lay"
+                    android:id="@+id/live_class_unselct_lay"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/m1"
@@ -313,19 +313,19 @@
                     android:visibility="visible">
 
                     <ImageView
-                        android:id="@+id/iv_live_quiz"
-                        android:layout_width="@dimen/m35"
+                        android:id="@+id/iv_live_class"
+                        android:layout_width="@dimen/m25"
                         android:layout_height="@dimen/m25"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_quiz_new"
+                        android:background="@drawable/ic_live_new"
                         android:contentDescription="@string/app_name" />
 
                     <com.rajasahabacademy.views.BoldTextView
-                        android:id="@+id/tv_live_quiz"
+                        android:id="@+id/tv_live_class"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="@string/quiz"
+                        android:text="@string/live_classes"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/text_11" />
 
@@ -449,7 +449,7 @@
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:id="@+id/quiz_circle_select_lay"
+                        android:id="@+id/live_class_circle_select_lay"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/m40"
                         android:layout_weight="1"
@@ -582,7 +582,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/quiz_select_lay"
+                android:id="@+id/live_class_select_lay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -596,12 +596,12 @@
                     android:background="@drawable/circle_white">
 
                     <ImageView
-                        android:layout_width="@dimen/m35"
+                        android:layout_width="@dimen/m25"
                         android:layout_height="@dimen/m25"
                         android:layout_centerInParent="true"
                         android:backgroundTint="@color/white"
                         android:layout_gravity="center_horizontal"
-                        android:background="@drawable/ic_quiz_new"
+                        android:background="@drawable/ic_live_new"
                         android:contentDescription="@string/app_name" />
 
 

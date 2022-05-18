@@ -27,6 +27,12 @@ public class Question {
     @SerializedName("corrent_answer")
     @Expose
     private String correntAnswer;
+    @SerializedName("bookmark")
+    @Expose
+    private String bookmark;
+    @SerializedName("id")
+    @Expose
+    private String id;
 
     public String getQuestion() {
         if (question == null)
@@ -96,6 +102,24 @@ public class Question {
 
     public void setCorrentAnswer(String correntAnswer) {
         this.correntAnswer = correntAnswer;
+    }
+
+    public String getBookmark() {
+        if (bookmark == null)
+            return "";
+        return bookmark;
+    }
+
+    public void setBookmark(String bookmark) {
+        this.bookmark = bookmark;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }

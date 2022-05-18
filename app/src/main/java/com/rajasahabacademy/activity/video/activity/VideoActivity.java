@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -107,6 +108,8 @@ public class VideoActivity extends AppCompatActivity implements View.OnClickList
         Utils.hideNavigationButton(this);
         setContentView(R.layout.activity_video);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 public class ResearchPaperDetailActivity extends AppCompatActivity implements View.OnClickListener {
     Activity mActivity;
-    TextView tvBuyNow;
+    TextView tvView;
     TextView tvAddCart;
     String researchId = "";
 
@@ -44,22 +44,23 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
         mActivity = this;
         setClickListener();
         ImageView ivImage = findViewById(R.id.iv_image);
-        tvBuyNow = findViewById(R.id.tv_buy_now);
+        tvView = findViewById(R.id.tv_view);
         tvAddCart = findViewById(R.id.tv_add_cart);
-        researchId = getIntent().getStringExtra(Constants.ResearchPaper.RESEARCH_ID);
+        researchId = Constants.ResearchPaper.RESEARCH_ID;
         Utils.setImageUsingGlide(mActivity, getIntent().getStringExtra(Constants.ResearchPaper.THUMBNAIL), ivImage);
         TextView tvDescription = findViewById(R.id.tv_research_paper_description);
         Utils.setHtmlText(getIntent().getStringExtra(Constants.ResearchPaper.DESCRIPTION), tvDescription);
 
-        if (getIntent().getStringExtra(Constants.ResearchPaper.STATUS).equals("0")) {
-            tvBuyNow.setText("Buy Now");
+        if (getIntent().getStringExtra(Constants.ResearchPaper.GET_PAID).equals("0")) {
+            tvView.setVisibility(View.GONE);
         } else {
-            tvBuyNow.setText("View");
+            tvView.setVisibility(View.VISIBLE);
+            tvAddCart.setVisibility(View.GONE);
         }
         if (getIntent().getStringExtra(Constants.ResearchPaper.IS_CART).equals("1"))
             tvAddCart.setText("Remove Cart");
         else tvAddCart.setText("Add Cart");
-        tvBuyNow.setOnClickListener(this);
+        tvView.setOnClickListener(this);
         tvAddCart.setOnClickListener(this);
     }
 
@@ -68,8 +69,7 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
         cvBack.setOnClickListener(this);
     }
 
-    private void buyNow() {
-        if (tvBuyNow.getText().toString().equals("View")) {
+    private void view() {
             if (!getIntent().getStringExtra(Constants.ResearchPaper.PATH).equals("")) {
                 Bundle bundle = new Bundle();
                 bundle.putString(Constants.Course.EBOOK_PATH, getIntent().getStringExtra(Constants.ResearchPaper.PATH));
@@ -78,7 +78,6 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
                 Utils.startActivityBundle(mActivity, PdfViewActivity.class, bundle);
             } else
                 Utils.showToastPopup(mActivity, mActivity.getResources().getString(R.string.ebook_path_valid));
-        }
     }
 
     public void addToCart() {
@@ -164,8 +163,8 @@ public class ResearchPaperDetailActivity extends AppCompatActivity implements Vi
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if (id == R.id.tv_buy_now)
-            buyNow();
+        if (id == R.id.tv_view)
+            view();
         else if (id == R.id.cv_back)
             onBackPressed();
         else if (id == R.id.tv_add_cart){

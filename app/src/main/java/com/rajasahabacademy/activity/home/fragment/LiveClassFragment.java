@@ -76,9 +76,9 @@ public class LiveClassFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onResume() {
         super.onResume();
-        ((HomeActivity) mActivity).showHideBottomNavigation(false);
+        ((HomeActivity) mActivity).showHideBottomNavigation(true);
         ((HomeActivity) mActivity).showHideCart(false);
-        ((HomeActivity) mActivity).resetAllBottom("Live Classes");
+        ((HomeActivity) mActivity).resetAllBottom("Live Class");
     }
 
     private void init() {

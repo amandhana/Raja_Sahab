@@ -50,7 +50,7 @@ public class Constants {
         public static final String THUMBNAIL = "thumbnail";
         public static final String TITLE = "title";
         public static final String IS_CART = "is_cart";
-        public static final String RESEARCH_ID = "research_id";
+        public static String RESEARCH_ID = "";
         public static final String GET_PAID = "research_id";
     }
     public static class JobAlert {

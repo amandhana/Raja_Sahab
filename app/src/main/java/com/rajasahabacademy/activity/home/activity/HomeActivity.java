@@ -14,6 +14,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -106,6 +107,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override
@@ -184,7 +187,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         binding.homeUnselctLay.setOnClickListener(this);
         binding.myCourseUnselctLay.setOnClickListener(this);
-        binding.quizUnselctLay.setOnClickListener(this);
+        binding.liveClassUnselctLay.setOnClickListener(this);
         binding.liveChatUnselctLay.setOnClickListener(this);
         binding.shortVideoUnselctLay.setOnClickListener(this);
 
@@ -204,8 +207,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         leftmenuResearchPaperlay.setOnClickListener(this);
         RelativeLayout leftmenubacklay = findViewById(R.id.back_lay_left_menu);
         leftmenubacklay.setOnClickListener(this);
-        LinearLayout leftliveclasslay = findViewById(R.id.left_menu_live_classes_lay);
-        leftliveclasslay.setOnClickListener(this);
+        LinearLayout leftQuizlay = findViewById(R.id.left_menu_quiz_lay);
+        leftQuizlay.setOnClickListener(this);
         LinearLayout leftCurrentAffairlay = findViewById(R.id.left_menu_current_affair_lay);
         leftCurrentAffairlay.setOnClickListener(this);
         LinearLayout leftMenuCourseLay = findViewById(R.id.left_menu_my_courses_lay);
@@ -654,20 +657,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void resetAllBottom(String type) {
         binding.homeCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.myCourseCircleSelectLay.setVisibility(View.INVISIBLE);
-        binding.quizCircleSelectLay.setVisibility(View.INVISIBLE);
+        binding.liveClassCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.shortVideoCircleSelectLay.setVisibility(View.INVISIBLE);
         binding.liveChatCircleSelectLay.setVisibility(View.INVISIBLE);
 
         binding.homeSelectLay.setVisibility(View.INVISIBLE);
         binding.myCourseSelectLay.setVisibility(View.INVISIBLE);
-        binding.quizSelectLay.setVisibility(View.INVISIBLE);
+        binding.liveClassSelectLay.setVisibility(View.INVISIBLE);
         binding.shortVideoSelectLay.setVisibility(View.INVISIBLE);
         binding.liveChatSelectLay.setVisibility(View.INVISIBLE);
 
         binding.homeUnselctLay.setVisibility(View.VISIBLE);
         binding.myCourseUnselctLay.setVisibility(View.VISIBLE);
         binding.shortVideoUnselctLay.setVisibility(View.VISIBLE);
-        binding.quizUnselctLay.setVisibility(View.VISIBLE);
+        binding.liveClassUnselctLay.setVisibility(View.VISIBLE);
         binding.liveChatUnselctLay.setVisibility(View.VISIBLE);
         /*ImageView ivMyOrders = findViewById(R.id.iv_my_orders);
         ImageView ivHome = findViewById(R.id.iv_home);
@@ -707,10 +710,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 /*ivMyOrders.setBackgroundTintList(getResources().getColorStateList(R.color.white));
                 tvMyOrders.setTextColor(getResources().getColor(R.color.white));*/
                 break;
-            case "Live Quiz":
-                binding.quizCircleSelectLay.setVisibility(View.VISIBLE);
-                binding.quizSelectLay.setVisibility(View.VISIBLE);
-                binding.quizUnselctLay.setVisibility(View.INVISIBLE);
+            case "Live Class":
+                binding.liveClassCircleSelectLay.setVisibility(View.VISIBLE);
+                binding.liveClassSelectLay.setVisibility(View.VISIBLE);
+                binding.liveClassUnselctLay.setVisibility(View.INVISIBLE);
                 /*ivLiveQuiz.setBackgroundResource(R.drawable.ic_home_live_quiz_active);
                 tvLiveQuiz.setTextColor(getResources().getColor(R.color.white));*/
                 break;
@@ -778,10 +781,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             setBlankSearch();
             resetAllBottom("My Order");
             Utils.startActivity(mActivity, MyOrdersActivity.class);
-        } else if (id == R.id.quiz_unselct_lay) {
+        } else if (id == R.id.live_class_unselct_lay) {
             setBlankSearch();
-            resetAllBottom("Live Quiz");
-            loadFragment(LiveQuizFragment.class.getName(), LiveQuizFragment.newInstance(), getHomeBundleData());
+            resetAllBottom("Live Class");
+            loadFragment(LiveClassFragment.class.getName(), LiveClassFragment.newInstance(), null);
         } else if (id == R.id.live_chat_unselct_lay) {
             setBlankSearch();
             resetAllBottom("Live Chat");
@@ -799,10 +802,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             performNavMenuAction();
             setHomeCourseAdapter();
             loadFragment(NotesFragment.class.getName(), NotesFragment.newInstance(), null);
-        } else if (id == R.id.left_menu_live_classes_lay) {
+        } else if (id == R.id.left_menu_quiz_lay) {
             setBlankSearch();
             performNavMenuAction();
-            loadFragment(LiveClassFragment.class.getName(), LiveClassFragment.newInstance(), null);
+            loadFragment(LiveQuizFragment.class.getName(), LiveQuizFragment.newInstance(), getHomeBundleData());
         } else if (id == R.id.left_menu_my_courses_lay) {
             setBlankSearch();
             performNavMenuAction();

@@ -139,8 +139,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             cvBack.setVisibility(View.VISIBLE);
             tvSkip.setVisibility(View.GONE);
-           /* RelativeLayout refByLay = findViewById(R.id.ref_by_lay);
-            refByLay.setVisibility(View.GONE);*/
+            RelativeLayout refByLay = findViewById(R.id.ref_by_lay);
+            refByLay.setVisibility(View.GONE);
             fromWhere = "user";
         }
         ivImage = findViewById(R.id.iv_profile_image);

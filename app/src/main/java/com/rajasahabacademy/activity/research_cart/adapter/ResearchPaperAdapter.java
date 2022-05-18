@@ -46,6 +46,7 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
         viewHolder.tvTitle.setText(list.get(position).getTitle());
 
         viewHolder.itemView.setOnClickListener(view -> {
+            Constants.ResearchPaper.RESEARCH_ID = list.get(position).getId();
             Intent intent = new Intent(context, ResearchPaperDetailActivity.class);
             intent.putExtra(Constants.ResearchPaper.DESCRIPTION, list.get(position).getDescription());
             intent.putExtra(Constants.ResearchPaper.STATUS, list.get(position).getStatus());
@@ -53,7 +54,7 @@ public class ResearchPaperAdapter extends RecyclerView.Adapter<ResearchPaperAdap
             intent.putExtra(Constants.ResearchPaper.PATH, list.get(position).getPath());
             intent.putExtra(Constants.ResearchPaper.THUMBNAIL, list.get(position).getThumbnail());
             intent.putExtra(Constants.ResearchPaper.IS_CART, list.get(position).getIsCart());
-            intent.putExtra(Constants.ResearchPaper.RESEARCH_ID, list.get(position).getId());
+            intent.putExtra("research_id", list.get(position).getId());
             intent.putExtra(Constants.ResearchPaper.GET_PAID, list.get(position).getPaid());
             ActivityOptionsCompat options = ActivityOptionsCompat.
                     makeSceneTransitionAnimation(context, viewHolder.ivImage, context.getResources().getString(R.string.course_image_transition));
