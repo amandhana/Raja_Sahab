@@ -33,7 +33,6 @@ public class Communicator {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }
 
             @Override
@@ -42,12 +41,13 @@ public class Communicator {
                 Utils.hideProgressBar();
                 responseListener.onFailure(reqCode, error);
             }
-
         });
 
         Utils.printLog("URL", url);
 
     }
+
+
 
     public void post(final int reqCode, final Activity context, String url, RequestParams params, final CustomResponseListener responseListener) {
         AsyncHttpClient client = new AsyncHttpClient();

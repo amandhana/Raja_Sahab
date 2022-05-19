@@ -94,10 +94,13 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
         nextLay.setOnClickListener(this);
 
         tvTotalQuestion.setText(String.valueOf(list.size()));
-        loadQuestion();
 
         ivBookmark = findViewById(R.id.iv_bookmark);
         ivBookmark.setOnClickListener(this);
+
+        loadQuestion();
+
+
     }
 
     private void loadQuestion() {
@@ -111,6 +114,7 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
            if (list.get(questionNoIndex).getBookmark().equals("1"))
                 ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_fill);
             else ivBookmark.setBackgroundResource(R.drawable.ic_bookmark_empty);
+
 
             String message = "<font color='black'>" + "<b>" + list.get(questionNoIndex).getQuestion() + "</b>" + "<font color='cyan'>" + "<font size='22'></font>";
             webView.loadData(message, "text/html", "utf8");
@@ -188,13 +192,15 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
             questionNoIndex = 0;
     }
 
+    //5000 ka project h ye issue solve krne h 50000 me prsn ni honunga me 5000
+
     private void addBookmark() {
         if (Utils.isNetworkAvailable(mActivity)) {
             Utils.showProgressBar(mActivity);
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
             try {
-                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getId());
+                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getQuestionId());
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 Utils.printLog("ProfileDetailParams", params.toString());
             } catch (Exception e) {
@@ -233,7 +239,7 @@ public class ViewSolutionActivity extends AppCompatActivity implements View.OnCl
             Utils.hideKeyboard(mActivity);
             RequestParams params = new RequestParams();
             try {
-                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getId());
+                params.put(Constants.Params.QUESTION_ID, list.get(questionNoIndex).getQuestionId());
                 params.put(Constants.Params.USER_ID, Utils.getUserId(mActivity));
                 Utils.printLog("ProfileDetailParams", params.toString());
             } catch (Exception e) {

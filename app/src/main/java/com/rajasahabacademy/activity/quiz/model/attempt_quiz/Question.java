@@ -33,6 +33,21 @@ public class Question {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("question_id")
+    @Expose
+    private String questionId;
+
+    public String getQuestionId() {
+        if (questionId == null)
+            return "";
+        return questionId;
+    }
+
+
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
 
     public String getQuestion() {
         if (question == null)
