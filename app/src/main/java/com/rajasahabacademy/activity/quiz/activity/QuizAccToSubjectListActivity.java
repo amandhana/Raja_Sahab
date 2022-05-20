@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.support.Utils;
@@ -20,6 +21,8 @@ public class QuizAccToSubjectListActivity extends AppCompatActivity implements V
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_live_quiz_acc_to_subject_list);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

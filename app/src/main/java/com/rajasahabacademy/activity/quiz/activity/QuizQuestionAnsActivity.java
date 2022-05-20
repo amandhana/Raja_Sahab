@@ -18,6 +18,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -87,6 +88,8 @@ public class QuizQuestionAnsActivity extends AppCompatActivity implements View.O
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_quiz_question_ans);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

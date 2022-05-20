@@ -88,6 +88,8 @@ public class PdfViewActivity extends AppCompatActivity implements View.OnClickLi
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_pdf_view);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

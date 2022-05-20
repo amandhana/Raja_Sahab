@@ -3,6 +3,7 @@ package com.rajasahabacademy.activity.refund_cancel;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -29,6 +30,8 @@ public class RefundCancellationActivity extends AppCompatActivity implements Vie
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_refund_cancellation);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

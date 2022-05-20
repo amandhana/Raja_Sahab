@@ -89,6 +89,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_profile);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

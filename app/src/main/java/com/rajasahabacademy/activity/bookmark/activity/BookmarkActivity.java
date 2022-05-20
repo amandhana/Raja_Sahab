@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 
@@ -47,6 +48,8 @@ public class BookmarkActivity extends AppCompatActivity implements View.OnClickL
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_bookmark);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

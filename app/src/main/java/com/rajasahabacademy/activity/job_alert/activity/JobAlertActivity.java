@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
+
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.job_alert.adapter.JobAlertAdapter;
@@ -24,6 +26,8 @@ public class JobAlertActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_alert);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

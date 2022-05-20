@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.my_save_ebook.adapter.EbookOfflineAdapter;
@@ -29,6 +30,8 @@ public class MySaveEbookActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_save_ebook);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
     @Override
     public void onBackPressed() {

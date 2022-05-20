@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -44,6 +45,8 @@ public class MyOrdersActivity extends AppCompatActivity implements View.OnClickL
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_my_orders);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.rajasahabacademy.R;
@@ -24,6 +25,8 @@ public class QuizReadyForTestActivity extends AppCompatActivity {
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_quiz_ready_for_test);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

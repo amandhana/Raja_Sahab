@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.WindowManager;
+
 import com.loopj.android.http.RequestParams;
 import com.rajasahabacademy.R;
 import com.rajasahabacademy.activity.short_video.adapter.ShortVideoViewPagerAdapter;
@@ -32,6 +34,8 @@ public class ShortVideoActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_short_video);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -35,6 +36,8 @@ public class CourseTopicPdfActivity extends AppCompatActivity implements View.On
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_course_topic_pdf);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

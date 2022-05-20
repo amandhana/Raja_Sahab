@@ -3,6 +3,7 @@ package com.rajasahabacademy.activity.terms_condition;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.widget.TextView;
 
@@ -29,6 +30,8 @@ public class TermsConditionActivity extends AppCompatActivity implements View.On
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_terms_condition);
         init();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override
