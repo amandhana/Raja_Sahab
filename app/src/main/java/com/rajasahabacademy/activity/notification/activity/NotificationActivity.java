@@ -31,8 +31,6 @@ public class NotificationActivity extends AppCompatActivity implements View.OnCl
         Utils.darkThemeForceStop();
         setContentView(R.layout.activity_notification);
         init();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

@@ -61,7 +61,7 @@ public class HomeLatestCourseAdapter extends RecyclerView.Adapter<HomeLatestCour
                 viewHolder.tvBuyNow.setText("Buy Now");
                 break;
             case "1":
-                viewHolder.tvBuyNow.setVisibility(View.INVISIBLE);
+                viewHolder.tvBuyNow.setVisibility(View.GONE);
                 break;
             default:
                 viewHolder.tvBuyNow.setVisibility(View.VISIBLE);
