@@ -102,7 +102,7 @@
                                 android:layout_centerVertical="true"
                                 android:text="Total Wallet Balance"
                                 android:textColor="@color/primary_text_color"
-                                android:textSize="@dimen/text_16" />
+                                android:textSize="@dimen/text_12" />
 
                             <com.rajasahabacademy.views.BoldTextView
                                 android:id="@+id/tv_wallet"
@@ -111,9 +111,9 @@
                                 android:layout_centerVertical="true"
                                 android:layout_marginStart="@dimen/m15"
                                 android:layout_toEndOf="@+id/tv_wallet_label"
-                                android:text="0"
+                                android:text=""
                                 android:textColor="@color/primary_text_color"
-                                android:textSize="@dimen/text_18" />
+                                android:textSize="@dimen/text_14" />
 
 
                         </RelativeLayout>

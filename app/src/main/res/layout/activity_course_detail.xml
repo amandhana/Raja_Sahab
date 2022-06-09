@@ -97,8 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/iv_course_detail"
-                android:orientation="vertical"
-                android:background="@drawable/bg_course_detail">
+                android:background="@drawable/bg_course_detail"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -134,9 +134,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_course_title"
+                        android:ellipsize="end"
                         android:padding="@dimen/m5"
                         android:text=""
-                        android:ellipsize="end"
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_14" />
 
@@ -145,9 +145,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tv_description"
-                        android:padding="@dimen/m10"
                         android:layout_marginBottom="@dimen/m10"
                         android:maxLines="2"
+                        android:padding="@dimen/m10"
                         android:text="Read More..."
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_16" />
@@ -156,13 +156,13 @@
                 </RelativeLayout>
 
                 <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="@dimen/m10"
-                    app:cardElevation="@dimen/m5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/m10"
                     android:layout_marginEnd="@dimen/m10"
                     android:layout_marginBottom="@dimen/m10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    app:cardCornerRadius="@dimen/m10"
+                    app:cardElevation="@dimen/m5">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -170,11 +170,11 @@
                         android:orientation="vertical">
 
                         <RelativeLayout
-                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/m150"
                             android:layout_marginStart="@dimen/m10"
                             android:layout_marginTop="@dimen/m10"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/m150">
+                            android:visibility="gone">
 
                             <ImageView
                                 android:id="@+id/iv_content_summary"
@@ -193,15 +193,15 @@
                                 android:textSize="@dimen/text_20" />
 
                             <RelativeLayout
-                                android:layout_centerVertical="true"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/m50">
+                                android:layout_height="@dimen/m50"
+                                android:layout_centerVertical="true">
 
                                 <LinearLayout
-                                    android:layout_marginTop="@dimen/m15"
-                                    android:gravity="center_vertical"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/m15"
+                                    android:gravity="center_vertical">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
                                         android:layout_width="@dimen/m30"
@@ -213,9 +213,9 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="@dimen/m10"
-                                        android:textSize="@dimen/text_14"
+                                        android:text="444 Videos"
                                         android:textColor="@color/primary_text_color"
-                                        android:text="444 Videos" />
+                                        android:textSize="@dimen/text_14" />
 
                                     <de.hdodenhof.circleimageview.CircleImageView
                                         android:layout_width="@dimen/m30"
@@ -227,9 +227,9 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="@dimen/m10"
-                                        android:textSize="@dimen/text_14"
+                                        android:text="444 Files"
                                         android:textColor="@color/primary_text_color"
-                                        android:text="444 Files" />
+                                        android:textSize="@dimen/text_14" />
 
                                     <de.hdodenhof.circleimageview.CircleImageView
                                         android:layout_width="@dimen/m30"
@@ -241,9 +241,9 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="@dimen/m10"
-                                        android:textSize="@dimen/text_14"
+                                        android:text="444 Quiz"
                                         android:textColor="@color/primary_text_color"
-                                        android:text="444 Quiz" />
+                                        android:textSize="@dimen/text_14" />
 
                                 </LinearLayout>
 
@@ -259,9 +259,9 @@
                             app:cardElevation="@dimen/m5">
 
                             <RelativeLayout
-                                android:background="@drawable/bg_my_orders_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_my_orders_item">
 
 
                                 <RelativeLayout
@@ -305,12 +305,12 @@
                                 </RelativeLayout>
 
                                 <RelativeLayout
-                                    android:layout_marginBottom="@dimen/m10"
                                     android:id="@+id/video_recycler_lay"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:visibility="gone"
-                                    android:layout_below="@+id/all_video_tops_lay">
+                                    android:layout_below="@+id/all_video_tops_lay"
+                                    android:layout_marginBottom="@dimen/m10"
+                                    android:visibility="gone">
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:id="@+id/recycler_view_video_tops"
@@ -354,8 +354,8 @@
                                         <View
                                             android:layout_width="match_parent"
                                             android:layout_height="@dimen/m50"
-                                            android:layout_marginEnd="@dimen/m5"
                                             android:layout_marginTop="@dimen/m15"
+                                            android:layout_marginEnd="@dimen/m5"
                                             android:background="@color/placeholder_bg" />
 
                                         <View
@@ -428,11 +428,11 @@
                                 </RelativeLayout>
 
                                 <RelativeLayout
-                                    android:layout_marginBottom="@dimen/m10"
                                     android:id="@+id/pdf_recycler_lay"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/pdf_lay">
+                                    android:layout_below="@+id/pdf_lay"
+                                    android:layout_marginBottom="@dimen/m10">
 
                                     <androidx.recyclerview.widget.RecyclerView
                                         android:id="@+id/recycler_view_pdf_notes"
@@ -626,19 +626,19 @@
 
                     <ImageView
                         android:layout_width="@dimen/m12"
-                        android:layout_marginTop="1dp"
                         android:layout_height="@dimen/m12"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginTop="1dp"
                         android:background="@drawable/ic_rupee"
                         android:backgroundTint="@color/white"
                         android:contentDescription="@string/app_name" />
 
                     <com.rajasahabacademy.views.BoldTextView
-                        android:layout_marginStart="1dp"
                         android:id="@+id/tv_course_detail_amount_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginStart="1dp"
                         android:text=""
                         android:textColor="@color/white"
                         android:textSize="@dimen/text_16" />

@@ -47,6 +47,7 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     RecyclerView recyclerViewPdf;
     TextView tvDescription;
     TextView tvAmount;
+    TextView tvTotalAmount;
     LinearLayout bottomAmountLay;
     String courseStatus = "free";
     CourseDetailVideoAdapter courseDetailVideoAdapter;
@@ -102,6 +103,8 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
 
     private void setClickListener() {
         bottomAmountLay = findViewById(R.id.bottom_amount_lay);
+        tvTotalAmount = findViewById(R.id.tv_course_detail_total_amount_1);
+        tvAmount = findViewById(R.id.tv_course_detail_amount_1);
         recyclerViewVideo = findViewById(R.id.recycler_view_video_tops);
         recyclerViewVideo.setLayoutManager(new LinearLayoutManager(mActivity, RecyclerView.VERTICAL, false));
 
@@ -178,6 +181,9 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
                                     recyclerViewPdf.setVisibility(View.GONE);
                                     findViewById(R.id.tv_no_subject_pdf).setVisibility(View.VISIBLE);
                                 }
+                                if (modelResponse.getCourse() != null){
+                                    tvAmount.setText(modelResponse.getCourse().getPrice());
+                                }
                                 /*if (fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE) ||
                                         fromWhereStr.equalsIgnoreCase(Constants.Course.FROM_WHERE_VALUE_SLIDER)) {
                                     if (modelResponse.getCourse() != null)
@@ -215,7 +221,6 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private void setUpDataFromNotification(Course model) {
         Utils.setImageUsingGlide(mActivity, model.getThumbnail(), ivImage);
         TextView tvCourseTitle = findViewById(R.id.tv_course_title);
-        tvAmount = findViewById(R.id.tv_course_detail_amount_1);
         tvCourseTitle.setText(model.getTitle());
         tvAmount.setText(model.getPrice());
         if (model.getCourseBuyStatus().equals("0") &&
@@ -261,8 +266,6 @@ public class CourseDetailActivity extends AppCompatActivity implements View.OnCl
     private void setUpPrice() {
         TextView tvCourseTitle = findViewById(R.id.tv_course_title);
         TextView tvDescription = findViewById(R.id.tv_description);
-        TextView tvTotalAmount = findViewById(R.id.tv_course_detail_total_amount_1);
-        tvAmount = findViewById(R.id.tv_course_detail_amount_1);
         tvCourseTitle.setText(getIntent().getStringExtra(Constants.Course.COURSE_TITLE));
         Utils.setHtmlText(getIntent().getStringExtra(Constants.Course.COURSE_DESCRIPTION), tvDescription);
         tvAmount.setText(getIntent().getStringExtra(Constants.Course.TOTAL_AMOUNT));
